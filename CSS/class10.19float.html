@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>页面布局</title>
+  <style>
+    /* 后代选择器 */
+    .box div {
+      width: 100px;
+      height: 100px;
+      /* display: inline; */
+      /*  将块元素转换成行元素 */
+      /* 行元素根据内容撑开宽高 */
+
+      /* display: inline-block; */
+      /* 有空隙是body中的回车符造成的 */
+      float: left;
+      /* float: right; */
+      /* 解决display inline-block中的空隙 */
+      /* 破坏原有的文档流（浮动的元素会脱离文档流） */
+    }
+
+    .div1 {
+      background-color: red;
+    }
+
+    .div2 {
+      background-color: blue;
+    }
+
+    .div3 {
+      background-color: green;
+    }
+
+    .box {
+      background-color: grey;
+    }
+
+    /* p {
+      clear: both;
+      /* 与float结合使用，清除float效果
+    } */
+
+    /* ::after 伪元素 */
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box clearfix">
+    <div class="div1">1</div>
+    <div class="div2">2</div>
+    <div class="div3">3</div>
+    <!-- <p>hello</p> -->
+  </div>
+  <!-- <div class="div1">1</div>
+  <div class="div2">2</div>
+  <div class="div3">3</div> -->
+</body>
+
+</html>
