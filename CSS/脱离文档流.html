@@ -2,14 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>脱离文档流</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>脱离文档流</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      background-color: red;
+      position: absolute;
+    }
+
+    .div1 {
+      z-index: 10;
+      /* 在使用position时会出现层级 */
+      /* 使用z-index可以设置层级高度 */
+    }
+
+    .div2 {
+      left: 50px;
+      top: 50px;
+      background-color: blue;
+    }
+  </style>
 </head>
 
 <body>
-
+  <div class="div1"></div>
+  <div class="div2"></div>
 </body>
 
 </html>
