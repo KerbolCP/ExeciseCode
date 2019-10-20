@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>小米账号-注册</title>
+  <link rel="icon" href="./Images/milogo.ico">
+  <title>小米账号 -注册</title>
   <style>
     /* CSSreset start*/
     body {
       margin: 0;
       background: #f9f9f9;
       color: #666;
+      font-size: 14px;
     }
 
     P {
@@ -22,14 +24,35 @@
       margin: 0;
     }
 
+    a {
+      text-decoration: none;
+      /* 去掉下划线 */
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      /* 去掉列表的小圆点 */
+    }
+
+    select {
+      border: 0;
+      -webkit-appearance: none;
+      /* 去掉下拉表的下三角 */
+    }
+
     /* CSSreset end*/
 
     .container {
-      width: 854px;
-      height: 550px;
+      width: 786px;
+      height: 518px;
       margin: 0 auto;
-      margin-top: 100px;
-      padding: 0 34px 30px;
+      margin-top: 20px;
+      padding: 0 34px 10px;
       background: #ffffff;
     }
 
@@ -74,6 +97,7 @@
       padding-left: 14px;
       color: #555;
       line-height: 40px;
+      cursor: pointer;
     }
 
     .register-form h4 {
@@ -83,8 +107,14 @@
       font-size: 14px;
     }
 
-    .select-regions .sr-box p {
+    /* .select-regions .sr-box p {
       width: 275px;
+      border-right: 1px solid #e8e8ee;
+      float: left;
+    } */
+    .select-regions .sr-box select {
+      width: 276px;
+      height: 40px;
       border-right: 1px solid #e8e8ee;
       float: left;
     }
@@ -95,7 +125,6 @@
       height: 16px;
       margin: 11px 12px 0 12px;
       background-image: url("./Images/icon_user.png");
-      cursor: auto;
       float: left;
     }
 
@@ -105,11 +134,112 @@
     }
 
     .register-form .region_tip_text {
+      margin-top: 5px;
       margin-bottom: 15px;
       color: #666;
     }
 
+    .select-cycode .sc-box {
+      height: 40px;
+      margin-bottom: 15px;
+      border: 1px solid #e8e8e8;
+    }
+
+    .select-cycode .sc-box .scb-left {
+      cursor: pointer;
+      padding: 0 9px;
+      width: 54px;
+      height: 40px;
+      border-right: 1px solid #e8e8e8;
+      line-height: 40px;
+      float: left;
+    }
+
+    .sc-box .scb-left p {
+      display: inline-block;
+    }
+
+    .select-cycode .scb-left .cion-arrow {
+      margin-top: 10px;
+      margin-left: 5px;
+      display: inline-block;
+      border-width: 6px;
+      border-style: solid;
+      border-color: #9d9d9d transparent transparent transparent;
+    }
+
+    .sc-box .scb-right input {
+      width: 235px;
+      height: 20px;
+      padding: 10px;
+      line-height: 20px;
+      border: 0;
+      outline: none;
+    }
+
+    .register-form .submit-btn input {
+      width: 330px;
+      height: 40px;
+      /* margin-top: 30px; */
+      background-color: #ff6700;
+      margin-top: 15px;
+      border: 1px solid rgba(186, 186, 186, 0.3);
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .register-form .submit-btn input:hover {
+      background-color: rgb(255, 147, 106);
+    }
+
     /* register-form end */
+
+    /* register-msg start */
+    .container .register-msg {
+      padding-top: 40px;
+      text-align: center;
+    }
+
+    .container .register-msg a {
+      color: #333;
+      font-weight: bold;
+    }
+
+    /* register-msg start */
+    .footer {
+      margin-top: 70px;
+    }
+
+    .footer .link-area ul {
+      text-align: center;
+    }
+
+    .footer .link-area li {
+      display: inline-block;
+    }
+
+    .footer .link-area li:nth-child(1) {
+      color: #333;
+    }
+
+    .link-area li span {
+      padding: 0 10px;
+    }
+
+    .link-area li span:hover {
+      color: #333;
+      cursor: pointer;
+    }
+
+    .footer .intro {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .footer .intro a {
+      color: #333;
+    }
 
     /* CSS排查错误 */
     /* 1.打开浏览器检查效果 */
@@ -134,16 +264,56 @@
       <h4>国家/地区</h4>
       <div class="select-regions">
         <div class="sr-box">
-          <p>中国</p>
+          <!-- <p>中国</p> -->
+          <select name="contiy" id="">
+            <option value="China">中国</option>
+            <option value="">哥伦比亚</option>
+            <option value="">卡西米尔</option>
+          </select>
           <i></i>
         </div>
       </div>
       <div class="region_tip_text">成功注册帐号后，国家/地区将不能被修改</div>
       <h4>手机号码</h4>
-      <div class="select-cycode"></div>
-      <div class="submit-btn"></div>
+      <div class="select-cycode">
+        <div class="sc-box">
+          <div class="scb-left">
+            <p>+86</p>
+            <div class="cion-arrow"></div>
+          </div>
+          <div class="scb-right">
+            <input type="text" placeholder="请输入手机号码">
+          </div>
+        </div>
+      </div>
+      <div class="submit-btn">
+        <!-- <input type="submit" value="按钮"> -->
+        <input type="button" value="立即注册">
+      </div>
     </div>
-    <div class="register-msg"></div>
+    <div class="register-msg">
+      已阅读并同意：小米
+      <a href="javascript:void(0)" title="用户协议">用户协议</a>
+      和
+      <a href="javascript:void(0)" title="隐私政策">隐私政策</a>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="link-area">
+      <ul>
+        <li> <span>简体</span> |</li>
+        <li><span>繁体</span> |</li>
+        <li><span>English</span> |</li>
+        <li><span>常见问题</span></li>
+      </ul>
+    </div>
+    <div class="intro">
+      小米公司版权所有-京ICP备10046444-
+      <a href="javascript:void(0)">
+        <img src="./Images/ghs.png">
+        京公网安备11010802020134号</a>
+      -京ICP证110507号
+    </div>
   </div>
 </body>
 
