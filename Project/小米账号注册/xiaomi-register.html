@@ -95,10 +95,29 @@
       height: 16px;
       margin: 11px 12px 0 12px;
       background-image: url("./Images/icon_user.png");
+      cursor: auto;
       float: left;
     }
 
+    .register-form .select-regions,
+    .register-form .register-cycode {
+      margin: 0;
+    }
+
+    .register-form .region_tip_text {
+      margin-bottom: 15px;
+      color: #666;
+    }
+
     /* register-form end */
+
+    /* CSS排查错误 */
+    /* 1.打开浏览器检查效果 */
+    /* 2.在审查中选中元素 */
+    /* 3.如果Style中没有显示效果 */
+    /* 4.回到代码，查看CSS选择器是否选中了类 */
+    /* 5.再检查类名是否拼写错误 */
+    /* 6.之后检查该类的父级是否拼写错误 */
   </style>
 </head>
 
@@ -120,8 +139,8 @@
         </div>
       </div>
       <div class="region_tip_text">成功注册帐号后，国家/地区将不能被修改</div>
-      <h4></h4>
-      <div></div>
+      <h4>手机号码</h4>
+      <div class="select-cycode"></div>
       <div class="submit-btn"></div>
     </div>
     <div class="register-msg"></div>
