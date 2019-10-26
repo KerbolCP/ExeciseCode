@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小米账号 - 登录</title>
+  <style>
+    /* cssReset start */
+    body {
+      margin: 0%;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    input {
+      border: 0;
+    }
+
+    /* CSSReset end */
+
+    /* header start */
+    .header {
+      width: 1130px;
+      margin: 0 auto;
+    }
+
+    .header .h-logo {
+      width: 200px;
+      height: 98px;
+    }
+
+    .header .h-logo a {
+      width: 200px;
+      height: 98px;
+      display: block;
+      background-image: url("./Images/mistore_logo.png");
+      /* 未设置宽度下使用: background-repeat: no-repeat; */
+    }
+
+    /* header end */
+
+    /* content start */
+    .content .bg {
+      height: 588px;
+      background-image: url("./Images/xiaomi9Pro.jpg");
+      /* position: relative; */
+      background-position: center;
+    }
+
+    .content .panel {
+      width: 1130px;
+      height: 558px;
+      margin: 0 auto;
+      padding-top: 30px;
+      /* position: absolute; */
+      /* left: 50%; */
+      /* margin-left: -565px; */
+      /* z-index: 5; */
+    }
+
+    .content .panel .login-form {
+      width: 410px;
+      height: 556px;
+      margin-left: auto;
+      /* 将margin剩余的区域全部分配给left */
+      background-color: #fff;
+    }
+
+    .content .login-form .info-panel {
+      width: 410px;
+      height: 83px;
+    }
+
+    .content .login-form .login-info {
+      padding: 27px 0 24px;
+      text-align: center;
+      font-size: 24px;
+      color: #666;
+    }
+
+    .login-form .login-info .link-now {
+      color: #f56600;
+    }
+
+    .login-form .login-info .link {
+      color: #666;
+    }
+
+    .login-form .login-info span {
+      width: 1px;
+      height: 24px;
+      margin: 0 35px 0 28px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .content .login-form .input-panel {
+      width: 348px;
+      margin: 0 auto;
+    }
+
+    .login-form .input-panel label {
+      width: 346px;
+      height: 48px;
+      margin: 10px 0 14px;
+      border: 1px solid #e0e0e0;
+      display: block;
+    }
+
+    .login-form .input-panel input {
+      width: 316px;
+      height: 22px;
+      margin-bottom: 14px;
+      padding: 13px 16px 13px 14px;
+      line-height: 22px;
+      outline: none;
+    }
+
+    .login-form .input-panel .btn {
+      width: 346px;
+      height: 48px;
+      margin: 10px 0 14px;
+      padding-top: 10px;
+      border: 1px solid #e0e0e0;
+      background-color: #f56600;
+      color: white;
+    }
+
+    .login-form .register-info {
+      text-align: center;
+    }
+
+    /* content end */
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="h-logo">
+      <a href="javascript:void(0)"></a>
+    </div>
+  </div>
+  <div class="content">
+    <div class="bg">
+      <div class="panel">
+        <div class="login-form">
+          <div class="info-panel">
+            <div class="login-info">
+              <a href="javascript:void(0)" class="link-now">账号登录</a>
+              <span></span>
+              <a href="javascript:void(0)" class="link">扫码登录</a>
+            </div>
+
+          </div>
+          <div class="input-panel">
+            <label class="login-user">
+              <input type="text" placeholder="邮箱/手机号码/小米ID">
+            </label>
+            <label class="login-pwd">
+              <input type="password" placeholder="密码">
+            </label>
+            <input type="button" class="btn" value="登录">
+          </div>
+          <div class="register-info">
+            <a href="javascript:void(0)">手机短信登录/注册</a>
+            <a href="javascript:void(0)">立即注册</a>
+            <span>|</span>
+            <a href="javascript:void(0)">忘记密码？</a>
+          </div>
+          <div class="login-icon"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer"></div>
+</body>
+
+</html>
