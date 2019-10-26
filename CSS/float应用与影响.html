@@ -20,7 +20,8 @@
       float: left;
       /* float: right; */
       /* 解决display inline-block中的空隙 */
-      /* 破坏原有的文档流（浮动的元素会脱离文档流） */
+      /* float很难实现水平居中 */
+      /* 破坏原有的文档流 高度会塌陷（浮动的元素会脱离文档流） */
     }
 
     .div1 {
@@ -50,6 +51,18 @@
       display: block;
       clear: both;
     }
+
+    body,
+    ul {
+      margin: 0;
+      padding-left: 0;
+      /* background: red; */
+    }
+
+    li {
+      list-style: none;
+      float: left;
+    }
   </style>
 </head>
 
@@ -59,6 +72,15 @@
     <div class="div2">2</div>
     <div class="div3">3</div>
     <!-- <p>hello</p> -->
+  </div>
+  <div class="test">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
   </div>
   <!-- <div class="div1">1</div>
   <div class="div2">2</div>
