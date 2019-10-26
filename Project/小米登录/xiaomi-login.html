@@ -9,7 +9,8 @@
   <style>
     /* cssReset start */
     body {
-      margin: 0%;
+      margin: 0;
+      color: #666;
     }
 
     a {
@@ -18,6 +19,12 @@
 
     input {
       border: 0;
+    }
+
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
     }
 
     /* CSSReset end */
@@ -115,25 +122,41 @@
       height: 22px;
       margin-bottom: 14px;
       padding: 13px 16px 13px 14px;
+      font-size: 14px;
       line-height: 22px;
       outline: none;
     }
 
-    .login-form .input-panel .btn {
+    .login-form .input-panel input[type="button"] {
       width: 346px;
-      height: 48px;
+      height: 50px;
       margin: 10px 0 14px;
       padding-top: 10px;
-      border: 1px solid #e0e0e0;
+      border: none;
       background-color: #f56600;
-      color: white;
+      line-height: 24px;
+      font-size: 14px;
+      color: #ffffff;
     }
 
     .login-form .register-info {
-      text-align: center;
+      font-size: 14px;
+    }
+
+    .login-form .register-info .ri-left {
+      float: left;
+    }
+
+    .login-form .register-info .ri-right {
+      float: right;
     }
 
     /* content end */
+
+    /* footer start */
+
+
+    /* footer end */
   </style>
 </head>
 
@@ -162,13 +185,17 @@
             <label class="login-pwd">
               <input type="password" placeholder="密码">
             </label>
-            <input type="button" class="btn" value="登录">
+            <input type="button" value="登录">
           </div>
           <div class="register-info">
-            <a href="javascript:void(0)">手机短信登录/注册</a>
-            <a href="javascript:void(0)">立即注册</a>
-            <span>|</span>
-            <a href="javascript:void(0)">忘记密码？</a>
+            <div class="ri-left">
+              <a href="javascript:void(0)">手机短信登录/注册</a>
+            </div>
+            <div class="ri-right">
+              <a href="javascript:void(0)">立即注册</a>
+              <span>|</span>
+              <a href="javascript:void(0)">忘记密码？</a>
+            </div>
           </div>
           <div class="login-icon"></div>
         </div>
@@ -176,7 +203,10 @@
     </div>
 
   </div>
-  <div class="footer"></div>
+  <div class="footer">
+    <div class="footer-top"></div>
+    <div class="footer-bottom"></div>
+  </div>
 </body>
 
 </html>
