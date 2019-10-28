@@ -11,6 +11,7 @@
     body {
       margin: 0;
       color: #666;
+      font-size: 14px;
     }
 
     a {
@@ -56,6 +57,7 @@
       background-image: url("./Images/xiaomi9Pro.jpg");
       /* position: relative; */
       background-position: center;
+      cursor: pointer;
     }
 
     .content .panel {
@@ -71,10 +73,11 @@
 
     .content .panel .login-form {
       width: 410px;
-      height: 556px;
+      height: 558px;
       margin-left: auto;
       /* 将margin剩余的区域全部分配给left */
       background-color: #fff;
+      cursor: default;
     }
 
     .content .login-form .info-panel {
@@ -95,6 +98,10 @@
 
     .login-form .login-info .link {
       color: #666;
+    }
+
+    .login-form .login-info .link:hover {
+      color: #f56600;
     }
 
     .login-form .login-info span {
@@ -137,24 +144,157 @@
       line-height: 24px;
       font-size: 14px;
       color: #ffffff;
+      cursor: pointer;
     }
 
     .login-form .register-info {
+      width: 346px;
+      height: 50px;
+      margin: 0 auto;
       font-size: 14px;
+      /* padding-top: 10px; */
     }
 
-    .login-form .register-info .ri-left {
+    .register-info .ri-left {
       float: left;
     }
 
-    .login-form .register-info .ri-right {
+    .register-info .ri-right {
       float: right;
+    }
+
+    .register-info .ri-left a {
+      color: #ff6700;
+    }
+
+    .register-info .ri-right a {
+      color: #999;
+    }
+
+    .register-info .ri-right a:hover {
+      color: #ff6700;
+    }
+
+    .login-form .login-icon {
+      width: 346px;
+      margin: 0 auto;
+      padding-top: 83px;
+    }
+
+    .login-form .login-icon fieldset {
+      padding: 0;
+      padding-top: 10px;
+      border: 0;
+      border-top: 1px solid #e0e0e0;
+      color: #bbbbbb;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .login-form .login-icon .icon-link {
+      margin: 0 auto;
+      padding-top: 3px;
+      text-align: center;
+    }
+
+    .login-icon .icon-link a {
+      margin: 0 17px;
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      border-radius: 50%;
+    }
+
+    .login-icon .icon-link a i {
+      width: 18px;
+      height: 18px;
+      margin: 4px auto 0;
+      display: block;
+    }
+
+    /* .login-icon .icon-link a:nth-child(1) { */
+    .login-icon .icon-link .QQ-bg {
+      background-color: #0288d1;
+    }
+
+    /* .login-icon .icon-link a:nth-child(1) i{ */
+    .login-icon .icon-link .QQ-img {
+      background: url("./Images/icons_type.png");
+      background-position: -19px 0;
+    }
+
+    .login-icon .icon-link .weibo-bg {
+      background-color: #d32f2f;
+    }
+
+    .login-icon .icon-link .weibo-img {
+      background: url("./Images/icons_type.png");
+      background-position: -38px 0;
+    }
+
+    .login-icon .icon-link .alipay-bg {
+      background-color: #0ae;
+    }
+
+    .login-icon .icon-link .alipay-img {
+      width: 25px;
+      margin-top: 6px;
+      margin-left: 4px;
+      background: url("./Images/icons_type.png");
+      background-position: -57px 0;
+    }
+
+    .login-icon .icon-link .wechat-bg {
+      background-color: #00d20d;
+    }
+
+    .login-icon .icon-link .wechat-img {
+      width: 24px;
+      margin-top: 6px;
+      background: url("./Images/icons_type.png");
+      background-position: -83px 0;
     }
 
     /* content end */
 
     /* footer start */
+    .footer {
+      height: 80px;
+      padding-top: 100px;
+      font-size: 14px;
+    }
 
+    .footer .footer-top ul {
+      margin: 0;
+      text-align: center;
+    }
+
+    .footer .footer-top li {
+      display: inline-block;
+    }
+
+    .footer .footer-top li:nth-child(1) {
+      color: #333;
+    }
+
+    .footer-top li span {
+      padding: 0 10px;
+    }
+
+    .footer-top li span:hover {
+      color: #333;
+      cursor: pointer;
+    }
+
+    .footer .footer-bottom {
+      padding: 10px;
+      text-align: center;
+      color: #757575;
+    }
+
+    .footer .footer-bottom a {
+      color: #757575;
+    }
 
     /* footer end */
   </style>
@@ -163,7 +303,7 @@
 <body>
   <div class="header">
     <div class="h-logo">
-      <a href="javascript:void(0)"></a>
+      <a href="../小米商城/xiaomi-home.html"></a>
     </div>
   </div>
   <div class="content">
@@ -187,7 +327,7 @@
             </label>
             <input type="button" value="登录">
           </div>
-          <div class="register-info">
+          <div class="register-info clearfix">
             <div class="ri-left">
               <a href="javascript:void(0)">手机短信登录/注册</a>
             </div>
@@ -197,15 +337,47 @@
               <a href="javascript:void(0)">忘记密码？</a>
             </div>
           </div>
-          <div class="login-icon"></div>
+          <div class="login-icon">
+            <fieldset>
+              <legend>其他登录方式</legend>
+            </fieldset>
+            <div class="icon-link">
+              <a href="javascript:void(0)" class="QQ-bg" title="QQ登录">
+                <i class="QQ-img"></i>
+              </a>
+              <a href="javascript:void(0)" class="weibo-bg" title="微博登录">
+                <i class="weibo-img"></i>
+              </a>
+              <a href="javascript:void(0)" class="alipay-bg" title="支付宝登录">
+                <i class="alipay-img"></i>
+              </a>
+              <a href="javascript:void(0)" class="wechat-bg" title="微信登录">
+                <i class="wechat-img"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
   <div class="footer">
-    <div class="footer-top"></div>
-    <div class="footer-bottom"></div>
+    <div class="footer-top">
+      <ul>
+        <li> <span>简体</span>|</li>
+        <li><span>繁体</span>|</li>
+        <li><span>English</span>|</li>
+        <li><span>常见问题</span>|</li>
+        <li><span>隐私政策</span></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      小米公司版权所有-京ICP备10046444-
+      <a href="javascript:void(0)">
+        <img src="./Images/ghs.png">
+        京公网安备11010802020134号</a>
+      -京ICP证110507号
+    </div>
   </div>
 </body>
 
