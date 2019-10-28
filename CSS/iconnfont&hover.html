@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>iconfont与CSS外调</title>
+  <link rel="stylesheet" href="./FontCSS/iconfont.css">
+  <style>
+    span {
+      font-size: 100px !important;
+    }
+
+    .div1 {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(128, 128, 255);
+    }
+
+    .div1:hover {
+      background-color: #fff;
+    }
+
+    .div2 {
+      border: 1px solid black;
+      /* height: 0;
+      overflow: hidden; */
+      display: none;
+    }
+
+    .div1:hover .div2 {
+      display: block;
+    }
+
+    /* hover start */
+    .act {
+      height: 100px;
+      width: 100px;
+      background-color: blue;
+      /* transition: height 1s ease; */
+      transition: all 1s ease;
+    }
+
+    .act:hover {
+      height: 200px;
+      width: 200px;
+    }
+
+    .act span {
+      display: none;
+    }
+
+    .act:hover span {
+      display: inline;
+    }
+
+    /* hover end */
+    .heimu {
+      font-size: 14px;
+      background-color: black;
+      transition: color 0.13s linear;
+    }
+
+    .heimu:hover {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="iconfont icon-dianzan"></span>
+  <span class="iconfont icon-shoucang"></span>
+  <span class="iconfont icon-yulebao"></span>
+  <span class="iconfont icon-guanzhu"></span>
+  <div class="div1">
+    <div class="div2">Hello World</div>
+  </div>
+  <div class="act">
+    <span>test</span>
+  </div>
+
+  <span class="heimu">你知道的太多了</span>
+</body>
+
+</html>
