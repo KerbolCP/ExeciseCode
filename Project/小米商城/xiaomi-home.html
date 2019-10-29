@@ -17,6 +17,11 @@
       text-decoration: none;
     }
 
+    ul {
+      margin: 0;
+      list-style: none;
+    }
+
     .clearfix::after {
       content: "";
       clear: both;
@@ -57,8 +62,6 @@
 
     .tb-container .nav .download-app {
       position: relative;
-      transition: all .3s ease;
-      /* transition: height .3s ease; */
     }
 
     .tb-container .nav a:hover {
@@ -98,6 +101,7 @@
       font-size: 14px;
       color: #333;
       line-height: 1;
+      transition: all .3s ease;
     }
 
     .tb-container .nav .download-app:hover .appcode {
@@ -137,7 +141,7 @@
       text-align: center;
       float: right;
       position: relative;
-      transition: all .3s;
+      /* transition: all .3s; */
     }
 
     .tb-container .cart a {
@@ -167,6 +171,7 @@
       background: #fff;
       box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
       overflow: hidden;
+      transition: all .3s ease;
     }
 
     .tb-container .cart:hover .cart-menu {
@@ -187,7 +192,52 @@
     .header .h-container {
       width: 1226px;
       height: 100px;
+      /* margin: -22px auto 0; */
       margin: 0 auto;
+    }
+
+    .header .h-logo {
+      width: 62px;
+      margin-top: 22px;
+      float: left;
+    }
+
+    .header .h-logo a {
+      display: block;
+      width: 55px;
+      height: 55px;
+      background-color: #ff6700;
+      /* background: url("./img/mi-logo.png") no-repeat 50% 50%; */
+    }
+
+    .header .h-logo a img {
+      margin: 3px;
+    }
+
+    .header .h-nav {
+      width: 850px;
+      height: 100px;
+      float: left;
+    }
+
+    .header .h-nav ul {
+      height: 88px;
+      padding-left: 142px;
+      padding-top: 12px;
+    }
+
+    .h-nav ul li {
+      float: left;
+      padding: 26px 10px 38px;
+    }
+
+    .h-nav ul li>a {
+      color: #333;
+      font-size: 16px;
+    }
+
+    .h-nav ul li>a:hover {
+      color: #ff6700;
     }
 
     /* header end */
@@ -248,7 +298,47 @@
     </div>
   </div>
   <div class="header">
-    <div class="h-container"></div>
+    <div class="h-container">
+      <div class="h-logo">
+        <a href="./xiaomi-home.html" title="小米官网">
+          <img src="./img/mi-logo.png">
+        </a>
+      </div>
+      <div class="h-nav">
+        <ul>
+          <li>
+            <a href="javascript:void(0)">小米手机</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Redmi 红米</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">电视</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">笔记本</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">家电</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">路由器</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">智能硬件</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">服务</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">社区</a>
+          </li>
+        </ul>
+      </div>
+      <div class="h-search">
+
+      </div>
+    </div>
   </div>
   <div class="home">
     <div class="home-container"></div>
