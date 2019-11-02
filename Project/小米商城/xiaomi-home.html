@@ -7,245 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>小米商城 - 小米官方网站</title>
   <link rel="stylesheet" href="./ico/iconfont.css">
-  <style>
-    /* CSSReset start */
-    body {
-      margin: 0;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    ul {
-      margin: 0;
-      list-style: none;
-    }
-
-    .clearfix::after {
-      content: "";
-      clear: both;
-      display: block;
-    }
-
-    /* CSSReset end */
-
-    /* topbar start */
-    .topbar {
-      height: 40px;
-      background-color: #333;
-      font-size: 12px;
-    }
-
-    .topbar .tb-container {
-      width: 1226px;
-      /* margin-left: auto;
-      margin-right: auto; */
-      margin: 0 auto;
-      color: #b0b0b0;
-    }
-
-    .topbar .tb-container .nav {
-      width: 720px;
-      line-height: 40px;
-      float: left;
-    }
-
-    .tb-container .nav a {
-      color: #b0b0b0;
-    }
-
-    .tb-container .nav span {
-      margin: 0 0.3em;
-      color: #424242;
-    }
-
-    .tb-container .nav .download-app {
-      position: relative;
-    }
-
-    .tb-container .nav a:hover {
-      color: #fff;
-    }
-
-    .tb-container .nav .download-app .cion-arrow {
-      position: absolute;
-      bottom: -12px;
-      left: 50%;
-      width: 0;
-      height: 0;
-      margin-left: -8px;
-      border-width: 8px;
-      border-style: solid;
-      border-color: transparent transparent #fff;
-      display: none;
-    }
-
-    .tb-container .nav .download-app:hover .cion-arrow {
-      display: block;
-    }
-
-    .tb-container .nav .download-app .appcode {
-      width: 124px;
-      height: 0;
-      /* height: 148px; */
-      overflow: hidden;
-      position: absolute;
-      top: 28px;
-      left: 50%;
-      width: 124px;
-      background: #fff;
-      margin-left: -55px;
-      box-shadow: 0 1px 5px #aaa;
-      text-align: center;
-      font-size: 14px;
-      color: #333;
-      line-height: 1;
-      transition: all .3s ease;
-    }
-
-    .tb-container .nav .download-app:hover .appcode {
-      height: 148px;
-    }
-
-    .tb-container .nav .download-app img {
-      width: 90px;
-      height: 90px;
-      margin: 18px auto 12px;
-      display: block;
-    }
-
-    .tb-container .user-info {
-      float: right;
-      line-height: 40px;
-    }
-
-    .tb-container .user-info a {
-      padding: 0 5px;
-      color: #b0b0b0;
-    }
-
-    .tb-container .user-info a:hover {
-      color: #fff;
-    }
-
-    .tb-container .user-info span {
-      color: #424242;
-    }
-
-    .topbar .tb-container .cart {
-      width: 120px;
-      height: 40px;
-      margin-left: 15px;
-      line-height: 40px;
-      text-align: center;
-      float: right;
-      position: relative;
-      /* transition: all .3s; */
-    }
-
-    .tb-container .cart a {
-      display: block;
-      height: 40px;
-      background-color: #424242;
-      color: #b0b0b0;
-      font-size: 12px;
-    }
-
-    .topbar .tb-container .cart:hover a {
-      background-color: #fff;
-      color: #ff6700;
-    }
-
-    .tb-container .cart .cart-menu {
-      position: absolute;
-      right: 0;
-      top: 40px;
-      z-index: 31;
-      width: 316px;
-      height: 0;
-      /* height: 100px; */
-      color: #424242;
-      line-height: 100px;
-      /* text-align: center; */
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
-      overflow: hidden;
-      transition: all .3s ease;
-    }
-
-    .tb-container .cart:hover .cart-menu {
-      height: 100px;
-    }
-
-    /* .cart a span:nth-child(1) {
-      font-size: 24px;
-    } */
-
-    /* topbar end */
-
-    /* header start */
-    .header {
-      height: 100px;
-    }
-
-    .header .h-container {
-      width: 1226px;
-      height: 100px;
-      /* margin: -22px auto 0; */
-      margin: 0 auto;
-    }
-
-    .header .h-logo {
-      width: 62px;
-      margin-top: 22px;
-      float: left;
-    }
-
-    .header .h-logo a {
-      display: block;
-      width: 55px;
-      height: 55px;
-      background-color: #ff6700;
-      /* background: url("./img/mi-logo.png") no-repeat 50% 50%; */
-    }
-
-    .header .h-logo a img {
-      margin: 3px;
-    }
-
-    .header .h-nav {
-      width: 850px;
-      height: 100px;
-      float: left;
-    }
-
-    .header .h-nav ul {
-      height: 88px;
-      padding-left: 142px;
-      padding-top: 12px;
-    }
-
-    .h-nav ul li {
-      float: left;
-      padding: 26px 10px 38px;
-    }
-
-    .h-nav ul li>a {
-      color: #333;
-      font-size: 16px;
-    }
-
-    .h-nav ul li>a:hover {
-      color: #ff6700;
-    }
-
-    /* header end */
-
-
-    /* home start */
-    /* home end */
-  </style>
+  <link rel="stylesheet" href="./CSS/main.css">
 </head>
 
 <body>
@@ -273,18 +35,20 @@
         <a href="javascript:void(0)">协议规则</a>
         <span>|</span>
         <a class="download-app" href="javascript:void(0)">下载app
+          <!-- 尽量不用行元素括块元素 -->
           <div class="cion-arrow"></div>
           <div class="appcode">
             <img src="./img/download.png">
-            小米商城APP</div>
+            <span> 小米商城APP</span>
+          </div>
         </a>
         <span>|</span>
         <a href="javascript:void(0)">Select Location</a>
       </div>
       <div class="cart">
         <a href="javascript:void(0)">
-          <span class="iconfont icon-icon-test1"></span>
-          <span>购物车（0）</span>
+          <i class="iconfont icon-icon-test1"></i>
+          购物车（0）
         </a>
         <div class="cart-menu">购物车中还没有商品，赶紧选购吧！</div>
       </div>
@@ -336,12 +100,19 @@
         </ul>
       </div>
       <div class="h-search">
-
+        <form class="search-box" action="javascript:void(0)">
+          <input class="search-text" type="text">
+          <button class="search-btn">
+            <i class="iconfont icon-icon-test2"></i>
+          </button>
+        </form>
       </div>
     </div>
   </div>
   <div class="home">
-    <div class="home-container"></div>
+    <div class="home-container">
+      <!-- 轮播图 -->
+    </div>
     <div class="channel"></div>
     <img src="">
     <img src="">
