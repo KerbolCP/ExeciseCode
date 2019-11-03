@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Re-CSS</title>
+  <style>
+    input {
+      border: 0;
+    }
+
+    input:focus {
+      border: 1px solid #ff6700;
+    }
+
+    div {
+      color: red;
+    }
+
+    .item {
+      color: blue !important;
+    }
+
+    #test {
+      color: purple;
+    }
+
+    /* 伪元素是行元素 */
+    #test::after {
+      display: block;
+      content: "123";
+      /* content 是伪元素的主体 */
+      color: grey;
+      background-color: #e0e0e0;
+      width: 100px;
+      height: 100px;
+    }
+
+    .box {
+      width: 500px;
+      /* height: 500px; */
+      border: 1px solid #000;
+    }
+
+    /* 清除浮动需要给父元素里加内容 */
+    /* 再使用clear清除浮动影响 */
+    .clearfix::after {
+      content: "";
+      /* 伪元素必有content */
+      clear: both;
+      /* clear 要加给块元素 */
+      display: block;
+    }
+
+    .a {
+      width: 100px;
+      height: 100px;
+      background: red;
+      float: left;
+    }
+
+    .b {
+      width: 100px;
+      height: 100px;
+      background: blue;
+      float: left;
+    }
+
+    /* 组合选择器(,)  */
+    /* 亲子代选择器(>) */
+    /* 并选择器(class1class2) */
+    /* 选中所有class1，并且也选中class1下的所有class2 */
+    /* 通配符选择器(*) < 标签选择器 < 类选择器(.) < id选择器(#) < 内联选择器(style=) < !important */
+    /* 权重 */
+  </style>
+</head>
+
+<body>
+  <div style="color: green;">a</div>
+  <div class="item" id="test">b</div>
+  <div class="item">c</div>
+
+  <div class="div1 div2 div3 div4"></div>
+
+  <input class="test" type="text">
+
+  <div class="box clearfix">
+    <div class="a"></div>
+    <div class="b"></div>
+  </div>
+</body>
+
+</html>
