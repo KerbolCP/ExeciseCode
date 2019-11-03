@@ -239,6 +239,7 @@
     }
 
     .h-container .h-search .search-box{
+      position: relative;
       width: 294px;
       height: 50px;
       border: 1px solid #e0e0e0;
@@ -259,6 +260,9 @@
       border: 1px solid #ff6700;
       float: left;
     }
+    .search-box .search-text:focus + .search-label{
+      opacity: 0;
+    }
     .h-search .search-box .search-btn{
       width: 50px;
       height: 50px;
@@ -273,6 +277,25 @@
     .h-search .search-box .search-btn:hover{
       background: #ff6700;
       color: #fff;
+    }
+
+    .h-search .search-box .search-label{
+      position: absolute;
+      top: 14px;
+      right: 62px;
+      transition: all .3s ease;
+    }
+    .h-search .search-label a{
+      margin-left: 5px;
+      padding: 0 5px;
+      background: #eee;
+      font-size: 12px;
+      color: #757575;
+      transition: all .3s ease;
+    }
+    .h-search .search-label a:hover{
+      color: #fff;
+      background: #ff6700;
     }
     /* header end */
 
