@@ -74,6 +74,11 @@
     /* 选中所有class1，并且也选中class1下的所有class2 */
     /* 通配符选择器(*) < 标签选择器 < 类选择器(.) < id选择器(#) < 内联选择器(style=) < !important */
     /* 权重 */
+
+    .text:focus {
+      background: #e0e0e0;
+      border: 1px solid #ff6700;
+    }
   </style>
 </head>
 
@@ -89,6 +94,7 @@
   <div class="box clearfix">
     <div class="a"></div>
     <div class="b"></div>
+    <input class="text" type="text">
   </div>
 </body>
 
