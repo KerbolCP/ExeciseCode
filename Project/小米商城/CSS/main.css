@@ -4,11 +4,14 @@
     }
 
     a {
+      /* color: #757575;
+      font-size: 12px; */
       text-decoration: none;
     }
 
     ul {
       margin: 0;
+      padding: 0;
       list-style: none;
     }
     input,button{
@@ -178,10 +181,11 @@
 
     /* header start */
     .header {
+      position: relative;
       height: 100px;
     }
 
-    .header .h-container {
+    .header .h-container { 
       width: 1226px;
       height: 100px;
       /* margin: -22px auto 0; */
@@ -212,10 +216,23 @@
       float: left;
     }
 
-    .header .h-nav ul {
+   .h-container .h-nav .nav-menu{
+      position: absolute;
+      width: 100%;
+      height: 230px;
+      left: 0;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, .18);
+      overflow: hidden;
+    }
+    /* .h-nav ul:hover + .nav-menu{
+      height: 230px;
+
+    } */
+
+    .header .h-nav>ul {
       height: 88px;
-      padding-left: 142px;
-      padding-top: 12px;
+      margin-top: 12px;
+      margin-left: 180px;
     }
 
     .h-nav ul li {
@@ -232,6 +249,50 @@
       color: #ff6700;
     }
 
+    .h-container .h-nav .child-list{
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .h-container .h-nav .child-list ul{
+      height: 88px;
+      width: 100%;
+    }
+    .h-nav ul li .child-list li{
+      position: relative;
+      width: 180px;
+      padding: 35px 12px 0;
+      text-align: center;
+      display: inline-block;
+      float: none;
+    }
+    .h-nav ul li .child-list li::before{
+      position: absolute;
+      display: block;
+      width: 1px;
+      height: 100px;
+      content: "";
+      background-color: #e0e0e0;
+    }
+    .h-nav ul li .child-list li:nth-child(1)::before{
+      display: none;
+    }
+    .h-nav .child-list img{
+      width: 160px;
+      height: 110px;
+    }
+    .h-nav .child-list .title{
+      color: #333;
+      font-size: 12px;
+      line-height: 20px;
+    }
+    .h-nav .child-list .cost{
+      margin: 0;
+      font-size: 12px;
+      line-height: 20px;
+      color: #ff6700;
+    }
     .header .h-container .h-search{
       width: 296px;
       margin-top: 25px;
@@ -283,7 +344,6 @@
       position: absolute;
       top: 14px;
       right: 62px;
-      transition: all .3s ease;
     }
     .h-search .search-label a{
       margin-left: 5px;
@@ -291,7 +351,7 @@
       background: #eee;
       font-size: 12px;
       color: #757575;
-      transition: all .3s ease;
+      /* transition: all .2s ease; */
     }
     .h-search .search-label a:hover{
       color: #fff;
