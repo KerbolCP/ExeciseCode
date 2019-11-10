@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>夜宵吃点啥</title>
+  <style>
+    span {
+      color: #000;
+      background: #000;
+      transition: .1s linear;
+    }
+
+    span:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    var oper = confirm("吃夜宵吗？");
+    if (oper) {
+      var name_arr = []
+      var num = prompt("多少人吃夜宵？");
+      for (var i = 0; i < num; i++) {
+        var name = prompt("第" + (i + 1) + "个人的名字");
+        name_arr.push(name);
+      }
+      showFood(name_arr);
+    } else {
+      alert("不JB吃夜宵了");
+    }
+
+    function showFood(name_arr) {
+      for (var i = 0; i < name_arr.length; i++) {
+        alert(name_arr[i] + "吃" + getFood());
+      }
+    }
+
+    function getFood() {
+      var rand = parseInt(Math.random() * 10);
+      switch (rand) {
+        case 0:
+          return "米线";
+        case 1:
+          return "饭团";
+        case 2:
+          return "烧烤";
+        case 3:
+          return "肯德基";
+        case 4:
+          return "金拱门";
+        case 5:
+          return "麻辣烫";
+        case 6:
+          return "汉堡王";
+        case 7:
+          return "饺子";
+        case 8:
+          return "锅包肉";
+        case 9:
+          return "火锅";
+        default:
+          return "西北风";
+          break;
+      }
+    }
+
+  </script>
+
+  <span title="你知道的太多了">你知道的太多了</span>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS基础</title>
+</head>
+
+<body>
+  <script>
+    // 输出流
+    // alert("Hello World!");
+    // console.log();   //快捷键：log
+    var strfloat = "3.1415926";
+    console.log(parseInt(strfloat));
+    console.log(parseInt(Math.random() * 10));  //parseInt 去除小数位
+
+    /* 基本数据类型 */
+    var char = "nmsl";  //字符串 string
+    alert(char);
+    var num = 3;        //数字型 number
+    var boo = true;     //布尔型 boolean
+    var none = null;    //空 object
+    var un = undefined; //未定义 undefined
+
+
+    /*----------------------------------------------------*/
+    // 变量名基本命名规则：数字、字母、下划线,（中文环境下：汉字）
+    //不能使用关键字、保留字，并且严格区分大小写
+    //变量命名习惯：知名其意
+    /*----------------------------------------------------*/
+    // 基本数据类型可以随时更换
+    // 栈内存：变量名 和 数值
+    var a = 10;
+    console.log(a, typeof (a));
+    var age = "str";
+    console.log(a, typeof (a));
+    /*----------------------------------------------------*/
+
+
+    /* 引用数据类型：object */
+    var arr = ["包子", "馒头", "花卷", "油条"];
+    var food = [];
+    food[0] = "面条";
+    food.push("饺子");    //数组push函数 = 栈push函数,在数组尾部追加一个元素
+    var arrx = ["类型", 0, undefined, null, false];
+    var arrby2 = [[1, 2, 3], 7, 8, 9, [4, 5, 6]];
+    // 数组索引从0开始
+    alert(typeof (num));
+    console.log(arr[3]);
+    console.log(arrby2[4][1]);  //多维数组的使用
+
+
+    /*----------------------------------------------------*/
+    // 引用数据类型 
+    // 栈内存：对象或数组名称 和 所对应的堆内存的地址
+    // 堆内存：具体数值
+    var arrcs = [1, 2, 3];
+    var arrts = arrcs;
+    arrcs[2] = "a";
+    console.log(arrcs);
+    console.log(arrts);
+    /*----------------------------------------------------*/
+
+
+    /* 对象 */
+    // 属性与方法赋值用":"，多个属性和方法之间用","间隔
+    var person = {
+      name: "李华",
+      age: 15,
+      speck: function () {
+        console.log("NMSL");
+        return "NmsL";
+      }
+    }
+
+    var eat = function (str) {
+      console.log("吃", str);
+    }
+
+    eat(person.name);
+    eat(person.speck());
+    person.speck();
+
+
+    /* 函数 */
+    // 未传入的形参会被赋为undefined，多传入的形参会被忽略
+    function echo(str) {
+      console.log(str, str, str);
+    }
+    echo("nmsl");
+
+  </script>
+</body>
+
+</html>
