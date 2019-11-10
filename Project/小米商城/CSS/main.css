@@ -256,7 +256,7 @@ input,button{
   z-index: 100;
   transform: translateX(-50%);
 }
-.h-nav ul li:hover .child-list{
+.h-nav .pop:hover .child-list{
   display: block;
 }
 .h-nav > li:hover a{
