@@ -25,18 +25,28 @@
       document.writeln(data[i]);
     }
     document.writeln(data.join('-'));
+    document.write("</br>");
     var time = ['11', '45', '14'];
     document.writeln(time.join(':'));
+    document.write("</br>");
     document.writeln(arr1.pop());
+    document.write("</br>");
     document.writeln(arr1);
+    document.write("</br>");
     document.writeln(arr1.push(5, 6));  // push返回当前数组长度
+    document.write("</br>");
     document.writeln(arr1);
+    document.write("</br>");
     document.writeln(arr1.reverse());   // reverse返回颠倒后的数组
+    document.write("</br>");
     document.writeln(arr1);
     // 用数组的pop 或 shift 可以实现队列 或 堆栈
+    document.write("</br>");
     arr1.reverse();
     document.writeln(arr1.slice(2, 4)); // slice返回 [start, end) 范围的内容,不改变数组
+    document.write("</br>");
     document.writeln(arr1.splice(2, 3)); // splice返回数组第2位前开始的后3个元素（包括第2位），并在当前数组删除
+    document.write("</br>");
     // [1,|2,3,4,5,6] 上面的splice函数会在光标处操作（删除，添加）
     arr1.splice(1, 0, 1.75, 1.5); // 插入
     document.writeln(arr1);
@@ -44,7 +54,7 @@
     // return a - b;   //升序（默认）
     // return b-a;  降序
     //})
-
+    document.write("</br>");
 
     // number 内置方法
     var num = 0.1 + 0.2;

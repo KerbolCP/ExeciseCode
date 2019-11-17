@@ -12,12 +12,28 @@
 
 <body>
   <script>
-    var a = [];
-    for (var i = 1; i <= 5; i++) {
-      for (var j = 1; j <= i; j++) {
-
+    var str = prompt("输入一串字符（数字和字母）");
+    var res = "";
+    for (var i = 0; i < str.length; i++) {
+      if (check(str[i])) { res.concat(res, str[i]); }
+    }
+    document.write(res);
+    function check(str) {
+      switch (str) {
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+          return true;
+        default:
+          return false;
       }
-      console.log("\n");
     }
   </script>
 </body>
