@@ -18,6 +18,15 @@
     console.log(num);
 
     // 分支选择
+    // 逻辑运算符 && || !
+    // "空字符串" 0 undefined Null 被视为false
+    // "非空字符串" 非0 被视为true
+
+    var a = 10;
+    var b = 0;
+    var c = a || b;     // 将真值赋给c
+    document.write(c);
+
     if (num > 10) {
       console.log("input > 10");
     } else if (num == 10) {
@@ -54,6 +63,16 @@
     for (let i = 0; i < arry.length; i++) {
       console.log(arry[i]);
     }
+
+    while (num < 10) {
+      console.log(num);
+      num++;
+
+    }
+
+    do {
+      console.log(0);
+    } while (num < 0);
 
     // 实现概率：
     var i = 0;
