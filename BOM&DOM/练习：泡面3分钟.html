@@ -80,7 +80,7 @@
           timer--;
           var sec = timer % 60;
           var show = "";
-          if (sec < 10) {
+          if (sec >= 0 && sec < 10) {
             show = "0" + sec;
           } else {
             show = sec;
@@ -93,8 +93,14 @@
         clearInterval(time);
       }
     }
+
     reset.onclick = function () {
+      clearInterval(time);
       timer = 180;
+      clickTimes = 0;
+      btn.innerText = "开始";
+      sTime.innerText = "00";
+      mTime.innerText = 3;
     }
   </script>
 </body>
