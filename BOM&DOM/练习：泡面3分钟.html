@@ -7,9 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>泡面3分钟</title>
   <style>
+    .clearfix::after {
+      clear: both;
+      content: "";
+      display: block;
+    }
+
     .box {
-      width: 175px;
+      width: 176px;
       margin: 0 auto;
+      background: #ffceee;
     }
 
     .title {
@@ -21,11 +28,16 @@
       font-size: 38px;
     }
 
+    .title,
+    .timer {
+      color: #6E6173;
+    }
+
     button {
       width: 75px;
       margin: 0 auto;
       border: 1px solid hsla(0, 0%, 0%, 0.6);
-      background: #f56600;
+      background: #6E6173;
       color: #ffffff;
       cursor: pointer;
     }
@@ -41,7 +53,7 @@
 </head>
 
 <body>
-  <div class="box">
+  <div class="box clearfix">
     <img src="./img/QQ图片20191123163249.jpg" alt="">
     <div class="title">泡面3分钟</div>
     <div class="timer">
