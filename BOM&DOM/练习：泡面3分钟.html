@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>泡面3分钟</title>
+  <style>
+    .box {
+      width: 175px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 38px;
+    }
+
+    .timer {
+      text-align: center;
+      font-size: 38px;
+    }
+
+    button {
+      width: 75px;
+      margin: 0 auto;
+      border: 1px solid hsla(0, 0%, 0%, 0.6);
+      background: #f56600;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .l {
+      float: left;
+    }
+
+    .r {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="./img/QQ图片20191123163249.jpg" alt="">
+    <div class="title">泡面3分钟</div>
+    <div class="timer">
+      <span id="m">3</span>
+      <span> : </span>
+      <span id="s">00</span>
+    </div>
+    <button class="l">开始</button>
+    <button class="r">重置</button>
+  </div>
+
+  <script>
+    window.clickTimes = 0;
+    var timer = 180;
+    var mTime = document.getElementById("m");
+    var sTime = document.getElementById("s");
+    var btn = document.getElementsByTagName("button")[0];
+    var reset = document.getElementsByTagName("button")[1];
+    btn.onclick = function () {
+      clickTimes++;
+      if (clickTimes % 2 == 1) {
+        btn.innerText = "暂停";
+        window.time = setInterval(() => {
+          timer--;
+          var sec = timer % 60;
+          var show = "";
+          if (sec < 10) {
+            show = "0" + sec;
+          } else {
+            show = sec;
+          }
+          sTime.innerText = show;
+          mTime.innerText = Math.floor(timer / 60);
+        }, 1000);
+      } else {
+        btn.innerText = "开始";
+        clearInterval(time);
+      }
+    }
+    reset.onclick = function () {
+      timer = 180;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BOM</title>
+</head>
+
+<body>
+  <div>0</div>
+  <button id="add-btn">add</button>
+  <button id="sub-btn">sub</button>
+  <button id="clear-btn">clear</button>
+  <script>
+    // setTimeout(() => {
+    //   console.log("hello");
+    // }, 5000);
+    // 在5000ms后在控制台输出hello
+
+    // var = timer1 = setInterval(() => {
+    //   console.log("time up");
+    // }, 1000);
+    // 每隔1000ms后在控制台输出time up
+
+    var conter = 10;
+    var timer2 = setInterval(() => {
+      console.log(conter);
+      conter--;
+      if (conter == -1) {
+        clearInterval(timer2);
+      }
+    }, 1000);
+    // var operBtn = document.getElementsByClassName();
+    var addBtn = document.getElementById("add-btn");
+    var subBtn = document.getElementById("sub-btn");
+    var clearBtn = document.getElementById("clear-btn");
+    var numDiv = document.getElementsByTagName("div")[0];
+    // id 不重名，且只获取第一个
+    var num = 0;
+    addBtn.onclick = function () {
+      numDiv.innerText = ++num;
+    }
+    subBtn.onclick = function () {
+      numDiv.innerText = --num;
+    }
+    clearBtn.onclick = function () {
+      num = 0;
+      numDiv.innerText = num;
+    }
+    addBtn
+  </script>
+</body>
+
+</html>

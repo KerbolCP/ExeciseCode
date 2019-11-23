@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>100s倒计时</title>
+  <style>
+    button {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <!-- <img src="./img/QQ图片20191123163249.jpg" alt=""> -->
+    <!-- <span id="h">3</span><i> : </i><span id="m">00</span><i> : </i><span id="s">00</span> -->
+    <div id="desc">100</div>
+    <button>开始</button>
+  </div>
+
+  <script>
+    // var h = 3; m = 0; s = 0;
+    // var hTime = document.getElementById("h");
+    // var mTime = document.getElementById("m");
+    // var sTime = document.getElementById("s");
+    var clickTimes = 0;
+    var num = 100;
+    var desc = document.getElementById("desc");
+    var staBtn = document.getElementsByTagName("button")[0];
+    staBtn.onclick = function () {
+      clickTimes++;
+      if (clickTimes % 2 == 1) {
+        staBtn.innerText = "暂停";
+        window.time = setInterval(() => {
+          desc.innerText = --num;
+        }, 1000);
+      } else {
+        staBtn.innerText = "开始";
+        clearInterval(time);
+      }
+    }
+  </script>
+</body>
+
+</html>
