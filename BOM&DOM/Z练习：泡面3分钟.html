@@ -13,10 +13,16 @@
       display: block;
     }
 
+    h3 {
+      margin: 0;
+      color: #4D4E6A;
+    }
+
     .box {
       width: 198px;
       margin: 0 auto;
       background: #FED6F1;
+      text-align: center;
     }
 
     img {
@@ -53,6 +59,7 @@
   <div class="box clearfix">
     <img src="./img/QQ图片20191124090842.jpg" alt="">
     <div class="title">泡面3分钟</div>
+    <h3>已泡好0份面</h3>
     <div class="timer">
       <span id="m">3</span>
       <span> : </span>
@@ -99,7 +106,6 @@
       if (timer <= 0) {
         timer = 180;
         conter++;
-        obj_title.innerHTML = "泡面3分钟<br>已泡好" + conter + "份面";
       }
     }
 

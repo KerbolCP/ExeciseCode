@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>课表选择</title>
+  <style>
+    .clearfix::after {
+      clear: both;
+      content: "";
+      display: block;
+    }
+
+    .fcous {
+      background-color: grey !important;
+      color: #000000 !important;
+    }
+
+    .box {
+      width: 240px;
+      margin: 100px auto;
+      border: 1px solid #000000;
+    }
+
+    ul {
+      display: block;
+      margin: 0;
+    }
+
+    .top {
+      text-align: center;
+      list-style: none;
+      width: 240px;
+      padding: 0;
+    }
+
+    .top li {
+      height: 30px;
+      width: 80px;
+      background-color: #000000;
+      line-height: 30px;
+      color: #ffffff;
+      cursor: pointer;
+      float: left;
+    }
+
+    .course {
+      width: 240px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <ul class="top clearfix" id="top">
+      <li>第一节课</li>
+      <li>第二节课</li>
+      <li>第三节课</li>
+    </ul>
+    <ul class="course" id="course">
+      <li>第一节课内容</li>
+      <li>第一节课内容</li>
+      <li>第一节课内容</li>
+    </ul>
+  </div>
+  <script>
+    var arr_top = document.getElementById("top").getElementsByTagName("li");
+    for (var i = 0; i < arr_top.length; i++) {
+      arr_top[i].index = i;
+      arr_top[i].onmouseover = function () {
+        for (var j = 0; j < arr_top.length; j++) {
+          arr_top[j].classList.remove("fcous");
+        }
+        this.classList.add("fcous");
+      }
+    }
+  </script>
+</body>
+
+</html>
