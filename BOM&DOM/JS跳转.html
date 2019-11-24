@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS跳转</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">友情链接</div>
+
+  <script>
+    var obj_box = document.getElementById("box");
+    obj_box.onclick = function () {
+      console.log(location.href);
+      // location.href = "https://www.bilibili.com";  //在当前选项卡打开
+      open("https://www.bilibili.com");   // 在新选项卡打开
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>臭鼬选择器</title>
+  <style>
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    .box {
+      position: absolute;
+      width: 604px;
+      height: 413px;
+      border: 1px solid gray;
+      top: 50%;
+      left: 50%;
+      margin-left: -304px;
+      margin-top: -190px;
+      text-align: center;
+    }
+
+    .show {
+      border-bottom: 1px solid gray;
+    }
+
+    .show>img {
+      width: 200px;
+      height: 200px;
+      margin: 21px auto;
+      display: block;
+    }
+
+    ul {
+      padding-left: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    li {
+      width: 150px;
+      height: 150px;
+      border-right: 1px solid gray;
+      float: left;
+      text-align: center;
+
+    }
+
+    li:last-child {
+      border: none;
+    }
+
+    li img {
+      width: 100px;
+      height: 100px;
+      margin: 25px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="show">
+      <span>划入图片选择臭鼬</span>
+      <img src="./img/QQ图片20191123163249.jpg" alt="" id="show">
+    </div>
+    <ul class="clearfix">
+      <li>
+        <img src="./img/QQ图片20191123163249.jpg" alt="">
+      </li>
+      <li>
+        <img src="./img/QQ图片20191124090842.jpg" alt="">
+      </li>
+      <li>
+        <img src="./img/QQ图片20191124142327.jpg" alt="">
+      </li>
+      <li>
+        <img src="./img/QQ图片20191124142344.jpg" alt="">
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    var obj_show = document.getElementById("show");
+    var obj_taget = document.getElementsByTagName("ul")[0].getElementsByTagName("img");
+    for (var i = 0; i < obj_taget.length; i++) {
+      obj_taget[i].onmouseover = function () {
+        obj_show.setAttribute("src", this.getAttribute("src"));
+      }
+    }
+  </script>
+</body>
+
+</html>

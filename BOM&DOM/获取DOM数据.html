@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>获取DOM数据</title>
+  <style>
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="list">
+    <li data-href="https://www.baidu.com">百度</li>
+    <li>小米</li>
+  </ul>
+  <img src="./img/QQ图片20191124142327.jpg" alt="">
+  <script>
+    var arr_list = document.getElementById("list");
+    var arr_li = arr_list.getElementsByTagName("li");
+    var obj_img = document.getElementsByTagName("img")[0];
+    console.log(arr_li);
+    arr_li[0].onclick = function (event) {
+      console.log(this.dataset);    // this代指事件源
+      window.open(this.dataset.href)
+    }
+    obj_img.onmouseover = function () {
+      console.log(this.getAttribute("src"));
+      this.setAttribute("src", "./img/QQ图片20191124142344.jpg");
+    }
+  </script>
+</body>
+
+</html>
