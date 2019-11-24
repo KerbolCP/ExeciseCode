@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绑定事件</title>
+</head>
+
+<body>
+  <div>console.log(0)</div>
+  <button id="add-btn">add</button>
+  <button id="mouse-btn">*</button>
+  <script>
+    // 事件三要素
+    // 事件源、处理函数、事件对象
+    var obj_btn = document.getElementsByTagName("button")[0];
+    // obj_btn.onclick = function () {
+    //   console.log("nmsl");
+    // }
+
+    // obj_btn.onclick = () => {
+    //   console.log("fuck");
+    // }
+    // 类似于 var a = 10;
+    //        var a = 20; 最后a为20
+
+    obj_btn.addEventListener("click", () => {
+      console.log("nmsl");
+    })
+    obj_btn.addEventListener("click", () => {
+      console.log("cnm");
+    })
+    // 实现多事件绑定
+
+    var ms_btn = document.getElementsByTagName("button")[1];
+    ms_btn.onclick = function (event) {
+      console.log(event);
+    }
+
+    // var timer1 = setInterval(() => {
+    //   document.write("nmsl<br>");
+    // }, 1000);
+
+    // var timer2 = setTimeout(() => {
+    //   clearInterval(timer1);
+    //   document.write("cnm");
+    // }, 5000);
+
+    // clearTimeout(timer2);
+  </script>
+</body>
+
+</html>

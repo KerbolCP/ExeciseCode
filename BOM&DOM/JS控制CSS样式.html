@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS控制CSS样式</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+
+  <script>
+    var obj_box = document.getElementById("box");
+    obj_box.onclick = function () {
+      // 通过内联选择器改变样式
+      obj_box.style.width = "300px";
+      obj_box.style.backgroundColor = "purple";
+    } 
+  </script>
+</body>
+
+</html>

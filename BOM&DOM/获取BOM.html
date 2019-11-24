@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>获取BOM</title>
+</head>
+
+<body>
+  <span>console.log()</span>
+  <div class="box-div" id="box">1</div>
+  <div>2</div>
+  <div class="box-div">3</div>
+  <script>
+    var arr_biv = document.getElementsByTagName("div");
+    var arr_box = document.getElementsByClassName("box-div");
+    var obj_box = document.getElementById("box");
+    console.log(arr_biv, arr_box, obj_box);
+  </script>
+</body>
+
+</html>

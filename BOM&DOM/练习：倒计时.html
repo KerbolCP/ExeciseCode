@@ -7,33 +7,51 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>100s倒计时</title>
   <style>
-    button {
-      display: block;
+    .box {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: gray;
+      top: 50%;
+      left: 50%;
+      /* margin-top: -300px; */
+      margin-top: -150px;
+      margin-left: -150px;
+      text-align: center;
+      font-size: xx-large;
     }
   </style>
 </head>
 
 <body>
-  <div>
-    <div id="desc">100</div>
+  <div class="box">
+    <div class="timer" id="desc">100</div>
     <button>开始</button>
   </div>
 
   <script>
-    var clickTimes = 0;
-    var num = 100;
     var desc = document.getElementById("desc");
     var staBtn = document.getElementsByTagName("button")[0];
+    var flag = false;
     staBtn.onclick = function () {
-      clickTimes++;
-      if (clickTimes % 2 == 1) {
+      flag = !flag;
+      // console.log(flag);
+      if (flag) {
         staBtn.innerText = "暂停";
         window.time = setInterval(() => {
-          desc.innerText = --num;
+          --desc.innerText;
+          if (desc.innerText <= 0) {
+            flag = false;
+            staBtn.innerText = "开始";
+            clearInterval(time);
+          }
         }, 1000);
       } else {
         staBtn.innerText = "开始";
         clearInterval(time);
+      }
+      if (desc.innerText <= 0) {
+        desc.innerText = 100;
       }
     }
   </script>

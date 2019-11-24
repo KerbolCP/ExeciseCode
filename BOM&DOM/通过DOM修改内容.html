@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>互动</title>
+</head>
+
+<body>
+  <div id="num">undefined</div>
+  <button id="btn">点我</button>
+  <script>
+    var obj_num = document.getElementById("num");
+    var obj_btn = document.getElementById("btn");
+    obj_btn.onclick = function () {
+      // obj_num.innerText = "<br>nmsl"; // 仅改变文本
+      obj_num.innerHTML = "<br>nmsl";
+    }
+  </script>
+</body>
+
+</html>

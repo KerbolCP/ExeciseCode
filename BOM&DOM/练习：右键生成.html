@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>臭鼬生成器</title>
+  <style>
+    img {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <span>右键任意位置生成臭鼬</span>
+  <img src="./img/QQ图片20191124090842.jpg" alt="">
+  <script>
+    var obj_img = document.getElementsByTagName("img")[0];
+    document.oncontextmenu = function (event) {
+      event.preventDefault();
+      obj_img.style.display = "block";
+      obj_img.style.position = "absolute";
+      console.log(event.clientX, event.clientY);
+      obj_img.style.top = (event.clientY - 97) + "px";
+      obj_img.style.left = (event.clientX - 99) + "px";
+    }
+  </script>
+</body>
+
+</html>

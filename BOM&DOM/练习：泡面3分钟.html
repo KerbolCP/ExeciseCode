@@ -14,22 +14,19 @@
     }
 
     .box {
-      width: 176px;
+      width: 198px;
       margin: 0 auto;
-      background: #ffceee;
+      background: #FED6F1;
     }
 
-    .title {
-      font-size: 38px;
-    }
-
-    .timer {
-      text-align: center;
-      font-size: 38px;
+    img {
+      transform: rotateY(180deg);
     }
 
     .title,
     .timer {
+      text-align: center;
+      font-size: 38px;
       color: #6E6173;
     }
 
@@ -54,7 +51,7 @@
 
 <body>
   <div class="box clearfix">
-    <img src="./img/QQ图片20191123163249.jpg" alt="">
+    <img src="./img/QQ图片20191124090842.jpg" alt="">
     <div class="title">泡面3分钟</div>
     <div class="timer">
       <span id="m">3</span>
@@ -66,15 +63,17 @@
   </div>
 
   <script>
-    window.clickTimes = 0;
+    var clickTimes = false;
     var timer = 180;
+    var conter = 0;
     var mTime = document.getElementById("m");
     var sTime = document.getElementById("s");
+    var obj_title = document.getElementsByClassName("title")[0];
     var btn = document.getElementsByTagName("button")[0];
     var reset = document.getElementsByTagName("button")[1];
     btn.onclick = function () {
-      clickTimes++;
-      if (clickTimes % 2 == 1) {
+      clickTimes = !clickTimes;
+      if (clickTimes) {
         btn.innerText = "暂停";
         window.time = setInterval(() => {
           timer--;
@@ -87,17 +86,27 @@
           }
           sTime.innerText = show;
           mTime.innerText = Math.floor(timer / 60);
+          if (timer <= 0) {
+            clickTimes = false;
+            btn.innerText = "开始";
+            clearInterval(time);
+          }
         }, 1000);
       } else {
         btn.innerText = "开始";
         clearInterval(time);
+      }
+      if (timer <= 0) {
+        timer = 180;
+        conter++;
+        obj_title.innerHTML("泡面3分钟<br>已泡好" + conter + "份面");
       }
     }
 
     reset.onclick = function () {
       clearInterval(time);
       timer = 180;
-      clickTimes = 0;
+      clickTimes = false;
       btn.innerText = "开始";
       sTime.innerText = "00";
       mTime.innerText = 3;
