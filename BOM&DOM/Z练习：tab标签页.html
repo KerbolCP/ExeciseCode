@@ -13,9 +13,13 @@
       display: block;
     }
 
-    .fcous {
-      background-color: grey !important;
-      color: #000000 !important;
+    .box .top .fcous {
+      background-color: #dddddd;
+      color: #000000;
+    }
+
+    .show {
+      display: block !important;
     }
 
     .box {
@@ -46,8 +50,9 @@
       float: left;
     }
 
-    .course {
+    .tc-item {
       width: 240px;
+      display: none;
     }
   </style>
 </head>
@@ -59,21 +64,34 @@
       <li>第二节课</li>
       <li>第三节课</li>
     </ul>
-    <ul class="course" id="course">
+    <ul class="tc-item show">
       <li>第一节课内容</li>
       <li>第一节课内容</li>
       <li>第一节课内容</li>
     </ul>
+    <ul class="tc-item">
+      <li>第二节课内容</li>
+      <li>第二节课内容</li>
+    </ul>
+    <ul class="tc-item">
+      <li>第三节课内容</li>
+    </ul>
   </div>
   <script>
     var arr_top = document.getElementById("top").getElementsByTagName("li");
+    var arr_tc = document.getElementsByClassName("tc-item");
     for (var i = 0; i < arr_top.length; i++) {
       arr_top[i].index = i;
       arr_top[i].onmouseover = function () {
         for (var j = 0; j < arr_top.length; j++) {
           arr_top[j].classList.remove("fcous");
+          // arr_tc[j].classList.remove("show");
         }
         this.classList.add("fcous");
+        for (var j = 0; j < arr_tc.length; j++) {
+          arr_tc[j].classList.remove("show");
+        }
+        arr_tc[this.index].classList.add("show");
       }
     }
   </script>

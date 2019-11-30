@@ -20,9 +20,13 @@
 
     .box {
       width: 198px;
-      margin: 0 auto;
+      margin: 40px auto 0;
       background: #FED6F1;
       text-align: center;
+    }
+
+    .mode {
+      width: 198px;
     }
 
     img {
@@ -38,11 +42,12 @@
 
     button {
       width: 75px;
-      margin: 0 auto;
+      margin: 0 auto 1px;
       border: 1px solid hsla(0, 0%, 0%, 0.6);
       background: #6E6173;
       color: #ffffff;
       cursor: pointer;
+      outline: none;
     }
 
     .l {
@@ -65,19 +70,25 @@
       <span> : </span>
       <span id="s">00</span>
     </div>
+    <button class="mode" title="手动：计时结束时会暂停&#10;自动：计时结束时会重置计时并继续">
+      当前：手动泡面模式
+    </button>
     <button class="l">开始</button>
     <button class="r">重置</button>
   </div>
 
   <script>
-    var clickTimes = false;
+    var clickTimes = false;   // false 为正在计时
+    var mode = true;          // ture 为手动模式
     var timer = 180;
     var conter = 0;
     var mTime = document.getElementById("m");
     var sTime = document.getElementById("s");
     var obj_title = document.getElementsByClassName("title")[0];
-    var btn = document.getElementsByTagName("button")[0];
-    var reset = document.getElementsByTagName("button")[1];
+    var set_mode = document.getElementsByTagName("button")[0];
+    var btn = document.getElementsByTagName("button")[1];
+    var reset = document.getElementsByTagName("button")[2];
+    var obj_h3 = document.getElementsByTagName("h3")[0];
     btn.onclick = function () {
       clickTimes = !clickTimes;
       if (clickTimes) {
@@ -91,12 +102,19 @@
           } else {
             show = sec;
           }
-          sTime.innerText = show;
           mTime.innerText = Math.floor(timer / 60);
-          if (timer <= 0) {
+          sTime.innerText = show;
+          if (timer <= 0 && mode) {
             clickTimes = false;
+            conter++;
             btn.innerText = "开始";
+            obj_h3.innerText = "已泡好" + conter + "份面";
             clearInterval(time);
+          }
+          if (timer <= 0 && !mode) {
+            timer = 180;
+            conter++;
+            obj_h3.innerText = "已泡好" + conter + "份面";
           }
         }, 1000);
       } else {
@@ -105,7 +123,17 @@
       }
       if (timer <= 0) {
         timer = 180;
-        conter++;
+      }
+    }
+
+    set_mode.onclick = function () {
+      mode = !mode;
+      if (mode) {
+        this.innerText = "当前：手动泡面模式";
+        // this.title = "手动：计时结束时会暂停";
+      } else {
+        this.innerText = "当前：自动泡面模式";
+        // this.title = "自动：计时结束时会自动重置并继续";
       }
     }
 
@@ -115,7 +143,7 @@
       clickTimes = false;
       btn.innerText = "开始";
       sTime.innerText = "00";
-      mTime.innerText = 3;
+      mTime.innerText = "3";
     }
   </script>
 </body>
