@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>泡面3分钟</title>
   <style>
+    /* CSS Resset start */
     .clearfix::after {
       clear: both;
       content: "";
@@ -18,29 +19,36 @@
       color: #4D4E6A;
     }
 
+    /* CSS Resset end */
+
     .box {
-      width: 198px;
+      width: 200px;
       margin: 40px auto 0;
       background: #FED6F1;
       text-align: center;
     }
 
-    .mode {
-      width: 198px;
-    }
-
-    img {
+    /* img start */
+    .box .top {
+      margin: 0 auto;
+      display: block;
       transform: rotateY(180deg);
     }
 
-    .title,
-    .timer {
+    /* img end */
+
+    /* home start */
+    .home .title,
+    .time {
       text-align: center;
       font-size: 38px;
       color: #6E6173;
     }
 
-    button {
+    /* home end */
+
+    /* operation start */
+    .operation button {
       width: 75px;
       margin: 0 auto 1px;
       border: 1px solid hsla(0, 0%, 0%, 0.6);
@@ -50,100 +58,124 @@
       outline: none;
     }
 
-    .l {
+    .operation .btn-mode {
+      width: 200px;
+    }
+
+    .operation .btn-left {
       float: left;
     }
 
-    .r {
+    .operation .btn-right {
       float: right;
     }
+
+    /* btnStyle end */
   </style>
 </head>
 
 <body>
   <div class="box clearfix">
-    <img src="./img/QQ图片20191124090842.jpg" alt="">
-    <div class="title">泡面3分钟</div>
-    <h3>已泡好0份面</h3>
-    <div class="timer">
-      <span id="m">3</span>
-      <span> : </span>
-      <span id="s">00</span>
+    <img class="top" src="./img/QQ图片20191124090842.jpg" alt="">
+    <!-- home -->
+    <div class="home">
+      <div class="title">泡面3分钟</div>
+      <h3>已泡好0份面</h3>
+      <div class="time">
+        <span id="m">3</span>
+        <span> : </span>
+        <span id="s">00</span>
+      </div>
     </div>
-    <button class="mode" title="手动：计时结束时会暂停&#10;自动：计时结束时会重置计时并继续">
-      当前：手动泡面模式
-    </button>
-    <button class="l">开始</button>
-    <button class="r">重置</button>
+    <!-- operation -->
+    <div class="operation">
+      <button class="btn-mode" id="set-mode" title="手动：计时结束时会暂停&#10;自动：计时结束时会重置计时并继续">
+        当前：手动泡面模式
+      </button>
+      <button class="btn-left" id="btn-start">开始</button>
+      <button class="btn-right" id="reset-btn">重置</button>
+    </div>
   </div>
 
   <script>
-    var clickTimes = false;   // false 为正在计时
-    var mode = true;          // ture 为手动模式
-    var timer = 180;
-    var conter = 0;
-    var mTime = document.getElementById("m");
-    var sTime = document.getElementById("s");
-    var obj_title = document.getElementsByClassName("title")[0];
-    var set_mode = document.getElementsByTagName("button")[0];
-    var btn = document.getElementsByTagName("button")[1];
-    var reset = document.getElementsByTagName("button")[2];
-    var obj_h3 = document.getElementsByTagName("h3")[0];
-    btn.onclick = function () {
-      clickTimes = !clickTimes;
-      if (clickTimes) {
-        btn.innerText = "暂停";
-        window.time = setInterval(() => {
-          timer--;
-          var sec = timer % 60;
-          var show = "";
+    var timing = false;   // 计时标记 false 为正在计时
+    var mode = true;      // 模式标记 ture  为手动模式
+    var time = 180;       // 计时变量
+    var conter = 0;       // 泡面份数
+
+    var obj_mTime = document.getElementById("m");
+    var obj_sTime = document.getElementById("s");
+    var obj_setMode = document.getElementById("set-mode");
+    var obj_startBtn = document.getElementById("btn-start");
+    var obj_resetBtn = document.getElementById("reset-btn");
+    var arr_h3 = document.getElementsByTagName("h3")[0];
+
+    obj_startBtn.onclick = function () {
+      timing = !timing;
+      // timing == ture 时开始计时
+      if (timing) {
+        obj_startBtn.innerText = "暂停";
+        window.timer = setInterval(() => {  // 全局计时器
+          time--;
+          var sec = time % 60;
+          var showSec = "";
+          // 秒钟格式化
           if (sec >= 0 && sec < 10) {
-            show = "0" + sec;
-          } else {
-            show = sec;
+            showSec = "0" + sec;
           }
-          mTime.innerText = Math.floor(timer / 60);
-          sTime.innerText = show;
-          if (timer <= 0 && mode) {
-            clickTimes = false;
-            conter++;
-            btn.innerText = "开始";
-            obj_h3.innerText = "已泡好" + conter + "份面";
-            clearInterval(time);
+          else {
+            showSec = sec;
           }
-          if (timer <= 0 && !mode) {
-            timer = 180;
-            conter++;
-            obj_h3.innerText = "已泡好" + conter + "份面";
+          // 时间格式化
+          obj_mTime.innerText = Math.floor(time / 60);
+          obj_sTime.innerText = showSec;
+          // 计时结束时且模式为手动(mode == ture)
+          if (time <= 0 && mode) {
+            timing = false;           // 计时标记置暂停(false)
+            conter++;                 // 泡面份数+1
+            obj_startBtn.innerText = "开始";
+            arr_h3.innerText = "已泡好" + conter + "份面";
+            clearInterval(timer);     // 停止计时
+          }
+          // 计时结束时且模式为自动(mode == false)
+          if (time <= 0 && !mode) {
+            time = 180;              // 计时归零，不需要停止计时
+            conter++;                // 泡面份数+1
+            arr_h3.innerText = "已泡好" + conter + "份面";
           }
         }, 1000);
-      } else {
-        btn.innerText = "开始";
-        clearInterval(time);
       }
-      if (timer <= 0) {
-        timer = 180;
+      // 计时结束时清除计时函数
+      else {
+        obj_startBtn.innerText = "开始";
+        clearInterval(timer);
+      }
+      // 计时结束时，仅将计时变量重置，在点击开始时，才重新计时
+      if (time <= 0) {
+        time = 180;
       }
     }
 
-    set_mode.onclick = function () {
+    obj_setMode.onclick = function () {
       mode = !mode;
       if (mode) {
         this.innerText = "当前：手动泡面模式";
         // this.title = "手动：计时结束时会暂停";
-      } else {
+      }
+      else {
         this.innerText = "当前：自动泡面模式";
         // this.title = "自动：计时结束时会自动重置并继续";
       }
     }
 
-    reset.onclick = function () {
-      clearInterval(time);
-      timer = 180;
-      clickTimes = false;
-      btn.innerText = "开始";
-      sTime.innerText = "00";
-      mTime.innerText = "3";
+    obj_resetBtn.onclick = function () {
+      // 结束计时函数，重置一切信息
+      clearInterval(timer);
+      time = 180;
+      timing = false;
+      obj_startBtn.innerText = "开始";
+      obj_sTime.innerText = "00";
+      obj_mTime.innerText = "3";
     }
   </script>
 </body>

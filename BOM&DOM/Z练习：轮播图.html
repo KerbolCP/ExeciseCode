@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>臭鼬轮播图</title>
+  <style>
+    body {
+      background: #404040;
+    }
+
+    .clearfix::after {
+      display: block;
+      clear: both;
+      content: "";
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+    }
+
+    .fcous {
+      background: red;
+    }
+
+    .swiper {
+      width: 600px;
+      height: 260px;
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    .swiper img {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      padding-top: 25px;
+      display: block;
+    }
+
+    li {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: #ff6700;
+      color: #fff;
+      font-weight: bolder;
+      line-height: 30px;
+      float: left;
+    }
+
+    .btn .bl {
+      float: left;
+    }
+
+    .btn .bl li {
+      cursor: pointer;
+    }
+
+    .btn .br {
+      float: right;
+    }
+
+    .btn .br li {
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="swiper">
+    <img src="./img/QQ图片20191123163249.jpg" alt="" id="show-img">
+    <div class="btn clearfix">
+      <ul class="bl clearfix">
+        <li id="sub-btn">&lt;</li>
+        <li id="add-btn">&gt;</li>
+      </ul>
+      <ul class="br clearfix">
+        <li class="fcous">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    var counter = 0;
+    var obj_img = document.getElementById("show-img");
+    var arr_num = document.getElementsByClassName("br")[0].getElementsByTagName("li");
+    var obj_add = document.getElementById("add-btn");
+    var obj_sub = document.getElementById("sub-btn");
+
+    run();
+    timer_re = null;
+    obj_img.onmouseover = function () {
+      clearInterval(timer_auto);
+      restart();
+    }
+
+    obj_add.onclick = function () {
+      clearInterval(timer_auto);
+      clearTimeout(timer_re);
+      counter++;
+      counter = counter >= 5 ? 0 : counter;
+      console.log(counter);
+      select(counter);
+    }
+
+    obj_sub.onclick = function () {
+      clearInterval(timer_auto);
+      clearTimeout(timer_re);
+      counter--;
+      counter = counter < 0 ? 5 + counter : counter;
+      console.log(counter);
+      select(counter);
+    }
+
+    for (var i = 0; i < arr_num.length; i++) {
+      arr_num[i].index = i;
+      arr_num[i].onmouseover = function () {
+        clearInterval(timer_auto);
+        counter = this.index;
+        select(this.index);
+        console.log(counter);
+        restart();
+      }
+    }
+
+    function run() {
+      window.timer_auto = setInterval(() => {
+        counter++;
+        counter = counter >= 5 ? 0 : counter;
+        select(counter);
+      }, 1500);
+    }
+
+    function restart() {
+      clearTimeout(timer_re);
+      console.log("mouseout");
+      window.timer_re = setTimeout(() => {
+        run();
+      }, 3000);
+    }
+
+    function select(num) {
+      for (var i = 0; i < arr_num.length; i++) {
+        arr_num[i].classList.remove("fcous");
+      }
+      switch (num) {
+        case 0:
+          obj_img.setAttribute("src", "./img/QQ图片20191123163249.jpg");
+          break;
+        case 1:
+          obj_img.setAttribute("src", "./img/QQ图片20191124090842.jpg");
+          break;
+        case 2:
+          obj_img.setAttribute("src", "./img/QQ图片20191124142327.jpg");
+          break;
+        case 3:
+          obj_img.setAttribute("src", "./img/QQ图片20191124142344.jpg");
+          break;
+        case 4:
+          obj_img.setAttribute("src", "./img/QQ图片20191130091112.jpg");
+          break;
+      }
+      arr_num[num].classList.add("fcous");
+    }
+  </script>
+</body>
+
+</html>
