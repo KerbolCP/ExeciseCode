@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>进度条</title>
+  <style>
+    .bar {
+      width: 400px;
+      height: 20px;
+      border: 1px solid #000000;
+      border-radius: 7px;
+      overflow: hidden;
+    }
+
+    .bg {
+      width: 0px;
+      height: 21px;
+      border-radius: 7px;
+      background: #404040;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bar">
+    <div class="bg" id="bg">0%</div>
+  </div>
+  <button id="start-btn">开始</button>
+  <script>
+    var obj_bar = document.getElementsByClassName("bar")[0];
+    var obj_btn = document.getElementById("start-btn");
+    var obj_bg = document.getElementById("bg");
+    obj_btn.onclick = function () {
+      obj_bg.style.width = 0;
+      var conter = 0;
+      var timer = setInterval(() => {
+        conter++;
+        obj_bg.style.width = obj_bg.offsetWidth + (obj_bar.offsetWidth / 100) + "px";
+        obj_bg.innerText = conter + "%";
+        if (conter >= 100) {
+          clearInterval(timer);
+        }
+      }, 32);
+    }
+  </script>
+</body>
+
+</html>

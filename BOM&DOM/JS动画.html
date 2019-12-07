@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS动画</title>
+  <style>
+    .top {
+      width: 300px;
+      height: 50px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top" id="top"></div>
+
+  <script>
+    var obj_top = document.getElementById("top");
+    obj_top.onmouseover = function () {
+      var _this = this;
+      var timer = setInterval(() => {
+        _this.style.width = (_this.offsetWidth + 10) + "px";
+        if (_this.offsetWidth >= 1520) {
+          clearInterval(timer);
+          _this.style.width = "1520px";
+        }
+      }, 16);
+    }
+    obj_top.onmouseout = function () {
+      console.log(this);
+
+    }
+  </script>
+</body>
+
+</html>

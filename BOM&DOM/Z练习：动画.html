@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动画练习</title>
+  <style>
+    .blk {
+      width: 200px;
+      height: 50px;
+      margin: 10px;
+      background-color: #404040;
+    }
+  </style>
+</head>
+
+<body>
+  <span>赛马比赛现在开始</span>
+  <div class="blk" id="top"></div>
+  <div class="blk" id="middle"></div>
+  <div class="blk" id="bottom"></div>
+
+  <script>
+    var arr_blk = document.getElementsByClassName("blk");
+    for (var i = 0; i < arr_blk.length; i++) {
+      arr_blk.timer_add = arr_blk.timer_out = null;
+      action_add(arr_blk[i]);
+      action_sub(arr_blk[i]);
+    }
+
+    function action_add(object) {
+      object.onmouseover = function () {
+        clearInterval(this.timer_out);
+        var _this = this;
+        this.timer_add = setInterval(() => {
+          if (_this.offsetWidth >= 1024) {
+            clearInterval(_this.timer_add);
+            _this.style.width = "1024px";
+          }
+          else {
+            _this.style.width = (_this.offsetWidth + 10) + "px";
+          }
+        }, 16);
+      }
+    }
+    function action_sub(object) {
+      object.onmouseout = function () {
+        var _this = this;
+        clearInterval(this.timer_add);
+        this.timer_out = setInterval(() => {
+          if (_this.offsetWidth <= 200) {
+            clearInterval(_this.timer_out);
+            _this.style.width = "200px";
+          }
+          else {
+            _this.style.width = (_this.offsetWidth - 10) + "px";
+          }
+        }, 16);
+      }
+    }
+  </script>
+</body>
+
+</html>
