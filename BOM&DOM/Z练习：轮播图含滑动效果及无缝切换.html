@@ -141,14 +141,14 @@
       clearInterval(auto_counter);
       clearInterval(timer);
       counter = ++counter > 5 ? 0 : counter;
-      selectImg(counter);
+      selectImg(counter, 1);
     }
 
     obj_sub.onclick = function () {
       clearInterval(auto_counter);
       clearInterval(timer);
       counter = --counter < 0 ? 4 : counter;
-      selectImg(counter);
+      selectImg(counter, -1);
     }
 
     for (var i = 0; i < arr_num.length; i++) {
@@ -170,10 +170,7 @@
         if (obj_show.offsetLeft > -num * 300) {
           obj_show.style.left = obj_show.offsetLeft - 5 + "px";
         }
-        else if (obj_show.offsetLeft < -num * 300) {
-          obj_show.style.left = obj_show.offsetLeft + 25 + "px";
-        }
-        if (obj_show.offsetLeft == -num * 300) {
+        else if (obj_show.offsetLeft == -num * 300) {
           clearInterval(timer);
           if (num == 5) {
             obj_show.style.left = 0 + "px";
@@ -183,21 +180,25 @@
       }, 16);
     }
 
-    function selectImg(num) {
+    function selectImg(num, direction) {
       for (var i = 0; i < arr_num.length; i++) {
         arr_num[i].classList.remove("fcous");
       }
       arr_num[num % 5].classList.add("fcous");
       window.timer = setInterval(() => {
-        if (obj_show.offsetLeft > -num * 300) {
+        if (-obj_show.offsetLeft < num * 300) {
           obj_show.style.left = obj_show.offsetLeft - 20 + "px";
+          if (num == 4 && direction == -1) {
+            obj_show.style.left = -1500 + "px";
+            counter = 4;
+          }
         }
-        else if (obj_show.offsetLeft < -num * 300) {
+        else if (-obj_show.offsetLeft > num * 300) {
           obj_show.style.left = obj_show.offsetLeft + 20 + "px";
         }
         if (obj_show.offsetLeft == -num * 300) {
           clearInterval(timer);
-          if (num == 5) {
+          if (num == 5 && direction == 1) {
             obj_show.style.left = 0 + "px";
             counter = 0;
           }
