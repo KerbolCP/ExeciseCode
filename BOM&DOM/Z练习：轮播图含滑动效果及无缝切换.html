@@ -41,7 +41,7 @@
 
     .swiper .show {
       position: absolute;
-      width: 1500px;
+      width: 1800px;
       left: 0;
     }
 
@@ -98,6 +98,7 @@
       <li><img src="./img/QQ图片20191124142327.jpg" alt=""></li>
       <li><img src="./img/QQ图片20191124142344.jpg" alt=""></li>
       <li><img src="./img/QQ图片20191130091112.jpg" alt=""></li>
+      <li><img src="./img/QQ图片20191123163249.jpg" alt=""></li>
     </ul>
     <div class="btn clearfix">
       <ul class="bl clearfix">
@@ -124,7 +125,7 @@
     var timer_re = null;
 
     window.auto_counter = setInterval(() => {
-      counter = ++counter > 4 ? 0 : counter;
+      counter = ++counter > 5 ? 0 : counter;
       autoImg(counter);
     }, 1750);
 
@@ -139,7 +140,7 @@
     obj_add.onclick = function () {
       clearInterval(auto_counter);
       clearInterval(timer);
-      counter = ++counter > 4 ? 0 : counter;
+      counter = ++counter > 5 ? 0 : counter;
       selectImg(counter);
     }
 
@@ -164,7 +165,7 @@
       for (var i = 0; i < arr_num.length; i++) {
         arr_num[i].classList.remove("fcous");
       }
-      arr_num[num].classList.add("fcous");
+      arr_num[num % 5].classList.add("fcous");
       window.timer = setInterval(() => {
         if (obj_show.offsetLeft > -num * 300) {
           obj_show.style.left = obj_show.offsetLeft - 5 + "px";
@@ -174,6 +175,10 @@
         }
         if (obj_show.offsetLeft == -num * 300) {
           clearInterval(timer);
+          if (num == 5) {
+            obj_show.style.left = 0 + "px";
+            counter = 0;
+          }
         }
       }, 16);
     }
@@ -182,7 +187,7 @@
       for (var i = 0; i < arr_num.length; i++) {
         arr_num[i].classList.remove("fcous");
       }
-      arr_num[num].classList.add("fcous");
+      arr_num[num % 5].classList.add("fcous");
       window.timer = setInterval(() => {
         if (obj_show.offsetLeft > -num * 300) {
           obj_show.style.left = obj_show.offsetLeft - 20 + "px";
@@ -192,6 +197,10 @@
         }
         if (obj_show.offsetLeft == -num * 300) {
           clearInterval(timer);
+          if (num == 5) {
+            obj_show.style.left = 0 + "px";
+            counter = 0;
+          }
         }
       }, 16);
     }
@@ -200,7 +209,7 @@
       for (var i = 0; i < arr_num.length; i++) {
         arr_num[i].classList.remove("fcous");
       }
-      arr_num[num].classList.add("fcous");
+      arr_num[num % 5].classList.add("fcous");
       window.timer = setInterval(() => {
         if (obj_show.offsetLeft > -num * 300) {
           obj_show.style.left = obj_show.offsetLeft - 25 + "px";
@@ -210,6 +219,10 @@
         }
         if (obj_show.offsetLeft == -num * 300) {
           clearInterval(timer);
+          if (num == 5) {
+            obj_show.style.left = 0 + "px";
+            counter = 0;
+          }
         }
       }, 16);
     }
@@ -218,10 +231,10 @@
       clearTimeout(timer_re);
       window.timer_re = setTimeout(() => {
         window.auto_counter = setInterval(() => {
-          counter = ++counter > 4 ? 0 : counter;
+          counter = ++counter > 5 ? 0 : counter;
           autoImg(counter);
         }, 1750);
-      }, 3000);
+      }, 1500);
     }
   </script>
 </body>
