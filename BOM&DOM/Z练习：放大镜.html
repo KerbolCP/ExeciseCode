@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>臭鼬放大器</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .box {
+      position: relative;
+      display: inline-block;
+      width: 400px;
+      height: 400px;
+      border: 1px solid black;
+    }
+
+    .pht-left {
+      width: 400px;
+      height: 400px;
+    }
+
+    .mask {
+      position: absolute;
+      /* display: inline-block; */
+      display: none;
+      width: 200px;
+      height: 200px;
+      background: rgb(128, 128, 255);
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      top: 0;
+      left: 0;
+      opacity: .4;
+    }
+
+    .show {
+      position: relative;
+      display: none;
+      width: 400px;
+      height: 400px;
+      border: 1px solid black;
+      overflow: hidden;
+    }
+
+    .pht-right {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="./img/QQ图片20191124142327.jpg" alt="" class="pht-left" id="limg">
+    <div class="mask" id="mask"></div>
+  </div>
+
+  <div class="show">
+    <img src="./img/QQ图片20191124142327.jpg" alt="" class="pht-right" id="rimg">
+  </div>
+  <!-- <h3>划入图片查看臭鼬</h3> -->
+
+  <script>
+    var obj_box = document.getElementsByClassName("box")[0];   // 在box的范围内划动，不要在img的范围内划动
+    var obj_mask = document.getElementById("mask");
+    var obj_rimg = document.getElementById("rimg");
+    var obj_show = document.getElementsByClassName("show")[0];
+
+    obj_box.onmousemove = function (event) {
+      // console.log("in box");
+      console.log(event);
+      obj_mask.style.display = "block";
+      obj_show.style.display = "inline-block";
+      obj_mask.style.left = (event.clientX - 100) < 0 ? 0 : ((event.clientX - 100) > 200 ? 200 : (event.clientX - 100)) + "px";
+      obj_mask.style.top = (event.clientY - 100) < 0 ? 0 : ((event.clientY - 100) > 200 ? 200 : (event.clientY - 100)) + "px";
+      obj_rimg.style.left = -2 * obj_mask.offsetLeft + "px";
+      obj_rimg.style.top = -2 * obj_mask.offsetTop + "px";
+    }
+
+    obj_box.onmouseleave = function () {
+      // console.log("out box");
+      obj_mask.style.display = "none";
+      obj_show.style.display = "none";
+    }
+  </script>
+</body>
+
+</html>

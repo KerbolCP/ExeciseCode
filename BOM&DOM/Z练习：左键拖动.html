@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>臭鼬拖动</title>
+  <title>臭鼬拖动器</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
       text-align: center;
     }
 
@@ -22,36 +24,32 @@
 </head>
 
 <body>
-  <h3>鼠标左键拖动臭鼬</h3>
+  <h3>按住鼠标左键拖动臭鼬</h3>
   <img class="pht" id="pht" src="./img/QQ图片20191124090842.jpg">
 
   <script>
     var obj_img = document.getElementById("pht");
-    obj_img.onclick = function () {
-      // obj_img.onmousedown = function (event) {
-      // event.preventDefault();
-      this.onmousemove = function (event) {
-        // console.log(event);
+    obj_img.onmousedown = function (event) {
+      event.preventDefault();
+      var deltaX = event.clientX - this.offsetLeft;
+      var deltaY = event.clientY - this.offsetTop;
+      document.onmousemove = function (event) {
+        // 给doc绑定是防止在img内移动太快，获取不到位置
         event.preventDefault();
-        obj_img.style.left = obj_img.offsetLeft + event.movementX + "px";
-        obj_img.style.top = obj_img.offsetTop + event.movementY + "px";
+        // console.log(event);
+        obj_img.style.left = event.clientX - deltaX + "px";
+        obj_img.style.top = event.clientY - deltaY + "px";
       }
     }
+
+    obj_img.onmouseup = function () {
+      document.onmousemove = null;
+    }
+    // obj_img.onmouseout = function () {
+    //   document.onmousemove = null;
     // }
-    // obj_img.inflag = false;
-    // obj_img.addEventListener("click", () => {
-    //   this.inflag = true;
-    // })
-    // obj_img.addEventListener("mouseout", () => {
-    //   this.inflag = false;
-    // })
-    // obj_img.addEventListener("mousemove", (event) => {
-    //   if (this.inflag) {
-    //     // console.log(event);
-    //     obj_img.style.left = obj_img.offsetLeft + event.movementX + "px";
-    //     obj_img.style.top = obj_img.offsetTop + event.movementY + "px";
-    //   }
-    // })
+
+    // clientX 相对当前视口的位置
   </script>
 </body>
 

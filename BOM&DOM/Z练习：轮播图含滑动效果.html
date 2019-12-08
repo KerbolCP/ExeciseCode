@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>臭鼬轮播图</title>
+  <style>
+    body {
+      background: #404040;
+    }
+
+    .clearfix::after {
+      display: block;
+      clear: both;
+      content: "";
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+    }
+
+    .swiper {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      background: #fff;
+      overflow: none;
+      overflow: hidden;
+    }
+
+    .swiper img {
+      width: 300px;
+      height: 300px;
+    }
+
+    .swiper .show {
+      position: absolute;
+      width: 1500px;
+      left: 0;
+    }
+
+    .swiper .show li {
+      float: left;
+    }
+
+    .btn {
+      width: 300px;
+      position: absolute;
+      bottom: 0;
+      z-index: 11;
+    }
+
+    .btn .bl {
+      float: left;
+    }
+
+    .btn .bl li,
+    .br li {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: #ff6700;
+      color: #fff;
+      font-weight: bolder;
+      line-height: 25px;
+      opacity: .6;
+      float: left;
+      cursor: pointer;
+    }
+
+    .br .fcous {
+      background: red;
+    }
+
+    .btn .br {
+      float: right;
+    }
+
+    .btn .br li {
+      float: left;
+    }
+  </style>
+  </style>
+</head>
+
+<body>
+  <div class="swiper">
+    <ul class="show clearfix" id="show">
+      <li><img src="./img/QQ图片20191123163249.jpg" alt=""></li>
+      <li><img src="./img/QQ图片20191124090842.jpg" alt=""></li>
+      <li><img src="./img/QQ图片20191124142327.jpg" alt=""></li>
+      <li><img src="./img/QQ图片20191124142344.jpg" alt=""></li>
+      <li><img src="./img/QQ图片20191130091112.jpg" alt=""></li>
+    </ul>
+    <div class="btn clearfix">
+      <ul class="bl clearfix">
+        <li id="sub-btn">&lt;</li>
+        <li id="add-btn">&gt;</li>
+      </ul>
+      <ul class="br clearfix">
+        <li class="fcous">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    var counter = 0;
+    var obj_show = document.getElementById("show");
+    var obj_add = document.getElementById("add-btn");
+    var obj_sub = document.getElementById("sub-btn");
+    var arr_num = document.getElementsByClassName("br")[0].getElementsByTagName("li");
+    var timer = null;
+    var timer_re = null;
+
+    window.auto_counter = setInterval(() => {
+      counter = ++counter > 4 ? 0 : counter;
+      autoImg(counter);
+    }, 1750);
+
+    obj_show.onmouseover = function () {
+      clearInterval(auto_counter);
+    }
+
+    obj_show.onmouseout = function () {
+      restart();
+    }
+
+    obj_add.onclick = function () {
+      clearInterval(auto_counter);
+      clearInterval(timer);
+      counter = ++counter > 4 ? 0 : counter;
+      selectImg(counter);
+    }
+
+    obj_sub.onclick = function () {
+      clearInterval(auto_counter);
+      clearInterval(timer);
+      counter = --counter < 0 ? 4 : counter;
+      selectImg(counter);
+    }
+
+    for (var i = 0; i < arr_num.length; i++) {
+      arr_num[i].index = i;
+      arr_num[i].onmouseover = function () {
+        clearInterval(auto_counter);
+        clearInterval(timer);
+        counter = this.index;
+        numImg(this.index);
+      }
+    }
+
+    function autoImg(num) {
+      for (var i = 0; i < arr_num.length; i++) {
+        arr_num[i].classList.remove("fcous");
+      }
+      arr_num[num].classList.add("fcous");
+      window.timer = setInterval(() => {
+        if (obj_show.offsetLeft > -num * 300) {
+          obj_show.style.left = obj_show.offsetLeft - 5 + "px";
+        }
+        else if (obj_show.offsetLeft < -num * 300) {
+          obj_show.style.left = obj_show.offsetLeft + 25 + "px";
+        }
+        if (obj_show.offsetLeft == -num * 300) {
+          clearInterval(timer);
+        }
+      }, 16);
+    }
+
+    function selectImg(num) {
+      for (var i = 0; i < arr_num.length; i++) {
+        arr_num[i].classList.remove("fcous");
+      }
+      arr_num[num].classList.add("fcous");
+      window.timer = setInterval(() => {
+        if (obj_show.offsetLeft > -num * 300) {
+          obj_show.style.left = obj_show.offsetLeft - 20 + "px";
+        }
+        else if (obj_show.offsetLeft < -num * 300) {
+          obj_show.style.left = obj_show.offsetLeft + 20 + "px";
+        }
+        if (obj_show.offsetLeft == -num * 300) {
+          clearInterval(timer);
+        }
+      }, 16);
+    }
+
+    function numImg(num) {
+      for (var i = 0; i < arr_num.length; i++) {
+        arr_num[i].classList.remove("fcous");
+      }
+      arr_num[num].classList.add("fcous");
+      window.timer = setInterval(() => {
+        if (obj_show.offsetLeft > -num * 300) {
+          obj_show.style.left = obj_show.offsetLeft - 25 + "px";
+        }
+        else if (obj_show.offsetLeft < -num * 300) {
+          obj_show.style.left = obj_show.offsetLeft + 25 + "px";
+        }
+        if (obj_show.offsetLeft == -num * 300) {
+          clearInterval(timer);
+        }
+      }, 16);
+    }
+
+    function restart() {
+      clearTimeout(timer_re);
+      window.timer_re = setTimeout(() => {
+        window.auto_counter = setInterval(() => {
+          counter = ++counter > 4 ? 0 : counter;
+          autoImg(counter);
+        }, 1750);
+      }, 3000);
+    }
+  </script>
+</body>
+
+</html>
