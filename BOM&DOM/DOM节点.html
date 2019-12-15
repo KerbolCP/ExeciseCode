@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM节点</title>
+</head>
+
+<body>
+  <!-- 每一个元素也可以称为DOM节点 -->
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div id="div1"></div>
+
+  <div class="father">
+    <div class="chrild"></div>
+  </div>
+  <!-- Note -->
+  <script>
+
+    var arr_box1 = document.querySelectorAll(".box");
+    console.log(arr_box1);
+    var obj_father = document.querySelector(".father"); // 获取第一DOM元素
+    console.log(obj_father.childNodes);
+    console.log(obj_father.childNodes[1].nodeType);
+    console.log(obj_father.children);
+    obj_father.previousElementSibling
+    var obj_chrild = document.querySelector(".chrild"); // 获取父级元素
+    console.log(obj_chrild.parentElement); // html节点
+    console.log(obj_chrild.parentNode); // Node节点
+
+    var obj_box = document.querySelector(".box")[2]; // 获取兄弟节点
+    console.log(obj_box.nextElementSibling);
+    console.log(obj_box.previousSibling);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM节点创建与移动</title>
+</head>
+
+<body>
+  <ul id="numUl">
+    <li>1</li>
+    <li>2</li>
+    <li class="num">3</li>
+  </ul>
+
+  <ul id="chrUl">
+    <li>a</li>
+    <li>b</li>
+    <li class="chr">c</li>
+  </ul>
+  <button id="addBtn">add</button>
+  <button id="moveBtn">move</button>
+
+  <script>
+    var counter = 3;
+    var obj_numList = document.querySelector("#numUl");
+    var obj_chrList = document.querySelector("#chrUl");
+    var obj_chrMove = document.querySelector(".chr");
+
+    var obj_addBtn = document.querySelector("#addBtn");
+    var obj_moveBtn = document.querySelector("#moveBtn");
+
+    obj_addBtn.onclick = function () {
+      var obj_numCreate = document.createElement("li");
+      obj_numCreate.innerText = ++counter;
+      obj_numList.append(obj_numCreate);
+    }
+
+    obj_moveBtn.onclick = function () {
+      obj_numList.append(obj_chrMove);
+    }
+  </script>
+</body>
+
+</html>

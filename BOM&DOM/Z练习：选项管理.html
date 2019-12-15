@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>选项管理</title>
+  <style>
+    .operation {
+      width: 50px;
+      height: 261px;
+      padding-top: 39px;
+      text-align: center;
+      line-height: 50px;
+      float: left;
+    }
+
+    select {
+      float: left;
+      width: 100px;
+      height: 300px;
+    }
+
+    button {
+      width: 36px;
+      height: 27px;
+      border: none;
+      background-color: gray;
+      color: #fff;
+    }
+
+    button:hover {
+      background-color: rgb(292, 292, 292);
+      border: 1px solid gray;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <select multiple name="" id="select-not">
+    <option>选项1</option>
+    <option>选项4</option>
+    <option>选项6</option>
+    <option>选项8</option>
+    <option>选项9</option>
+  </select>
+
+  <div class="operation">
+    <button id="add-btn">&gt;</button>
+    <button id="add-all">&gt;&gt;</button>
+    <button id="del-btn">&lt;</button>
+    <button id="sel-all">&lt;&lt;</button>
+  </div>
+
+  <select multiple name="" id="selected">
+    <option>选项2</option>
+    <option>选项3</option>
+    <option>选项5</option>
+    <option>选项7</option>
+  </select>
+
+  <script>
+    var obj_opNoList = document.querySelector("#select-not");
+    var arr_opNoNode = obj_opNoList.querySelectorAll("option");
+    var obj_opEdList = document.querySelector("#selected");
+    var arr_opEdNode = obj_opEdList.querySelectorAll("option");
+
+    var obj_addBtn = document.querySelector("#add-btn");
+    var obj_addAll = document.querySelector("#add-all");
+    var obj_delBtn = document.querySelector("#del-btn");
+    var obj_delAll = document.querySelector("#del-all");
+
+
+    // option.selected
+  </script>
+</body>
+
+</html>

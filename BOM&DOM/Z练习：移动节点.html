@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移动节点</title>
+</head>
+
+<body>
+  <div class="box">
+    <div class="text">
+      午餐
+      <button class="up">↑</button>
+      <button class="down">↓</button>
+    </div>
+    <div class="text">
+      晚餐
+      <button class="up">↑</button>
+      <button class="down">↓</button>
+    </div>
+    <div class="text">
+      早餐
+      <button class="up">↑</button>
+      <button class="down">↓</button>
+    </div>
+
+  </div>
+
+  <script>
+    var obj_box = document.querySelector(".box");
+    var arr_div = document.querySelectorAll(".text");
+    var arr_upBtn = document.querySelectorAll(".up");
+    var arr_downBtn = document.querySelectorAll(".down");
+
+    for (var i = 0; i < arr_upBtn.length; i++) {
+      arr_upBtn[i].onclick = function () {
+        var now = this.parentElement;
+        var previous = now.previousElementSibling;
+        if (previous) {  // prvious != null
+          obj_box.insertBefore(now, previous);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

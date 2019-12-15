@@ -12,10 +12,22 @@
   <!-- 100元随机分10人，每人最少分5元（百度作业帮） -->
 
   <script>
-    for (var i = 1; i <= 10; i++) {
-      document.write("第" + i + "人分到了" + Math.floor(Math.random() * 5 + 5) + "元</br>");
+    var num = [10], sum = 0, over = 100;
+    for (var i = 0; i < 10; i++) {
+      num[i] = rand_limt(5, 10);
     }
-
+    for (var i = 0; i < 10; i++) {
+      sum += num[i];
+    }
+    over -= sum;
+    for (var i = 0; i < 10; i++) {
+      num[i] += over / 10;
+      document.write("第" + (i + 1) + "个人分得" + num[i] + "元</br>");
+    }
+    function rand_limt(min, max) {
+      // [min, max)   min到max的闭开区间
+      return Math.floor(Math.random() * (max - min) + min);
+    }
   </script>
 </body>
 
