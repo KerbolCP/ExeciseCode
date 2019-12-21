@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包与立即执行函数</title>
+</head>
+
+<body>
+  <script>
+    // 立即执行函数
+    (function (i) {
+      console.log(i);
+    })(10);
+
+    function f1() {
+      var num = 2019;
+      function f2() {
+        return num;
+      }
+      return f2;
+    }
+    var foo = f1();
+    // num好像是f1中的静态数据，在声明时，就分配了不可回收的内存空间
+    console.log(foo());
+
+
+    /**********************************/
+    var name = "The Window";
+    var object = {
+      name: "My Object",
+      getNameFunc: function () {
+        return function () {
+          return this.name;
+        };
+      }
+    };
+    console.log(object.getNameFunc()());
+    /**********************************/
+
+
+
+    /**********************************/
+    var name = "The Window";
+    var object = {
+      name: "My Object",
+      getNameFunc: function () {
+        var that = this;
+        return function () {
+          return that.name;
+        };
+      }
+    };
+    console.log(object.getNameFunc()());
+    /**********************************/
+  </script>
+</body>
+
+</html>

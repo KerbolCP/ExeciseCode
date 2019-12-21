@@ -43,6 +43,16 @@
         }
       }
     }
+
+    for (var i = 0; i < arr_downBtn.length; i++) {
+      arr_downBtn[i].onclick = function () {
+        var now = this.parentElement;
+        var next = now.nextElementSibling;
+        if (next) {  // next != null
+          obj_box.insertBefore(next, now);
+        }
+      }
+    }
   </script>
 </body>
 

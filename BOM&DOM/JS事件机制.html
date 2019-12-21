@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件机制</title>
+  <style>
+    #red {
+      width: 600px;
+      height: 600px;
+      background: rgb(247, 135, 135);
+    }
+
+    #blue {
+      width: 400px;
+      height: 400px;
+      background: rgb(164, 164, 253);
+    }
+
+    #grey {
+      width: 200px;
+      height: 200px;
+      background: grey;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="red">
+    <div id="blue">
+      <div id="grey">
+      </div>
+    </div>
+  </div>
+  <script>
+    // JS 事件机制
+    // 捕获 > 冒泡
+    var red = document.getElementById("red");
+    var blue = document.getElementById("blue");
+    var grey = document.getElementById("grey");
+
+
+    // // 冒泡 （从外向里，逐渐触发）
+    // red.onclick = function () {
+    //   console.log("red");
+    // }
+
+    // blue.onclick = function () {
+    //   console.log("blue");
+    // }
+
+    // grey.onclick = function () {
+    //   console.log("grey");
+    // }
+
+
+    // // 捕获 （从里向外，逐渐触发）
+    red.addEventListener("click", function () {
+      console.log("red");
+    }, true);
+    // true 代表使用捕获
+
+    blue.addEventListener("click", function () {
+      console.log("blue");
+    }, true);
+
+    grey.addEventListener("click", function () {
+      console.log("grey");
+    }, true);
+  </script>
+</body>
+
+</html>

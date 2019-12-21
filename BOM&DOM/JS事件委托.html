@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件委托</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <button>add</button>
+  <script>
+    var counter = 5;
+    var obj_ul = document.getElementsByTagName("ul")[0];
+    var arr_li = document.getElementsByTagName("li");
+    var obj_btn = document.getElementsByTagName("button")[0];
+
+    obj_btn.onclick = function () {
+      var tmp = document.createElement("li");
+      tmp.innerText = ++counter;
+      obj_ul.appendChild(tmp);
+    }
+    for (var i = 0; i < arr_li.length; i++) {
+      // 立即执行函数
+      (function (index) {
+        // arr_li[i]
+      })(i)
+    }
+    // 事件委托（解决：子元素循环绑定事件，动态添加元素绑定事件）
+    obj_ul.onclick = function (event) {
+      console.log(event.target.innerText);
+
+    }
+
+  </script>
+</body>
+
+</html>

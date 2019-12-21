@@ -7,6 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>选项管理</title>
   <style>
+    option {
+      cursor: pointer;
+    }
+
     .operation {
       width: 50px;
       height: 261px;
@@ -28,6 +32,7 @@
       border: none;
       background-color: gray;
       color: #fff;
+      cursor: pointer;
     }
 
     button:hover {
@@ -51,7 +56,7 @@
     <button id="add-btn">&gt;</button>
     <button id="add-all">&gt;&gt;</button>
     <button id="del-btn">&lt;</button>
-    <button id="sel-all">&lt;&lt;</button>
+    <button id="del-all">&lt;&lt;</button>
   </div>
 
   <select multiple name="" id="selected">
@@ -63,17 +68,62 @@
 
   <script>
     var obj_opNoList = document.querySelector("#select-not");
-    var arr_opNoNode = obj_opNoList.querySelectorAll("option");
     var obj_opEdList = document.querySelector("#selected");
-    var arr_opEdNode = obj_opEdList.querySelectorAll("option");
 
     var obj_addBtn = document.querySelector("#add-btn");
     var obj_addAll = document.querySelector("#add-all");
     var obj_delBtn = document.querySelector("#del-btn");
     var obj_delAll = document.querySelector("#del-all");
 
+    obj_opNoList.ondblclick = function () {
+      obj_opEdList.appendChild(this.options[this.selectedIndex]);
+    }
 
-    // option.selected
+    obj_opEdList.ondblclick = function () {
+      obj_opNoList.appendChild(this.options[this.selectedIndex]);
+    }
+
+    obj_addBtn.onclick = function () {
+      // var arr = [];
+      for (var i = 0; i < obj_opNoList.options.length; i++) {
+        // console.log(obj_opNoList.options[i].selected);
+        if (obj_opNoList.options[i].selected) {
+          obj_opEdList.appendChild(obj_opNoList.options[i--]);
+          // i--;
+          // arr.push(obj_opNoList.options[i]);
+        }
+      }
+      // for (var i = 0; i < arr.length; i++) {
+      //   obj_opEdList.appendChild(arr[i]);
+      // }
+    }
+
+    obj_delBtn.onclick = function () {
+      // var arr = [];
+      for (var i = 0; i < obj_opEdList.options.length; i++) {
+        // console.log(obj_opNoList.options[i].selected);
+        if (obj_opEdList.options[i].selected) {
+          obj_opNoList.appendChild(obj_opEdList.options[i--]);
+          // i--;
+          // arr.push(obj_opEdList.options[i]);
+        }
+      }
+      // for (var i = 0; i < arr.length; i++) {
+      //   obj_opNoList.appendChild(arr[i]);
+      // }
+    }
+
+    obj_addAll.onclick = function () {
+      while (obj_opNoList.options.length) {
+        obj_opEdList.appendChild(obj_opNoList.options[0]);
+      }
+    }
+
+    obj_delAll.onclick = function () {
+      while (obj_opEdList.options.length) {
+        obj_opNoList.appendChild(obj_opEdList.options[0]);
+      }
+    }
   </script>
 </body>
 
