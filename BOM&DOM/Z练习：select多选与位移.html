@@ -75,6 +75,7 @@
     var obj_delBtn = document.querySelector("#del-btn");
     var obj_delAll = document.querySelector("#del-all");
 
+    // 双击
     obj_opNoList.ondblclick = function () {
       obj_opEdList.appendChild(this.options[this.selectedIndex]);
     }
@@ -83,13 +84,14 @@
       obj_opNoList.appendChild(this.options[this.selectedIndex]);
     }
 
+    // 多选 注意数组长度的变化
     obj_addBtn.onclick = function () {
       // var arr = [];
       for (var i = 0; i < obj_opNoList.options.length; i++) {
         // console.log(obj_opNoList.options[i].selected);
         if (obj_opNoList.options[i].selected) {
-          obj_opEdList.appendChild(obj_opNoList.options[i--]);
-          // i--;
+          obj_opEdList.appendChild(obj_opNoList.options[i]);
+          i--;
           // arr.push(obj_opNoList.options[i]);
         }
       }
@@ -103,8 +105,8 @@
       for (var i = 0; i < obj_opEdList.options.length; i++) {
         // console.log(obj_opNoList.options[i].selected);
         if (obj_opEdList.options[i].selected) {
-          obj_opNoList.appendChild(obj_opEdList.options[i--]);
-          // i--;
+          obj_opNoList.appendChild(obj_opEdList.options[i]);
+          i--;
           // arr.push(obj_opEdList.options[i]);
         }
       }

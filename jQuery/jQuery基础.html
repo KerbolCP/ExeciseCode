@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery基础</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <div id="box">hello word</div>
+
+  <script>
+    // var obj_box = document.getElementById("box");
+    // obj_box.style.color = "red";
+    // $("#box").css({ color: "red" });
+
+    var $box = $("#box");
+    // $box[0] == box.get(0);
+    console.log($box[0]);
+
+    var obj_box = document.getElementById("box");
+    // 初始 -> jQuery   :  $(DOM)
+    console.log($(obj_box));
+  </script>
+</body>
+
+</html>
