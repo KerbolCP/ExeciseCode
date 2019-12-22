@@ -32,6 +32,13 @@
     <li>e你好world</li>
   </ul>
 
+  <div></div>
+  <div>1</div>
+  <div>2</div>
+  <div>
+    <p>has(p)</p>
+  </div>
+
   <script>
     // ~ , 
     // $("#box").css({ color: "red" })
@@ -39,9 +46,9 @@
     // $("div").css({ border: "black solid 1px" });
     $(".box,.div1").css({ color: "yellow" });
     $(".div1 .div3").css({ color: "red" });
-    $(".div1 > .div2").css({ color: "purple" });
-    $(".div1 + .div4").css({ color: "blue" });
-    $(".div1 ~ .div5").css({ color: "green" });
+    $(".div1 > .div2").css({ color: "purple" });  // 亲子代选择器
+    $(".div1 + .div4").css({ color: "blue" }); // 右兄弟选择器
+    $(".div1 ~ .div5").css({ color: "green" }); // 兄弟选择器
 
     $("li:eq(3)").css({ color: "red" });
     // $("li:odd").css({color:"red"});
@@ -51,6 +58,24 @@
     // $("li:lt(2)").css({color:"red"}); 小于下标2
     // $("li:not('.li1')").css({color:"red"}); 不包含 类li1
     $("li:contains('你好')").css({ color: "blue" });
+
+    $("div:empty").css({
+      width: "100px",
+      height: "100px",
+      backgroundColor: "red"
+    })
+
+    $("div:has(p)").css({ // 给含p标签的div加样式
+      width: "100px",
+      height: "100px",
+      backgroundColor: "red"
+    })
+
+    $("div:parent").css({ // 给含有元素（或子标签）的div加样式
+      width: "100px",
+      height: "100px",
+      backgroundColor: "red"
+    })
   </script>
 </body>
 

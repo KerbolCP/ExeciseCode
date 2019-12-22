@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>选择</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <h1>爱好：</h1>
+  <div>
+    <input type="checkbox" name="" id="check1">唱
+    <input type="checkbox" name="" id="check2">跳
+    <input type="checkbox" name="" id="check3">rap
+    <input type="checkbox" name="" id="check4">篮球
+  </div>
+  <div>
+    <button id="all">全选</button>
+    <button id="opp">反选</button>
+    <button id="not">全不选</button>
+  </div>
+
+  <script>
+    $("#all").click(function () {
+      $(":checkbox").prop("checked", true);
+    })
+
+    $("#opp").click(function () {
+      $(":checkbox").each(function (index, item) {
+        $(item).prop("checked", !$(item).prop("checked"));
+
+      })
+    })
+
+    // var arr = [2, 3, 4, 5, 6];
+    // arr.forEach(item/*(item, index, arr)*/ => {
+    //   console.log(item);
+    // });
+
+    $("#not").click(function () {
+      $(":checkbox").prop("checked", false);
+    })
+  </script>
+
+</body>
+
+</html>
