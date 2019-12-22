@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包-进阶</title>
+</head>
+
+<body>
+  <!-- const repeatfunc = repeat(console.log, 5, 500); -->
+  <!-- repeatfunc("hello,wrold"); -->
+  <!-- 每隔500毫秒输出一个hello,wrold 共输出5次 -->
+
+  <script>
+    var repeatfunc = repeat(console.log, 5, 500);
+    repeatfunc("hello,wrold");
+
+    function repeat(funLog, num, ms) {
+      return function (str) {
+        var conter = 1;
+        var timer = setInterval(() => {
+          funLog(str);
+          conter++;
+          if (conter > num) {
+            clearInterval(timer);
+          }
+        }, ms);
+      }
+    }
+  </script>
+</body>
+
+</html>

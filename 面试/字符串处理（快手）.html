@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字符串处理</title>
+</head>
+
+<body>
+  <script>
+
+    console.log(fooMe());
+    console.log(fooTe());
+
+    function fooTe() {
+      var str = 123000;
+      // split 按分割符分割成成数组
+      // join 数组转换为字符串
+      return parseInt(str.toString().split("").reverse().join(""));
+    }
+
+    function fooMe() {
+      var str1 = 12300;
+      var res = 0;
+      for (var i = 3; i <= 5; i++) {
+        res *= 10;
+        res += getIndex(str1, i);
+      }
+      return res;
+    }
+
+    function getIndex(num, index) {
+      return Math.floor(num / Math.pow(10, index - 1)) % 10;
+    }
+  </script>
+</body>
+
+</html>

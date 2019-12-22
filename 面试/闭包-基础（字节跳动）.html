@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包-基础</title>
+</head>
+
+<body>
+  <!-- 编写一个sum函数，要求满足下列条件 -->
+  <!--  console.log(sum(2, 3));  //  5 -->
+  <!--  console.log(sum(2)(3));  //  5 -->
+  <script>
+    console.log(sum(2, 3));
+    console.log(sum(2)(3));
+
+    /***** Me *****/
+    // function sum() {
+    //   if (arguments.length < 2) {
+    //     var tmp = arguments[0];
+    //     function foo(num) {
+    //       return tmp + num;
+    //     }
+    //     return foo;
+    //   }
+    //   else {
+    //     return arguments[0] + arguments[1];
+    //   }
+    // }
+
+    /***** Teacher *****/
+    function sum(x, y) {
+      if (2 == arguments.length) {
+        return x + y;
+      }
+      else if (1 == arguments.length) {
+        return function (z) {
+          return x + z;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
