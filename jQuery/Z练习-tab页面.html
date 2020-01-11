@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery Tab页面</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+  <style>
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 260px;
+      border: 2px solid #000;
+      margin: 0 auto;
+    }
+
+    .header {
+      border-bottom: 2px solid #000;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .header .crouse li {
+      padding: 0 10px;
+      float: left;
+      list-style: none;
+    }
+
+    .header .crouse .fcous {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .container {
+      margin-left: 40px;
+    }
+
+    .container ul {
+      display: none;
+    }
+
+    .box .container .show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="header">
+      <ul class="crouse clearfix">
+        <li class="fcous">第一节课</li>
+        <li>第二节课</li>
+        <li>第三节课</li>
+      </ul>
+    </div>
+    <div class="container">
+      <ul class="one show">
+        <li>课程一</li>
+        <li>课程二</li>
+        <li>课程三</li>
+      </ul>
+
+      <ul class="two">
+        <li>课程一</li>
+        <li>课程二</li>
+      </ul>
+
+      <ul class="three">
+        <li>课程一</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    $(".crouse li").mouseover(function () {
+      // $(this).addClass("fcous");
+      // $(this).siblings().removeClass("fcous");
+      $(this).addClass("fcous").siblings().removeClass("fcous");
+
+      $(".container ul").eq($(this).index()).addClass("show").siblings().removeClass("show");
+    })
+  </script>
+</body>
+
+</html>

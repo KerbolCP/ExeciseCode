@@ -10,22 +10,24 @@
 </head>
 
 <body>
-  <ul>
+  <ul class="box">
     <li>1</li>
     <li>2</li>
     <li class="test">3</li>
-    <li>4
-      <div>div</div>
+    <li class="have">4
+      <div class="operation">div</div>
     </li>
     <li>5</li>
     <li>6</li>
   </ul>
+
 
   <script>
     // $("li").eq(2).css({
     //   color: "red",
     //   backgroundColor: "blue"
     // });
+
     // $("li:eq(0)").css("background-color", "gray");
 
     // $("li").filter(":odd").css("background-color", "gray");
@@ -37,6 +39,36 @@
     // console.log($("li").eq(2).is(".test"));
 
     // $("li:eq(2)").siblings().css("background-color", "gray");
+
+    // $(".test").siblings().add(".operation").css("color", "blue");
+
+    // var res = $("li").map(function () {
+    //   return this;
+    // })
+    // console.log(res);
+
+    // var res2 = $("li").each(function () {
+    //   return this.id = "addId";
+    // })
+    // console.log(res2);
+
+    // $("li").siblings().addBack().css("color", "red");
+
+    // console.log($(".have").children());  // 获取亲子代
+    // console.log($(".have").contents());
+
+    // console.log($(".have").closest(".box")); // 最近的box
+
+    // console.log($(".box").find(".operation"));  // 在内部寻找
+
+    // $(".have").next().css("color", "red");  // 选择右兄弟
+
+    // $(".test").nextUntil($("li:last")).css("color", "red");  // 在兄弟节点中选择范围
+
+    // $(".test").parent().css("color", "red");
+    // $(".test").parents().css("color", "red");
+
+    // $(".have").prev().css("color", "red");  // 选择左兄弟
   </script>
 </body>
 
