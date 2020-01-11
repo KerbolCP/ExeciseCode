@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>选项管理</title>
+  <title>jQuery选项管理</title>
   <script src="./js/jquery-3.4.1.js"></script>
   <style>
     option {
@@ -45,7 +45,7 @@
 </head>
 
 <body>
-  <select multiple name="" id="select-not">
+  <select multiple name="" id="select-left">
     <option>选项1</option>
     <option>选项4</option>
     <option>选项6</option>
@@ -60,7 +60,7 @@
     <button id="del-all">&lt;&lt;</button>
   </div>
 
-  <select multiple name="" id="selected">
+  <select multiple name="" id="select-right">
     <option>选项2</option>
     <option>选项3</option>
     <option>选项5</option>
@@ -69,22 +69,28 @@
 
   <script>
     $("#add-btn").click(function () {
-      $("#selected").append($("#select-not option:selected"));
+      $("#select-right").append($("#select-left option:selected"));
     })
 
     $("#del-btn").click(function () {
-      $("#select-not").append($("#selected option:selected"));
+      $("#select-left").append($("#select-right option:selected"));
     })
 
     $("#add-all").click(function () {
-      $("#selected").append($("#select-not option"));
+      $("#select-right").append($("#select-left option"));
     })
 
     $("#del-all").click(function () {
-      $("#select-not").append($("#selected option"));
+      $("#select-left").append($("#select-right option"));
     })
 
+    $("#select-left").on("dblclick", "option", function () {
+      $("#select-right").append($(this));
+    })
 
+    $("#select-right").on("dblclick", "option", function () {
+      $("#select-left").append($(this));
+    })
   </script>
 </body>
 
