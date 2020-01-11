@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuey操作</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Title</h2>
+    <div class="inner">Hello</div>
+    <div class="inner">world</div>
+  </div>
+
+  <script>
+    // var oCon = document.getElementsByClassName("container")[0];
+    // var oH1 = document.createElement("h1");
+    // oH1.innerText = "fellow37";
+    // oCon.appendChild(oH1);
+    // oCon.append(oH1);
+
+    // var $h1 = $("<h1>");
+    // $h1.text("fellow37");
+    // $(".container").append($h1);
+
+    // $(".container").append($("<h1>fellow37<h1>"));
+    $(".inner").after("<p>text<p>");
+    // $(".inner").remove();  移除元素
+    // $(".inner").empty();   清空内容
+
+    $("div.inner").replaceWith("<h2>New Title<h2>");
+  </script>
+</body>
+
+</html>

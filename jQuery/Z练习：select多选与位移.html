@@ -68,17 +68,21 @@
   </select>
 
   <script>
-    $("#add-btn, option:selected").click(function () {
+    $("#add-btn").click(function () {
       $("#selected").append($("#select-not option:selected"));
     })
 
-    $("#del-btn, option:selected").click(function () {
+    $("#del-btn").click(function () {
       $("#select-not").append($("#selected option:selected"));
     })
 
+    $("#add-all").click(function () {
+      $("#selected").append($("#select-not option"));
+    })
 
-
-
+    $("#del-all").click(function () {
+      $("#select-not").append($("#selected option"));
+    })
 
 
   </script>
