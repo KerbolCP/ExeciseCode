@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery核心</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <div class="box"></div>
+  <div class="info"></div>
+
+  <script>
+    $.fn.extend({
+      fellow37: function (str) {
+        $(this).text(str);
+        // this[0].innerText = str;
+        // console.log(this);
+      }
+    })
+
+    $(".box").fellow37("hello");
+
+    $.fn.extend({
+      info:
+        function (obj) {
+          var defult = {
+            name: "李华",
+            age: 16,
+            school: "理工"
+          }
+
+          $.extend(defult, obj);
+          this.html(
+            "<div>姓名：" + defult.name + "</div>" +
+            "<div>年龄：" + defult.age + "</div>" +
+            "<div>学校：" + defult.school + "</div>")
+        }
+    })
+
+    $(".info").info();
+  </script>
+</body>
+
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery表单事件</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <form action="xxx.php" id="form1">
+    <input type="text" name="in1" id="intext">
+    <!-- autofocus -->
+    <!-- 自动获取焦点 -->
+
+    <select name="s1" id="target">
+      <option value="1">operation 1</option>
+      <option value="2">operation 2</option>
+    </select>
+    <button type="submit">提交</button>
+    <button type="button">确定</button>
+  </form>
+
+
+  <script>
+    // $("#intext").focus();
+    // jQuery自动获取焦点
+
+    $("#intext").focus(function () {
+      console.log("focus");
+    })
+
+    $("#intext").blur(function () {
+      console.log("blur");
+    })
+
+    $("#intext").select(function () {
+      alert("禁止选中");
+    })
+
+    // $("#intext").keydown(function () {
+    //   console.log($(this).val());
+    //   // 按键按下时（此时当前的按键的值未输入）
+    // })
+
+    $("#intext").keyup(function (e) {
+      console.log($(this).val());
+      console.log(e.which, e.key);
+
+      // 按键抬起时（此时当前的按键的值已输入）
+    })
+
+    $("#target").change(function () {
+      console.log($(this).val());
+    })
+
+    $("#form1").submit(function (e) {
+      console.log("submit");
+      // e.preventDefault();
+    })
+
+  </script>
+</body>
+
+</html>
