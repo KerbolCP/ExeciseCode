@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery事件</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <ul>
+    <div>双击本元素无效</div>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+  <button>add</button>
+  <button id="hello">hello</button>
+  <button id="off">off</button>
+  <button id="trigger">trigger</button>
+  <script>
+    $("button").click(function () {
+      $("ul").append("<li>new</li>");
+    })
+
+    $("ul").on("dblclick", "li", function () {
+      console.log("com");
+
+    })
+    // $("li").click(function () {
+    //   alert($(this).text());
+    // })
+
+    // var obj_hello = document.getElementById("hello");
+    // var obj_off = document.getElementById("off");
+
+    // obj_hello.onclick = function () {
+    //   alert("hello");
+    // }
+
+    // obj_off.onclick = function () {
+    //   obj_hello.onclick = null;
+    // 将事件函数置为null，达到移除事件的目的
+    // }
+
+    // obj_hello.addEventListener("click", hello)
+    // obj_hello.addEventListener("click", world)
+
+    // obj_off.addEventListener("click", function () {
+    //   obj_hello.removeEventListener("click", hello);
+    // })
+
+    // $("#hello").on("click", hello);
+
+    // $("#off").on("click", function () {
+    //   $("#hello").off("click", hello);
+    // })
+
+    $("#hello").on("click", hello);
+
+    $("#trigger").on("click", function () {
+      $("#hello").trigger("click");
+    })
+
+    function hello() {
+      alert("hello");
+    }
+
+    // function world() {
+    //   alert("world");
+    // }
+
+
+
+  </script>
+</body>
+
+</html>

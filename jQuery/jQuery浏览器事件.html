@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>浏览器事件</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+  <style>
+    #box {
+      height: 4000px;
+      width: 100px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function () {
+      $("#box").text("console");
+    })
+
+    window.onload = function () {
+      $("#box").text("console");
+    }
+    // 等待资源文件加载，包括外部引用文件、图片、多媒体
+  </script>
+
+</head>
+
+<body>
+  <div id="box">log</div>
+
+  <script>
+    $(window).resize(function () {
+      console.log("resize");
+    })
+
+    $(window).scroll(function () {
+      console.log("roll");
+    })
+  </script>
+</body>
+
+</html>

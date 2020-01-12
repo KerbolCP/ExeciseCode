@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery事件机制</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+  <style>
+    #ex {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      color: #fff;
+    }
+
+    #in {
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- JS事件机制  冒泡  捕获 -->
+  <div id="ex">
+    外部
+    <div id="in">内部</div>
+  </div>
+  <button>阻止</button>
+
+  <script>
+    $("#ex").on("click", function () {
+      console.log("外部触发");
+    })
+
+    $("#in").on("click", function (e) {
+      console.log("内部触发");
+      // e.stopPropagation();  //   初始JS的阻止冒泡函数
+    })
+
+    $("button").on("click", function () {
+      $("#in").trigger("click");  // 继承了冒泡
+      // $("#in").triggerHandler("click");  // 阻止了原生的冒泡
+    })
+
+  </script>
+</body>
+
+</html>
