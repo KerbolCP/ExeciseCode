@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax使用</title>
+</head>
+
+<body>
+  <script>
+    // 1、创建XMLHttpRequest
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+      //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+      xmlhttp = new XMLHttpRequest();
+    }
+    else {
+      // IE6, IE5 浏览器执行代码
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    // 2、发送请求
+    xmlhttp.open("GET", "https://api.myjson.com/bins/6gsiq", true);
+    // GET传输方式  API地址 是否为异步传输
+    xmlhttp.send();
+
+    // 3、响应服务器，从服务器获取JSON
+    // 获得的JSON存储在xmlhttp.responseText中
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log(xmlhttp.responseText);
+        console.log(JSON.parse(xmlhttp.responseText));
+      }
+    }
+  </script>
+</body>
+
+</html>

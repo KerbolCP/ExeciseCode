@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>验证用户名</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <input type="text" name="user" id="user">
+  <span id="state"></span>
+
+  <script>
+    $("#user").keyup(function () {
+
+      $.get("https://api.myjson.com/bins/l8pz0", function (res) {
+        var flag = true;
+        var input = $("#user").val();
+        for (var i = 0; i < res.name.length; i++) {
+          if (res.name[i] == input) {
+            $("#state").text("不可用");
+            flag = !flag;
+            break;
+          }
+        }
+        if (flag) {
+          $("#state").text("可用");
+        }
+      })
+    })
+
+  </script>
+</body>
+
+</html>

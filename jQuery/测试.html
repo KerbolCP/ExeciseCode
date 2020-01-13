@@ -51,24 +51,109 @@
       border-radius: 50%;
       opacity: .2;
       background-color: blue;
+      position: absolute;
     }
 
+    .canvas .orgin {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+
+
     .operate {
-      width: 150px;
+      width: 100px;
       height: 700px;
       border: 1px solid #66ccff;
+      position: absolute;
+      right: 15px;
+      top: 8px;
     }
   </style>
 </head>
 
 <body>
   <div class="canvas" id="canvas">
-    <div class="fixed1"></div>
-    <div class="fixed2"></div>
-    <div class="fixed3"></div>
+    <div class="fixed1">A</div>
+    <div class="fixed2">B</div>
+    <div class="fixed3">C</div>
+    <div class="orgin">O</div>
   </div>
-  <div class="operate"></div>
+  <div class="operate">
+    <button id="add">生成</button>
+    <button id="clear">重复</button>
+  </div>
 
+
+  <script>
+    var x = 100, y = 100;
+    var timerFlag = false;
+
+
+
+    function getRand100() {
+      return Math.floor(Math.random() * 101);
+    }
+    // $point = $("<div class='point'></div>");
+    // var x = getRand100(), y = getRand100();
+    // $point.css({
+    //   left: x,
+    //   top: y
+    // });
+    // $("#canvas").append($point);
+
+    $("#add").click(function () {
+      if (!timerFlag) {
+        $(this).text("暂停");
+        timerFlag = !timerFlag;
+        window.timer = setInterval(() => {
+          $point = $("<div class='point'></div>");
+          var x = getRand100(), y = getRand100();
+          $point.css({
+            left: x,
+            top: y
+          });
+          $("#canvas").append($point);
+        }, 5);
+      }
+      else {
+        $(this).text("生成");
+        timerFlag = !timerFlag;
+        clearInterval(timer);
+      }
+    })
+
+    $(".orgin").on("mousedown", function (e) {
+      var deltaX = e.clientX - $(this).position().left;
+      var deltaY = e.clientY - $(this).position().top;
+      e.preventDefault();
+      $(".canvas").mousemove(function (e) {
+        e.preventDefault();
+        $(".orgin").css({
+          left: e.clientX - deltaX,
+          top: e.clientY - deltaY
+        })
+      })
+    })
+
+    $(".orgin").mouseup(function () {
+      $(".canvas").off("mousemove");
+    })
+
+    $("#clear").click(function () {
+      $point = $("<div class='point'></div>");
+      $point.css({
+        left: x,
+        top: y
+      });
+      $(".canvas").append($point);
+    })
+  </script>
 </body>
 
 </html>

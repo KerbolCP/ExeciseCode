@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JSON</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <script>
+    var obj = {
+      name: "李华",
+      age: 18,
+      school: "理工"
+    }
+
+    var test = {
+      data: ["name", "password", "check"]
+    }
+
+    console.log(JSON.stringify(obj));
+
+    var returnData = JSON.stringify(obj);
+    console.log(JSON.parse(returnData));
+
+
+    console.log(test.data[1]);
+    var returnTest = JSON.stringify(test);
+    console.log(returnTest);
+    console.log(JSON.parse(returnTest));
+
+
+  </script>
+</body>
+
+</html>
