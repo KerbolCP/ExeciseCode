@@ -13,13 +13,15 @@
       height: 700px;
       background-color: grey;
       position: relative;
+      cursor: default;
+      /* cursor: wait; */
     }
 
     .canvas .fixed1 {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: rgb(0, 255, 0);
       position: absolute;
       top: 0;
       left: 700px;
@@ -29,7 +31,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: rgb(0, 255, 0);
       position: absolute;
       top: 690px;
       left: 0;
@@ -39,7 +41,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: rgb(0, 255, 0);
       position: absolute;
       top: 690px;
       left: 1390px;
@@ -86,26 +88,38 @@
   </div>
   <div class="operate">
     <button id="add">生成</button>
-    <button id="clear">重复</button>
+    <button id="clear">清除</button>
   </div>
 
 
   <script>
-    var x = 100, y = 100;
+    var x = 0, y = 0;
     var timerFlag = false;
 
+    function getPosition() {
+      var ran = Math.random() * 99;
 
+      // 后续改成通过数组下标控制
+      if (0 <= ran && ran < 33) {
+        x = ($(".fixed1").position().left + x) / 2;
+        y = ($(".fixed1").position().top + y) / 2;
+      }
 
-    function getRand100() {
-      return Math.floor(Math.random() * 101);
+      else if (33 <= ran && ran < 66) {
+        x = ($(".fixed2").position().left + x) / 2;
+        y = ($(".fixed2").position().top + y) / 2;
+      }
+
+      else {
+        x = ($(".fixed3").position().left + x) / 2;
+        y = ($(".fixed3").position().top + y) / 2;
+      }
+
+      return {
+        left: x,
+        top: y
+      }
     }
-    // $point = $("<div class='point'></div>");
-    // var x = getRand100(), y = getRand100();
-    // $point.css({
-    //   left: x,
-    //   top: y
-    // });
-    // $("#canvas").append($point);
 
     $("#add").click(function () {
       if (!timerFlag) {
@@ -113,13 +127,9 @@
         timerFlag = !timerFlag;
         window.timer = setInterval(() => {
           $point = $("<div class='point'></div>");
-          var x = getRand100(), y = getRand100();
-          $point.css({
-            left: x,
-            top: y
-          });
+          $point.css(getPosition());
           $("#canvas").append($point);
-        }, 5);
+        }, 1);
       }
       else {
         $(this).text("生成");
@@ -143,16 +153,14 @@
 
     $(".orgin").mouseup(function () {
       $(".canvas").off("mousemove");
+      x = $(this).position().left;
+      y = $(this).position().top;
     })
 
     $("#clear").click(function () {
-      $point = $("<div class='point'></div>");
-      $point.css({
-        left: x,
-        top: y
-      });
-      $(".canvas").append($point);
+      $(".point").remove();
     })
+
   </script>
 </body>
 

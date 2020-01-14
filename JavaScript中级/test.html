@@ -10,16 +10,35 @@
 
 <body>
   <script>
-    function foo() {
-      //补全此处代码实现每隔一秒输出 hello world
+    // function f() {
+    //   return this.a;
+    // }
 
-      console.log("hello world");
+    // var g = f.bind({ a: "azerty" });
+    // console.log(g());   // azerty
 
-      // return function () {
-      //   console.log("hello wrold");
-      // }
+    // var h = g.bind({ a: 'yoo' });
+    // console.log(h());   // azerty
+    // // 多次bind绑定，只识别第一次绑定的结果
+    // // bind不能重复使用
+
+    // var o = { a: 37, f: f, g: g, h: h };
+    // console.log(o.f(), o.g(), o.h());
+    var o = { prop: 37 };
+
+    function independent() {
+      return this.prop;
     }
-    window.setInterval(foo(), 1000);
+    //在此补全代码
+
+    o.f = function () {
+      return independent;
+
+      // return independent.call(this);
+    }
+
+    //*******************//
+    console.log(o.f()); //  37
   </script>
 </body>
 

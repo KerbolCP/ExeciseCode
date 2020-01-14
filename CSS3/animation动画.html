@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动画</title>
+  <style>
+    .obj {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      animation-name: obj;
+      /* 设置关键帧 */
+      animation-fill-mode: forwards;
+      /*设置结束时的状态*/
+      animation-timing-function: ease;
+      /* 设置过渡效果 */
+      animation-duration: 2s;
+      /* 设置持续时间 */
+      /* animation-iteration-count: 2; */
+      animation-iteration-count: infinite;
+      /* 设置循环次数 */
+      /* 无限次 infinite */
+    }
+
+    @keyframes obj {
+      0% {
+        top: 0;
+        left: 0;
+      }
+
+      25% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(0);
+        border-radius: 50%;
+      }
+
+      50% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(360deg);
+        border-radius: 0;
+      }
+
+
+      55% {
+        top: 50%;
+        left: 50%;
+        transform: scale(2);
+      }
+
+      60% {
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+      }
+
+      65% {
+        top: 50%;
+        left: 50%;
+        transform: scale(2);
+      }
+
+      70% {
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+      }
+
+      75% {
+        top: 50%;
+        left: 50%;
+        transform: scale(2);
+      }
+
+      80% {
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+      }
+
+      85% {
+        top: 50%;
+        left: 50%;
+        transform: scale(2);
+      }
+
+      90% {
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+      }
+
+      95% {
+        top: 50%;
+        left: 50%;
+        transform: scale(2);
+      }
+
+      100% {
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="obj"></div>
+</body>
+
+</html>

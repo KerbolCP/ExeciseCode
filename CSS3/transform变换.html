@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>transform变换</title>
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1611676_2kpnx7dbarx.css">
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+      margin: 200px auto;
+      position: relative;
+      transform: scale(2);
+    }
+
+    .iconfont {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      font-size: 70px;
+      color: #fff;
+    }
+
+    .div1 {
+      display: block;
+      /* display: inline-block; */
+      width: 141px;
+      height: 141px;
+      background-color: red;
+      transform: rotate(45deg);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -70px;
+      margin-top: -70px;
+      /* transform: scale(2); */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div><i class="iconfont iconfu"></i></div>
+    <div class="div1">testText</div>
+  </div>
+</body>
+
+</html>

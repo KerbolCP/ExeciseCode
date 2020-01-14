@@ -89,16 +89,23 @@
     */
 
     /* 法一 */
-    var obj = {
+    var obj1 = {
       a: 1,
       b: 2,
       add: add
     }
-    console.log(obj.add(3, 4));
+    console.log(obj1.add(3, 4));
 
     /* 法二 */
     var a = 1, b = 2;
     console.log(add(3, 4));
+
+    /* 法三 */
+    var obj2 = {
+      a: 1,
+      b: 2,
+    }
+    console.log(obj2);
 
 
     //8、写出下列输出结果
@@ -110,10 +117,12 @@
     console.log(g());   // azerty
 
     var h = g.bind({ a: 'yoo' });
-    console.log(h());   // 
+    console.log(h());   // azerty
+    // 多次bind绑定，只识别第一次绑定的结果
+    // bind不能重复使用
 
     var o = { a: 37, f: f, g: g, h: h };
-    console.log(o.f(), o.g(), o.h());
+    console.log(o.f(), o.g(), o.h());   // 37 az az
 
 
     //9、补全下列代码
@@ -123,6 +132,12 @@
       return this.prop;
     }
     //在此补全代码
+    function f() {
+      return independent;
+    }
+
+
+    //*******************//
     console.log(o.f()); //  37
 
     //10、用call 或 apply 实现bind 方法

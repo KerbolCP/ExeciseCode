@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>圆盘时钟</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .box {
+      width: 500px;
+      height: 500px;
+      margin: 100px auto;
+    }
+
+    .back {
+      width: 500px;
+      height: 500px;
+      border: 2px solid #000;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .back #scale li {
+      width: 4px;
+      height: 12px;
+      background-color: grey;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform-origin: 0 250px;
+
+      /* transform: rotate(45deg); */
+    }
+
+    .back #scale li:nth-child(5n+1) {
+      height: 18px;
+      background-color: #000000;
+    }
+
+    .back #h-ptr,
+    #m-ptr,
+    #s-ptr {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: bottom;
+    }
+
+    .back #h-ptr {
+      width: 8px;
+      height: 120px;
+      background-color: #f8f888;
+    }
+
+    .back #m-ptr {
+      width: 6px;
+      height: 180px;
+      background-color: #ff5555;
+    }
+
+    .back #s-ptr {
+      width: 4px;
+      height: 240px;
+      background-color: #66ccff;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div class="box">
+    <div class="back">
+      <ul id="scale">
+      </ul>
+      <div id="h-ptr"></div>
+      <div id="m-ptr"></div>
+      <div id="s-ptr"></div>
+    </div>
+  </div>
+
+
+  <script>
+    var scale = document.getElementById("scale");
+    var hPtr = document.getElementById("h-ptr");
+    var mPtr = document.getElementById("m-ptr");
+    var sPtr = document.getElementById("s-ptr");
+    var str = "";
+    for (var i = 0; i < 60; i++) {
+      str += "<li style = 'transform: rotate(" + i * 6 + "deg) translate(-50%, 0);'></li>"
+    }
+    scale.innerHTML = str;
+    setInterval(() => {
+      var time = new Date();
+      var h = time.getHours();
+      var m = time.getMinutes();
+      var s = time.getSeconds();
+      // hPtr.style.transform = "translate(-50%, -100%) rotate(" + h * 30 + "deg)";
+      hPtr.style.transform = "translate(-50%,-100%) rotate(" + h * 6 + "deg)";
+
+      mPtr.style.transform = "translate(-50%, -100%) rotate(" + m * 6 + "deg)";
+      sPtr.style.transform = "translate(-50%, -100%) rotate(" + s * 6 + "deg)";
+    }, 500);
+  </script>
+</body>
+
+</html>
