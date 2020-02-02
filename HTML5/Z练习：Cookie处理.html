@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cookie处理</title>
+</head>
+
+<body>
+  <script>
+    // 设置cookie
+    function setCookie(name, value, days) {
+      var timer = new Date();
+      timer.setDate(timer.getDate() + days);
+      document.cookie = name + " = " + value + "; expires = " + timer.toUTCString();
+    }
+
+    // ‘取得cookie
+    function getCookie(name) {
+      var strCookie = document.cookie;
+      var arrCookie = strCookie.split(";");
+      for (var i = 0; i < arrCookie.length; i++) {
+        var thisCookie = arrCookie[i].split("=");
+        if (thisCookie[0].trim() == name) {
+          return thisCookie[1];
+        }
+      }
+    }
+
+    //  删除cookie
+    function delCookie(name) {
+      // var timer = new Date();
+      // timer.setDate(timer.getDate() - 1);
+      // document.cookie = name + " = null" + "; expires = " + timer.toUTCString();
+      setCookie(name, null, -1);
+    }
+
+    setCookie("fellow", "null", 1);
+    setCookie("fellow2", "37", 1);
+    delCookie("fellow2");
+  </script>
+</body>
+
+</html>

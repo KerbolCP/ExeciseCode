@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>媒体查询</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      /* background-color: red; */
+    }
+
+    @media(max-width: 500px) and (min-width: 1000px) {
+      .box {
+        background: blue;
+      }
+    }
+
+    @media (orientation: portrait) {
+
+      /* 竖屏 */
+      .box {
+        background-color: red;
+      }
+    }
+
+    @media (orientation: landscape) {
+
+      /* 横屏 */
+      .box {
+        background-color: blue;
+      }
+    }
+
+    /* @media (-webkit-device-pixel-rato) {
+      .box {
+        width: 100px;
+      }
+    } */
+
+    /* @media (max-width: 500px) {
+      .box {
+        background: blue;
+      }
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

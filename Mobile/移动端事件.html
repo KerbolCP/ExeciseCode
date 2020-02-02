@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    var oBox = document.getElementsByClassName("box")[0];
+    oBox.addEventListener("click", function () {
+      console.log("click");
+      // 延时300毫秒，判定是否为双击事件
+    })
+
+    oBox.addEventListener("touchstart", function () {
+      console.log("touchstart");
+    })
+
+    oBox.addEventListener("touchmove", function () {
+      console.log("touchmove");
+    })
+
+    oBox.addEventListener("touchend", function () {
+      console.log("touchend");
+    })
+
+    oBox.addEventListener("touchcancel", function () {
+      console.log("touchcancel");
+    })
+
+    // tap点透 touchend(tap)事件会点透元素
+    // 解决：都使用touchend
+    // 或者：在touchend事件中使用e.preventDefault()
+  </script>
+</body>
+
+</html>

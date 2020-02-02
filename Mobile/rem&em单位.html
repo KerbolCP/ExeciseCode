@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>rem&em</title>
+  <style>
+    .box {
+      font-size: 20px;
+    }
+
+    .div1 {
+      height: 5em;
+      width: 5em;
+      /* X em：相对于自己或者父元素font-size的X倍 */
+      background: red;
+    }
+
+
+
+    html {
+      font-size: 20px;
+      /* 设置根元素的font-size,默认最小12px */
+    }
+
+    .box2 {
+      font-size: 100px;
+    }
+
+    .div2 {
+      width: 10rem;
+      height: 10rem;
+      /* X rem：相对于浏览器根元素（html）最小font-size的X倍 */
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="box">
+    <div class="div1">
+      hello word
+    </div>
+  </div> -->
+
+  <div class="box2">
+    <div class="div2"></div>
+  </div>
+</body>
+
+</html>

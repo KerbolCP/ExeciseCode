@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cookie</title>
+</head>
+
+<body>
+  <span id="show">0</span>
+  <button id="add">add</button>
+  <button id="print">print</button>
+
+  <script>
+    var timer = new Date();
+
+    timer.setDate(timer.getDate() + 1);
+    // live-server node.js
+    document.cookie = "fellow = 37; expires = " + timer.toUTCString();
+    console.log(document.cookie);
+    // Application -> Cookies
+
+    function setCookie(name, value, days) {
+      // 
+    }
+
+    function getCookie(name) {
+      // 返回37
+    }
+
+    function delCookie(name) {
+      //  删除cookie，将该cookie的过期时间设置为昨天
+    }
+
+    // 查看 -> 终端
+    // npm install -g live-server
+    var num = 0;
+    var objAdd = document.querySelector("#add");
+    var objPrint = document.querySelector("#print");
+    var objShow = document.querySelector("#show");
+
+    objAdd.onclick = function () {
+      num++;
+    }
+
+    objPrint.onclick = function () {
+      objShow.innerHTML = num;
+    }
+  </script>
+</body>
+
+
+</html>

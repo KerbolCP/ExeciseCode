@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tab页历史管理</title>
+  <style>
+    li {
+      list-style: none;
+      width: 100px;
+      height: 50px;
+      background-color: grey;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      float: left;
+      cursor: pointer;
+    }
+
+    .active {
+      background-color: #000;
+      cursor: default;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li data-num="1" class="active">first</li>
+    <li data-num="2">second</li>
+    <li data-num="3">third</li>
+  </ul>
+
+  <script>
+    var oLi = document.getElementsByTagName("li");
+    for (i = 0; i < oLi.length; i++) {
+      oLi[i].onclick = function () {
+        for (j = 0; j < oLi.length; j++) {
+          oLi[j].classList.remove("active");
+        }
+        this.classList.add("active");
+        location.hash = this.dataset.num;
+      }
+    }
+
+    window.onhashchange = function () {
+      console.log(location.hash);
+      var hash = location.hash.substr(1);
+      for (var i = 0; i < oLi.length; i++) {
+        if (oLi[i].dataset.num == hash) {
+          oLi[i].classList.add("active");
+        }
+        else {
+          oLi[i].classList.remove("active");
+        }
+      }
+      if (hash == "") {
+        oLi[0].classList.add("active");
+      }
+    }
+  </script>
+</body>
+
+</html>

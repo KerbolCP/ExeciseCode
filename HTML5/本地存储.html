@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>本地存储</title>
+</head>
+
+<body>
+  cookie -> 4K
+  <br>
+  local storage -> 5M
+  <script>
+    // Application -> Local Storage
+    // local storage 永久储存
+    localStorage.setItem("fellow", "37");
+    localStorage.fellow2 = "hello";
+    console.log(localStorage.fellow);
+    console.log(localStorage.getItem("fellow"));
+    localStorage.removeItem("fellow2");
+    // localStorage.clear();
+
+
+
+    // Application -> Session Storage
+    // 临时存在(会话级)
+    sessionStorage.setItem("fellow", "37");
+
+
+  </script>
+</body>
+
+</html>

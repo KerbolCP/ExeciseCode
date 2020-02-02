@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>历史管理</title>
+</head>
+
+<body>
+  <button id="btn">点我</button>
+  <p id="show"></p>
+
+  <script>
+    var oBtn = document.querySelector("#btn");
+    var oShow = document.querySelector("#show")
+    var obj = {};
+
+
+    oBtn.onclick = function () {
+      var arr = [];
+      for (var i = 0; i < 5; i++) {
+        arr.push(Math.ceil(Math.random() * 10));
+      }
+      oShow.innerHTML = arr;
+
+      var hashNum = Math.random();
+      obj[hashNum] = arr;
+
+      history.pushState(hashNum, "");
+
+      // location.hash = hashNum;
+      // // 错误写法 obj.location.hash = arr;
+      // obj[location.hash] = arr; // 取hashNum的值作为属性名
+    }
+
+    window.onhashchange = function () {
+      console.log(obj[location.hash]);
+    }
+
+    window.onpopstate = function (e) {
+      console.log(obj[e.state]);
+    }
+
+    // obj2 = {};
+    // str = name1;
+    // obj2[str] = "xxx";
+  </script>
+</body>
+
+</html>

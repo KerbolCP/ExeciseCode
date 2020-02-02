@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>响应式布局</title>
+  <style>
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .container {
+      max-width: 960px;
+      min-width: 400px;
+      margin: 0 auto;
+    }
+
+    header,
+    nav,
+    footer {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      background-color: #333;
+      /* 常用的灰色（由深至浅） */
+      /* 333 666 999 ddd eee  */
+      font-size: 45px;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .img {
+      width: 100%;
+      padding-bottom: 98%;
+      /* 图片长宽比 */
+      background-image: url("./img/QQ图片20191124090842.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .img img {
+      width: 100%;
+    }
+
+    article {
+      float: left;
+      position: relative;
+      width: 60%;
+      height: 300px;
+      margin-right: 5%;
+      background-color: blue;
+    }
+
+    aside {
+      float: right;
+      position: relative;
+      width: 30%;
+      height: 300px;
+      background-color: red;
+    }
+
+    @media (max-width: 600px) {
+
+      article,
+      aside {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    p {
+      position: absolute;
+      top: 50%;
+      transform: translateY(50%);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>顶部</header>
+    <nav>导航</nav>
+    <div class="content clearfix">
+      <div class="img">
+        <!-- <img src="./img/QQ图片20191124090842.jpg" alt=""> -->
+      </div>
+      <!-- 文章段落 -->
+      <article>
+        <p>文字</p>
+      </article>
+      <aside>
+        <p>文字</p>
+      </aside>
+    </div>
+    <footer>底部</footer>
+  </div>
+</body>
+
+</html>
