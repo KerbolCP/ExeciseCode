@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组去重</title>
+</head>
+
+<body>
+  <script>
+    var arr = [0, 0, 0, 1, 1, 1, 2, 2, 2];
+
+    // 方案一   Set
+    // new set Array from
+    // function unique(arr) {
+    //   return [...new Set(arr)];
+    // }
+    let unique = (arr) => [...new Set(arr)];
+    console.log(unique(arr));
+
+
+
+    //  方案二  splice 
+    // function unique(arr) {
+    //   // let res = [];
+    //   for (var i = 0; i < arr.length; i++) {
+    //     for (var j = i + 1; j < arr.length; j++) {
+    //       if (arr[i] == arr[j]) {
+    //         arr.splice(j, 1);
+    //         j--;
+    //       }
+    //     }
+    //   }
+    //   return arr;
+    // }
+    // console.log(unique(arr));
+
+
+
+    // 方案三   indexOf
+    // function unique(arr) {
+    //   let res = [arr[0]];
+    //   for (var i = 1; i < arr.length; i++) {
+    //     if (res.indexOf(arr[i]) == -1) {
+    //       res.push(arr[i]);
+    //     }
+    //   }
+    //   return res;
+    // }
+    // console.log(unique(arr));
+
+
+
+    // 方案四   sort
+    // let test = [1, 4, 7, 2, 5, 8, 3, 6, 9, 0];
+    // console.log(test.sort(function (a, b) {
+    //   return -1;
+    // }));
+
+    // let arr4 = [3, 1, 2, 15, 5, 4, 5, 3];
+
+    // function unique(arr) {
+    //   arr.sort(function (a, b) {
+    //     return a - b; // 升序
+    //     // return b - a; // 降序
+    //   });
+    //   let res = [arr[0]];
+    //   for (let i = 1; i < arr.length; i++) {
+    //     if (arr[i] != arr[i - 1]) {
+    //       res.push(arr[i]);
+    //     }
+    //     return res;
+    //   }
+    // }
+    // console.log(unique(arr4));
+
+
+
+    // 方案五 对象属性名不重复，附带计数功能
+    // function unique(arr) {
+    //   let res = [];
+    //   let obj = {};
+    //   for (let i = 0; i < arr.length; i++) {
+    //     if (!(arr[i] in obj)) {
+    //       res.push(arr[i]);
+    //       obj[arr[i]] = 1;
+    //     }
+    //     else {
+    //       obj[arr[i]]++;
+    //     }
+    //   }
+    //   console.log(obj);
+    //   return res;
+    // }
+    // console.log(unique(arr));
+
+
+
+    // 方案五 feliter
+    // function unique(arr) {
+    //   let res = [];
+    //   res = arr.filter(function (val, index, arr1) {
+    //     return arr1.indexOf(val) == index;
+    //   })
+    //   return res;
+    // }
+    // console.log(unique(arr));
+
+  </script>
+</body>
+
+</html>

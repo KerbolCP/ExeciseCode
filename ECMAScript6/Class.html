@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Class</title>
+</head>
+
+<body>
+  <script>
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      showInfo() {
+        console.log(`爷叫${this.name},今年${this.age}岁`);
+      }
+    }
+
+    class Teacher extends Person {
+      constructor(name, age, course) {
+        super(name, age);
+        this.course = course;
+      }
+      showCourse() {
+        this.showInfo();
+        console.log("[emoji]教" + this.course);
+      }
+    }
+
+    let p1 = new Person("张三", 20);
+    p1.showInfo();
+
+    let t1 = new Teacher("温学军", 56, "化学");
+    console.log(t1.age);
+    t1.showCourse();
+
+
+    // 右键babel在终端中打开 -> npm init -y
+    // 看到package.json后 -> npm install --save-dev babel-preset-env babel-cli
+    // 看到package.json里有dev{babel-cli, env}成功
+  </script>
+</body>
+
+</html>

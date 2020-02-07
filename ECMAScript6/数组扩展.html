@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组扩展</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+
+  <script>
+    var aLi = document.getElementsByTagName("li");  // 类数组
+    // console.log(aLi);
+    // console.log(Array.from(aLi));
+
+    console.log(Array.prototype.slice.call(aLi, 0));
+    console.log(...aLi);
+
+    var [a1, a2, a3, a4, a5, a6] = [...aLi];
+    console.log();
+
+    // let json1 = {
+    //   "0": "商品1",
+    //   "1": "商品2",
+    //   length: 3
+    // }
+    // console.log(json1);
+    // console.log(Array.from(json1));
+
+
+    // console.log(Array.of("abc", 10, { name: "李华" }, true));
+
+
+    // let arr = [0, 1, 2, 3, 4, 5, 6, 7];
+    // console.log(arr.copyWithin(3, 5, 7));
+    //  // 从第三个开始，用5~6位置的值进行覆盖两位
+
+
+    // let arr = [1, 2, 3, 4, 5, 6, 7];
+    // let num = arr.find(function (val, key, arr) {
+    //   // console.log(val, key, arr);
+    //   return val < 5;
+    //   // 里面的函数要求返回布尔值
+    //   // find会当里面函数返回true时，返回数组的值
+    //   // findIndex会返回索引
+    // })
+    // console.log(num);
+
+
+    // let arr = ["a", "b", "c", "d", "e"];
+    // console.log(arr.fill("xx", 1, 3));
+    // //  对数组中1~2的值用"xx"覆盖
+
+
+    // let arr = new Array(3).fill("a");
+    // console.log(arr);
+
+
+    // let arr = ["a", "b", "c", "d", "e"];
+    // console.log(arr.includes("c"));
+    // console.log(arr.indexOf("z"));
+
+
+    // let arr = ["a", "b", "c", "d", "e"];
+    // // for (let i = 0; i < arr.length; i++) { }
+    // for (let val of arr) {  // val获取值
+    //   // for (let val of arr.keys()) {  // val获取索引
+    //   console.log(val);
+    // }
+    // for (let [key, val] of arr.entries()) {
+    //   console.log(key, val);
+    // }
+
+
+    // let arr = ["a", "b", "c", "d", "e"];
+    // arr.forEach(function (val, key, arr) {
+    //   console.log(val, key, arr);
+    // })
+
+
+    // let arr = ["a", "b", "c", "d", "e"];
+    // let arr2 = arr.map(function (val, index, arr) {
+    //   console.log(val, index, arr);
+    //   return val != "b" || val != "d";
+    // });
+    // console.log(arr2);
+    // map不改变数组长度，返回内部函数(回调函数)的结果
+
+
+    let arr = ["a", "b", "c", "d", "e"];
+    let arr2 = arr.filter(function (val, index, arr) {
+      console.log(val, index, arr);
+      return [1, 2];
+    })
+    console.log(arr2);
+    // 可能改变长度，当内部函数返回值有效时，返回当前数组的值
+    // 当内部函数无效的返回值，返回当前数组的值
+
+    // let arr = ["a", "b", "c", "d", "e"];
+    // let boo1 = arr.some(function (val, key, arr) {
+    //   // 存在一个满足条件，则返回true
+    //   console.log(val);
+    //   return val == "d";
+    //   // return val == "z";
+    // })
+    // console.log(boo1);
+
+    // 这两个内部函数必须返回bool值
+
+    // let boo2 = arr.every(function (val, key, arr) {
+    //   // 每一个都要满足条件，则返回true
+    //   console.log(val);
+    //   return val == "a";
+    // })
+    // console.log(boo2);
+
+  </script>
+</body>
+
+</html>

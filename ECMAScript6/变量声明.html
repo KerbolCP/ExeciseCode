@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ES6变量声明</title>
+</head>
+
+<body>
+  <ul>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <script>
+    var aLi = document.getElementsByTagName("li");
+    // 方案一 index
+    // for (var i = 0; i < aLi.length; i++) {
+    //   aLi[i].index = i;
+    //   aLi[i].onclick = function () {
+    //     console.log(index);
+    //   }
+    // }
+
+    // 方案二 闭包
+    // for (var i = 0; i < aLi.length; i++) {
+    //   (function (index) {
+    //     aLi[i].onclick = function () {
+    //       console.log(index);
+    //     }
+    //   })(i)
+    // }
+
+    // 方案三 let
+    for (let i = 0; i < aLi.length; i++) {
+      aLi[i].onclick = function () {
+        console.log(i);
+      }
+    }
+
+    // 变量提升
+    // var a;
+    // console.log(a);
+    // a = 10;
+
+    // a未初始化
+    // console.log(a);
+    // let a = 10;
+
+    // 不能重复定义
+    // let a = 10;
+    // let a = "abc";
+
+    // 不存在全局作用域下，只在块作用域下
+    // let a = "abc";
+    // console.log(window.a);
+
+    // 作用域
+    // if (true) {
+    //   var a = "a";
+    // }
+    // function foo() {
+    //   b = "b";
+    // }
+    // foo();
+    // console.log(window.a);
+    // console.log(window.b);
+
+
+    // 作用域
+    // if (true) {
+    //   let a = 10;
+    //   console.log(a);
+    // }
+    // console.log(a);
+
+
+    // console.log(a);
+    // const a = 10;
+    // a = 20;
+
+
+    // const obj = {
+    //   name: "abc"
+    // }
+    // // 修改了堆内存中的值
+    // obj.name = "fake";
+    // // 直接修改了栈内存中的地址
+    // obj = {}
+    // console.log(obj.name);
+
+
+    // const obj = {
+    //   name: "abc"
+    // }
+    // Object.freeze(obj);
+    // obj.name = "fake";
+    // console.log(obj.name);
+  </script>
+</body>
+
+</html>

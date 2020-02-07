@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Symbol类</title>
+</head>
+
+<body>
+  <script>
+    let obj = {
+      name: "田所浩二",
+      age: 24,
+    }
+    let thing = Symbol();
+    obj[thing] = "昏睡红茶";
+    console.log(obj);
+    for (let attr in obj) {
+      console.log(attr);
+    }
+    console.log("thing:" + obj[thing]);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>扩展运算符</title>
+</head>
+
+<body>
+  <script>
+    // 形参扩展
+    // function foo() {
+    //   console.log(arguments);
+    // }
+    // 不确定参数
+    // function foo(...arg) {
+    //   console.log(arg);
+    // }
+    // foo(0, 1, 2, 3, 4, 5);
+
+
+    // 数组扩展
+    // let arr2 = ["a", "b", "c", "d"];
+    // let arr1 = [0, 1, ...arr2, 2, 3];
+    // console.log(arr1);
+
+
+    // 浅复制
+    // let arr1 = ["a", "b", "c"];
+    // let arr2 = arr1;
+    // arr2[0] = "1";
+    // console.log(arr1);
+
+    // 表复制 只能深复制一维数组
+    // let arr1 = ["a", "b", "c"];
+    // let arr2 = [...arr1];
+    // arr2[0] = "1";
+    // console.log(arr1);
+
+
+    // let arr1 = [[1, 2], "b", "c", "d"];
+    // let arr2 = [...arr1];
+    // arr1[0][0] = "fake";  // 不会改变arr2中的值
+    // console.log(arr2);
+
+
+    // 数组、对象合并 context
+    // let arr1 = [1, 2, 3, 4, 5];
+    // let arr2 = ["a", "b", "c", "d", "e"];
+    // let arr = [...arr1, ...arr2];
+    // console.log(arr);
+
+    // let obj1 = {
+    //   name: "fake",
+    //   parent: {
+    //     name: "bcd"
+    //   }
+    // }
+    // let obj2 = {
+    //   age: 18
+    // }
+    // let obj = { ...obj1, ...obj2 };
+    // obj2.age = 36;  // 不会改变obj中的age
+    // obj2.parent.name = "hello"; // 会改变obj中parent的name
+    // console.log(obj);
+
+
+    // let arr1 = ["hello", "world"];
+    // // let [a, b] = arr1;
+    // let [a, b, c] = ["fellow", ...arr1];
+    // console.log(a, b, c);
+
+
+    // 剩余运算符 rest
+    // function foo(a, b, ...arg) {
+    //   console.log(a, b, arg);
+    // }
+
+    // function foo(a, ...arg, b) {
+    //   console.log(a, arg, b);
+    //   // 控制台报错，只能使用在形参的最后一个
+    // }
+
+    // foo(1, 2, 3, 4, 5);
+
+
+    // 引申 ...Array会返回数组元素, 使用...x时，x必定为引用类型 
+    let arr = [1, 2, 3, 4, 5];
+    console.log(...arr);
+
+    function foo(x, y, ...params) {
+      console.log("...params", ...params);
+      console.log("params", params);
+    }
+    foo(1, 2, 3, 4, 5, 6);
+
+    let obj = {
+      name: "fake",
+      age: 18
+    }
+    console.log("...obj", ...obj);
+
+  </script>
+</body>
+
+</html>

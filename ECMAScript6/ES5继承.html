@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>class继承</title>
+</head>
+
+<body>
+  <script>
+    // 构造继承
+    // function Person(name, age) {
+    //   this.name = "[emoji]叫" + name;
+    //   this.age = "我的年龄为" + age;
+    // }
+    // Person.prototype.greeting = function () {
+    //   console.log("nmsl");
+    // }
+    // function Teacher(name, age, scoure) {
+    //   Person.call(this, name, age);
+    //   this.scoure = scoure;
+    // }
+
+    // let baby = new Person("bb", 0);
+    // console.log(baby);
+    // baby.greeting();
+
+    // let t1 = new Teacher("温学军", 56, 1);
+    // console.log(t1);
+    // t1.greeting();
+
+
+
+    // 原型继承
+    // function Person(name, age) {
+    //   this.name = "[emoji]叫" + name;
+    //   this.age = "我的年龄为" + age;
+    // }
+    // Person.prototype.greeting = function () {
+    //   console.log("nmsl");
+    // }
+    // function Teacher(name, age, scoure) {
+    //   this.scoure = scoure;
+    // }
+    // Teacher.prototype = new Person();
+    // let t1 = new Teacher("温学军", 56, 1);
+    // t1.greeting();
+    // console.log(t1.name);
+
+
+
+    // 组合继承
+    function Person(name, age) {
+      this.name = "[emoji]叫" + name;
+      this.age = "我的年龄为" + age;
+    }
+    Person.prototype.greeting = function () {
+      console.log("nmsl");
+    }
+    function Teacher(name, age, scoure) {
+      Person.call(this, name, age);
+      this.scoure = scoure;
+    }
+    Teacher.prototype = new Person();
+    console.log(Teacher.prototype.constructor);
+
+    Teacher.prototype.constructor = Teacher;
+    console.log(Teacher.prototype.constructor);
+
+    let t1 = new Teacher("温学军", 56, "化学");
+    console.log(t1.__proto__);
+
+    console.log(t1.name);
+    console.log(t1.scoure);
+    t1.greeting();
+  </script>
+</body>
+
+</html>

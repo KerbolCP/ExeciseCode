@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Generator</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+  <script>
+    // function* foo() {
+    //   console.log("start");
+    //   yield console.log("1");
+    //   console.log("rest");
+    //   yield console.log("2");
+    // }
+
+    // let foo2 = foo();
+    // foo2.next();
+    // foo2.next();
+
+
+
+    // function* helloworld() {
+    //   yield "hello";
+    //   yield "world";
+    //   return "ending";
+    // }
+
+    // let fun = helloworld();
+    // console.log(fun.next());
+    // console.log(fun.next());
+    // console.log(fun.next());
+
+
+
+    // function* foo(x) {
+    //   var y = 2 * (yield (x + 1));
+    //   var z = yield (y / 3);
+    //   return (x + y + z);
+    // }
+
+    // var calc = foo(5);
+    // console.log(calc.next());
+    // console.log(calc.next(6));  // 传给第一个yield
+    // console.log(calc.next(4));  // 传给第二个yield
+
+
+    function getData(url) {
+      $.get(url, function (res) {
+        run.next(res);
+      })
+    }
+    function* foo() {
+      console.log(yield getData("./data/a.json"));
+      console.log(yield getData("./data/b.json"));
+    }
+
+    let run = foo();
+    run.next();
+  </script>
+</body>
+
+</html>

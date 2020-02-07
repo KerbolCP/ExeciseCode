@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>解构赋值</title>
+</head>
+
+<body>
+  <script>
+    let arr = ["hello", "world", "fellow"];
+    // let a = arr[0], b = arr[1], c = arr[2];
+
+    // 解构赋值
+    // let [a, b, c] = arr;
+    // let [x, y] = arr;
+    // console.log(a, b, c);
+    // console.log(x, y);
+
+    // let [a, b, c] = [1, [2, 3], 4];
+    // console.log(a, b, c);
+
+    // let [a, [b, c], d] = [1, [2, 3], 4];
+    // console.log(a, b, c, d);
+
+
+    // let obj = {
+    //   name: "fake",
+    //   age: 18
+    // }
+
+
+    // 根据名称一一对应
+    // let { age, name } = obj;
+    // console.log(age, name);
+
+
+    // let { age: b, name: a } = obj;
+    // console.log(a, b);
+
+
+    // let a = "hello"[1];
+    // let a = "hello".charAt(1);
+    // console.log(a);
+
+
+    // let str = "hello";
+    // let [a, b, c] = str;
+    // console.log(a, b, c);
+
+
+    // let obj = {
+    //   name: "fake",
+    //   age: 18
+    // }
+    // function foo({ name, age }) {
+    //   console.log(name, age);
+    // }
+    // foo(obj);
+
+
+    // function foo() {
+    //   return { name: "fake", age: 20 };
+    // }
+    // let { name, age } = foo();
+    // console.log(name, age);
+
+
+    // 变量交换
+    var x = 5, y = 10;
+    // 方案一
+    // let temp = x;
+    // x = y;
+    // y = temp;
+    // console.log(x, y);
+
+    // 方案二
+    // [x, y] = [y, x];
+    // console.log(x, y);
+
+    // 方案三
+    // var x = [y, y = x][0];
+    // console.log(x, y);
+
+    // 方案四 仅对number 小数使用会出现进精度损失
+    // x = x + y;
+    // y = x - y;
+    // x = x - y;
+    // console.log(x, y);
+
+    // 方案五 仅对number 整数使用，其他类型使用会变为0
+    // x = x ^ y;
+    // y = x ^ y;
+    // x = x ^ y;
+    // console.log(x, y);
+  </script>
+</body>
+
+</html>

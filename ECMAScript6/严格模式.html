@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>严格模式</title>
+</head>
+
+<body>
+  <script>
+    'use strict'
+    // 开启时有作用域
+
+    // a = 10;
+    // console.log(a);
+
+    // function foo() {
+    //   console.log(this);
+    // }
+    // foo();  // 严禁this指向window
+
+    // let arr = new Array(1, 2, 3, 4);   // Array()构造函数 arr为实例化对象
+    // console.log(arr);
+
+
+    // 构造函数
+    // new 1、创建空对象
+    //     2、Person.call(空对象);
+    //     3、将空对象的原型指向Person
+    //     4、将创建好的对象赋值给等号左边
+    // function Person() {
+    //   this.name = "张三";
+    //   this.school = "理工";
+    // }
+
+    // let student = new Person();
+    // console.log(student.name);
+
+
+    // function Person(name) {
+    //   this.name = name;
+    //   this.school = "黑大";
+    // }
+    // Person.prototype.toString = function () {
+    //   return `${this.name} ${this.school}`;
+    // }
+
+    // let student1 = new Person("张三");
+    // let student2 = new Person("李四");
+    // console.log(student1, student2);
+    // console.log(student1.toString(), student2.toString());
+
+
+    // function Person(name) {
+    //   this.name = name;
+    //   this.school = "黑大";
+    // }
+    // Person();
+
+
+    // var a = 1;
+    // var a = 2;
+    // function foo(a, a, b) {
+    //   console.log(a, b);
+    // }
+    // foo(1, 2, 3);
+
+
+    // let obj = {
+    //   name: "abc"
+    // }
+    // with (obj) {
+    //   console.log(name);
+    // }
+
+
+    // let num = 0;
+
+    // // for (var i = 1; i < 11; i++) {
+    // //   num += i;
+    // // }
+    // // console.log(num);
+
+    // function foo(num) {
+    //   // return num == 1 ? 1 : num + foo(num - 1);
+    //   return num == 1 ? 1 : num + arguments.callee(num - 1);
+    // }
+    // console.log(foo(10));
+
+
+    function foo(a = 0) {
+      'use strict'
+    }
+
+  </script>
+</body>
+
+</html>

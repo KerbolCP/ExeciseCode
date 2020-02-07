@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字符串扩展</title>
+</head>
+
+<body>
+  <button id="btn">add</button>
+  <ul id="ul">
+    <li>
+      <h1>第1行</h1>
+      <h2>第1行内容</h2>
+    </li>
+  </ul>
+
+  <script>
+    var oUl = document.getElementById("ul");
+    var oBtn = document.getElementById("btn");
+    var num = 1;
+    oBtn.onclick = function () {
+      // var str = "<li>" +
+      //   "<h1>第" + (++num) + "行</h1>" +
+      //   "<h2>第" + num + "行内容</h2>" +
+      //   "</li>";
+
+      // 模板字符串``，波浪线下的点
+      let str = `<li class="active">
+                <h1>第${++num}行</h1>
+                <h2>第${num}行内容</h2>
+                </li>`;
+      oUl.innerHTML += str;
+    }
+
+    let str = "hello world";
+    // console.log(str.indexOf("r"));   // 返回索引
+    // console.log(str.includes("r"));   // 返回布尔值
+
+    // console.log(str.startsWith("ahel"));
+    // console.log(str.endsWith("ld"));
+
+    // String.prototype.sw = function (str) {
+    //   // console.log(String.prototype);  // 原型
+    //   return this.indexOf(str) == 0 ? true : false;
+    // }
+    // console.log(str.sw("hel"));
+
+    console.log(str.padStart(20, 'abcd'));
+    console.log(str.padEnd(20, 'abcd'));
+
+    console.log(str.repeat(3));
+
+  </script>
+</body>
+
+</html>

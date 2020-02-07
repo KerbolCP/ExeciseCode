@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>深复制</title>
+</head>
+
+<body>
+  <script>
+    // 浅复制
+    // let obj1 = {
+    //   name: "张三",
+    //   age: 20,
+    //   school: "理工"
+    // }
+    // let obj2 = obj1;  
+
+
+    // 单层复制
+    // let obj1 = {
+    //   name: "张三",
+    //   age: 20,
+    //   school: "理工"
+    // }
+    // let obj2 = {};
+    // Object.assign(obj2, obj1);
+
+
+    // 单层复制
+    // let obj1 = {
+    //   name: "张三",
+    //   age: 20,
+    //   school: "理工"
+    // }
+    // let obj2 = {...obj1};
+
+
+    // 单层复制
+    // let obj1 = {
+    //   name: "张三",
+    //   age: 20,
+    //   school: "理工"
+    // }
+    // let obj2 = {};
+    // for (let attr in obj1) {
+    //   console.log(`${attr} = ${obj1[attr]}`);
+    //   obj2[attr] = obj1[attr];
+    // }
+    // console.log(obj2);
+
+
+    // 深复制
+    let obj1 = {
+      name: "xx",
+      age: 20,
+      school: "理工",
+      address: {
+        street: "学府路",
+        num: 52
+      }
+    }
+
+    let arr1 = [1, 2, ["a", "b", [true, false], "c", "d"], 3, 4];
+    function deepCopy(target) {
+      let res;
+      if (typeof target === "object") {
+        if (Array.isArray(target)) {
+          // 到此为数组
+          res = [];
+          for (let val of target) {
+            res.push(deepCopy(val));
+          }
+        }
+        else {
+          // 到此为对象
+          res = {};
+          for (let attr in target) {
+            res[attr] = deepCopy(target[attr]);
+          }
+        }
+      }
+      else {
+        // 到此为基本类型
+        res = target;
+      }
+      return res;
+    }
+
+    let obj2 = deepCopy(obj1);
+    obj1.address.num = -1;
+    console.log(obj2);
+
+    let arr2 = deepCopy(arr1);
+    arr1[2][1] = "z";
+    console.log(`arr1:${arr1} arr2:${arr2}`);
+
+  </script>
+</body>
+
+</html>

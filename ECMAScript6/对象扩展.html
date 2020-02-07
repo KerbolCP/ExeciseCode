@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象扩展</title>
+</head>
+
+<body>
+  <script>
+    // 初始对象
+    // let school = "理工";
+    // let obj = {
+    //   name: "张三",
+    //   age: 24,
+    //   // school: school
+    // }
+    // obj.school = school;
+
+    // let obj1 = {
+    //   name: "张三",
+    //   age: 24,
+    //   school,
+    //   showInfo: function () {
+    //     console.log(this.name);
+    //   }
+    // }
+
+    // let obj2 = {
+    //   name: "李四",
+    //   age: 24,
+    //   school,
+    //   showInfo() {
+    //     console.log(this.name);
+    //   }
+    // }
+    // console.log(obj2);
+
+
+    // let attr = "name";
+    // let obj = {
+    //   name: "张三",
+    //   school: "理工"
+    // }
+    // console.log(obj[attr], obj["school"]);
+    // obj["age"] = 20;
+    // console.log(obj);
+
+
+    // let a = 3;
+    // let arr1 = [];  // 虽然内容相同
+    // let arr2 = [];  // 但是地址不同
+    // //  is为 === 运算
+    // // console.log(Object.is(a, 3));
+    // // console.log(Object.is(arr1, arr2));
+
+    // console.log(+0 === -0);           // true
+    // console.log(Object.is(+0, -0));   // false
+    // console.log(NaN === NaN);         // false
+    // console.log(Object.is(NaN, NaN)); // true
+
+
+    // let obj1 = {
+    //   name: "田所浩二"
+    //    age:24
+    // }
+    // let obj2 = {
+    //   age: 1000
+    // }
+    // let obj3 = {
+    //   job: "学生",
+    //   freetime: {
+    //     work: "游泳教练"
+    //   }
+    // }
+    // Object.assign(obj1, obj2, obj3);
+    // obj3.job = "昏睡红茶";
+    // obj3.freetime.work = "雷普";
+    // console.log(obj1, obj3);
+
+
+    // let obj = {
+    //   name: "张三"
+    // }
+    // let attr = "name";
+    // console.log("aname" in obj);
+    // console.log(attr in obj);
+    // console.log(obj.hasOwnProperty("name"));
+
+
+    // function Person() {
+    //   this.name = "田所浩二";
+    //   this.age = 24;
+    //   this.job = "雷普";
+    // }
+    // Person.prototype.job = "游泳教练";
+    // let people = new Person();
+
+    // console.log("name" in people);  // 对象和原型下面是否有
+    // console.log(people.hasOwnProperty("name"));
+
+    // console.log(people.job);  // 原型链 对象 -> 原型 -> 父原型 -> Object
+    // console.log("job" in people);
+    // console.log(people.hasOwnProperty("job"));  // 仅判断当前对象下是否有
+
+
+    let obj = {
+      name: "A",
+      age: 18
+    }
+    delete obj.age;
+    console.log(Object.keys(obj));
+
+  </script>
+</body>
+
+</html>

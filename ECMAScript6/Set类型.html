@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Set类型</title>
+</head>
+
+<body>
+  <script>
+    // set集合，不允许数值重复
+    let setArr = new Set();
+    // set禁止push，可以通过add添加
+    setArr.add(1);
+    setArr.add("hello");
+    setArr.add(1);
+    console.log(setArr);
+
+    for (let val of setArr) {
+      console.log(val);
+    }
+
+    console.log(setArr.size);
+
+
+    console.log(setArr.has("ahel"));
+
+    setArr.delete("hello");
+    console.log(setArr);
+
+    setArr.clear();
+    console.log(setArr);
+
+
+
+    // 数组去重
+    // let arr = [0, 0, 0, 1, [1], 1, 2, 2, 2];
+    // let setArr = new Set(arr);
+    // console.log(setArr);
+    // console.log(Array.from(setArr));
+
+
+
+    let ws = new WeakSet();
+    ws.add({ name: "A" });
+    ws.add([1, 2, 3]);
+    ws.add(function show() {
+      console.log("hello");
+    })
+    // ws.add("hello");
+    console.log(ws);
+  </script>
+</body>
+
+</html>

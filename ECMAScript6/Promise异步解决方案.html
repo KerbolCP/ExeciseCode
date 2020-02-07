@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./js/jquery-3.4.1.js"></script>
+  <title>Promise异步解决方案</title>
+</head>
+
+<body>
+
+  <script>
+    // $.get("./data/a.json", function (res) {
+    //   console.log(res);
+    // })
+    // $.get("https://api.myjson.com/bins/6gsiq", function (res) {
+    //   console.log(res);
+    // })
+    // $.get("./data/b.json", function (res) {
+    //   console.log(res);
+    // })
+
+
+
+    // 回调地狱
+    // $.get("./data/a.json", function (res) {
+    //   console.log(res);
+    //   $.get("https://api.myjson.com/bins/6gsiq", function (res) {
+    //     console.log(res);
+    //     $.get("./data/b.json", function (res) {
+    //       console.log(res);
+    //     })
+    //   })
+    // })
+
+
+
+    // let promise1 = new Promise(function (resolve, reject) {
+    //   let str = "star";
+    //   setTimeout(() => {
+    //     str = "5s late";
+    //     // resolve(str);
+    //     reject();
+    //   }, 5000);
+    // })
+
+    // promise1.then(function (res) {
+    //   console.log(res);
+    // }).catch(function (res) {
+    //   console.error("nmsl");
+    // })
+
+
+
+
+    //  处理多层请求
+    function getData(url) {
+      // let promiseTmp = new Promise(function (resolve, reject) {
+      //   $.get(url, function (res) {
+      //     resolve(res);
+      //   })
+      // })
+      // return promiseTmp;
+      return new Promise(function (resolve, reject) {
+        $.get(url, function (res) {
+          resolve(res);
+        })
+      })
+    }
+    console.log("hello");
+
+    getData("./data/a.json").then(function (res) {
+      console.log(res);
+      return getData("https://api.myjson.com/bins/6gsiq");
+    }).then(function (res) {
+      console.log(res);
+      return getData("./data/b.json");
+    }).then(function (res) {
+      console.log(res);
+    });
+
+
+
+
+    // let promise1 = new Promise(function (resolve, reject) {
+    //   $.get("./data/a.json", function (res) {
+    //     resolve(res);
+    //     // reject();
+    //   })
+    // })
+    // let promise2 = new Promise(function (resolve, reject) {
+    //   $.get("https://api.myjson.com/bins/6gsiq", function (res) {
+    //     resolve(res);
+    //   })
+    // })
+    // let promise3 = new Promise(function (resolve, reject) {
+    //   $.get("./data/b.json", function (res) {
+    //     // resolve(res);
+    //     reject();
+    //   })
+    // })
+
+    // 同时成功时 all
+    // Promise.all([promise1, promise2, promise3]).then(function (res) {
+    //   console.log("done!", res);
+    // }, function (res) {   // then的第二个参数，用于处理失败的情况
+    //   console.warn("warn!");
+    // }).catch(function (res) {
+    //   console.error("ERROR!");
+    // })
+
+    // 以第一条返回结果为准 race
+    // Promise.race([promise1, promise2, promise3]).then(function (res) {
+    //   console.log("done!", res);
+    // }, function (res) {   // then的第二个参数，用于处理失败的情况
+    //   console.warn("warn!");
+    // })
+  </script>
+</body>
+
+</html>

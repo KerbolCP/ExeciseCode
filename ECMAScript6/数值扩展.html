@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数值扩展</title>
+</head>
+
+<body>
+  <script>
+    let int = 10;
+    console.log(int.toString(2));
+    console.log(int.toString(16));
+    // console.log(int.toString(36));
+
+
+    let bin = 11001;
+    console.log(parseInt(bin, 2));
+
+
+    let num = 5;
+    console.log(Number.isNaN(5 * 'a'));
+    console.log(5 * '5');   // 隐式类型转换
+    console.log(Number.isNaN(5 * '5'));
+    console.log(Number.isInteger(5.5));
+
+
+    console.log(window.parseInt(5.5));
+    console.log(Number.parseInt(5.5));
+    console.log(Number.parseFloat("5.5"));
+
+
+    console.log(Math.pow(2, 53));
+    console.log(Number.isSafeInteger(Math.pow(2, 53)));
+    console.log(Number.MAX_SAFE_INTEGER);
+    console.log(Number.MIN_SAFE_INTEGER);
+
+
+    console.log(Math.round(5.6));
+    console.log(Math.trunc(5.6));
+    console.log(Math.sign(-13));
+
+
+  </script>
+</body>
+
+</html>
