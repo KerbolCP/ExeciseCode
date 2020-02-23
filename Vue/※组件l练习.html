@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件练习</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <com1 :username="studentname" @com1Change="changeName"></com1> -->
+    <com1 :username.sync="studentname"></com1>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        studentname: "小明"
+      },
+      methods: {
+        // changeName(newname) {
+        // console.log(newname);
+        //   this.studentname = newname;
+        // }
+      },
+      components: {
+        com1: {
+          props: ["username"],
+          // 传递参数是双向的
+          data() {
+            return {
+              num: 666
+            }
+            // 组件内部的data是个方法，返回一个对象
+          },
+          template: `
+            <div>
+              <h1>Hello world</h1>
+              <p>hello fellow37</p>
+              <span>{{username}}{{num}}</span>
+              <button @click="showProps">show</button>
+            </div>
+          `,
+          methods: {
+            showProps() {
+              console.log(this.username, this.num);
+              // this.$emit("com1Change", "小明");
+              this.$emit("update:username", "小刚");
+              // emit第一个参数是在父组件中执行
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

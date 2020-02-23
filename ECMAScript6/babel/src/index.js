@@ -13,3 +13,4 @@ class Person {
 let foo = () => {
   console.log("hello");
 }
+// ES6 转换为 ES5

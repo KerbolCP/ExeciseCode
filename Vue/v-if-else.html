@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>控制流</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li>衣服:
+        <span v-if="goods1 != '0'">{{goods1}}</span>
+        <span v-else>已售空</span>
+      </li>
+      <li>裤子:<span>{{goods2}}</span></li>
+      <li>外套:<span>{{goods3}}</span></li>
+    </ul>
+  </div>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        goods1: 10,
+        goods2: 10,
+        goods3: 10
+      }
+    })
+  </script>
+</body>
+
+</html>

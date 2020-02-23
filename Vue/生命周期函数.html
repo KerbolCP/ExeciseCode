@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生命周期函数</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="clickHandle">add</button>
+    <button @click="destroyBtn">des</button>
+    <p>{{num}}</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        num: 0
+      },
+      methods: {
+        clickHandle() {
+          this.num++;
+        },
+        destroyBtn() {
+          this.$destroy();
+        }
+      },
+      // 生命周期函数
+      beforeCreate() {
+        // 在刚开始new Vue时
+        // 实例new之前
+        console.log("beforeCreate");
+      },
+      created() {
+        // 在成功new Vue之后
+        console.log("create");
+      },
+      beforeMount() {
+        // 在挂载虚拟DOM之前
+        console.log("beforeMount");
+      },
+      mounted() {
+        // 成功挂载虚拟DOM后
+        console.log("mounted");
+      },
+      beforeUpdate() {
+        // 在data要修改之前
+        console.log("beforeUpdate");
+      },
+      updated() {
+        // 在data修改成功之后
+        console.log("updated");
+      },
+      beforeDestroy() {
+        // 在销毁之前
+        console.log("beforeDestroy");
+      },
+      destroyed() {
+        // 在销毁之后
+        console.log("destroyed");
+      }
+    })
+  </script>
+</body>
+
+</html>

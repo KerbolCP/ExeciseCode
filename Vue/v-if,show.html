@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <!-- 重排  重绘(回流) -->
+  <div id="app">
+    <div id="div1" v-if="vif">text</div>
+    <!-- 当需要一次性隐藏时,为false时被注释掉 -->
+    <div id="div2" v-show="vshow">text</div>
+    <!-- 当需要频繁显示隐藏,为false时被display:none -->
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        vif: true,
+        vshow: true
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>component组件</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <fellow-test></fellow-test>
+    全局问候{{str}}
+  </div>
+  <div id="app2">
+    <greeting v-bind:speak="str"></greeting>
+    <!-- v-bind:[组件内部变量]="组件外部变量" -->
+  </div>
+  <script>
+    // 全局组件
+    Vue.component("fellowTest", {
+      template: `
+        <div>
+          <h1>hello fellow 37</h1>
+          <p>KerbolCN</p>
+        </div>
+      `
+      // 模板里只嗯呢有一个根标签
+    })
+    new Vue({
+      el: '#app2',
+      data: {
+        str: "nmsl"
+      },
+      methods: {
+
+      },
+      // 局部组件
+      components: {
+        greeting: {
+          props: ["speak"],
+          template:
+            // 内部组件不能随意引用外部的值
+            `
+            <div>
+            <h3>局部问候{{speak}}</h3>
+            <button @click="内部change">change</button>
+            </div>
+            `,
+          methods: {
+            change() {
+              this.str = "cnm";
+              // this.$emit('')
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

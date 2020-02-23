@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slot</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <mod1>
+      <template v-slot:s1>
+        <span>fellow37</span>
+      </template>
+      <template v-slot:s2>
+        <span>world</span>
+      </template>
+      <!-- <span v-slot="s1">fellow37</span> -->
+      <!-- <span v-slot="s2">world</span> -->
+      <!-- 旧版本 -->
+    </mod1>
+  </div>
+
+  <template id="mod1">
+    <p>
+      <slot name="s1"></slot>
+      hello
+      <slot name="s2"></slot>
+    </p>
+
+  </template>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+
+      },
+      components: {
+        mod1: {
+          template: "#mod1"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

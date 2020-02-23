@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算属性</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="addSum">add</button>
+    <p>{{sum}}</p>
+    <p>{{testSum}}</p>
+    <p>firstName:{{firstName}}</p>
+    <p>lastName:{{lastName}}</p>
+    <p>fullName:{{fullName}}</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        sum: 0,
+        firstName: "first",
+        lastName: "last"
+      },
+
+      methods: {
+        addSum() {
+          this.sum++;
+        }
+      },
+      // 多个数据影响一个数据(一个数据受多个数据影响)
+      computed: {
+        // 当与结果(return)有关联的参数发生变化时，会执行
+        testSum() {
+          return this.sum * 10;
+        },
+        fullName() {
+          return this.firstName + " " + this.lastName;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

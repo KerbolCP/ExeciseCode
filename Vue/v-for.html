@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="val in str">{{val}}</li>
+    </ul>
+    <ul>
+      <!-- 遍历谁，就在谁的属性里写for -->
+      <!-- 第一位为值，第二位为索引 -->
+      <li v-for="(val, index) in arr">{{val}} -- {{index}}</li>
+    </ul>
+    <ul>
+      <li v-for="(val, key, index) in obj">{{val}}-{{key}}-{{index}}</li>
+    </ul>
+    <ul>
+      <li v-for="item in goodsList">
+        商品名称: {{item.name}} - 商品价格:{{item.price}} - 剩余库存:{{item.num}}
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        str: "hello world",
+        arr: ["a", "b", "c", "d", "e", "f", "g"],
+        obj: {
+          name: "田所浩二",
+          job: "学生",
+          age: 24
+        },
+        goodsList: [
+          {
+            name: "衣服",
+            price: 200,
+            num: 7917
+          },
+          {
+            name: "裤子",
+            price: 300,
+            num: 3164
+          },
+          {
+            name: "鞋子",
+            price: 50,
+            num: 9999
+          }
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

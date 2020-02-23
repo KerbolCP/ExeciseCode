@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>包含</title>
+</head>
+
+<body>
+  <script>
+    // let str = "hello world";
+    // console.log(str.indexOf("w"));
+    // console.log(str.includes("w"));
+
+    // let reg1 = /w/;
+    // let reg2 = new RegExp("w");
+    // console.log(reg1.test(str));
+    // console.log(reg2.exec(str));
+
+    let str = "hello wworld";
+    let reg1 = /w{2}/;
+    // 匹配连续出现过2次的w，只匹配紧跟在大括号前面的那个字符
+    let reg2 = /w{2,3}/
+    // 匹配连续出现过2次或者3次的w，优先匹配多个
+    let reg3 = /w{2,}/
+    // 匹配连续出现过2次及更多次的w，优先匹配多个
+    let reg2_2 = /w{2,3}?/
+    // 取消贪心模式，优先匹配2个
+
+    let reg4 = /w*/ // 匹配至少0个(出现过)
+    let reg5 = /w+/ // 匹配至少一个(出现多次)
+    let reg6 = /w?/ // 匹配仅出现0次或1次的
+
+    let reg7 = /jpg$/ // 匹配是否以$前的字符串结尾
+    let reg8 = /^index/ // 匹配是否以^前的字符串开头
+
+    let str2 = 'hello wor\nd';
+    let reg9 = /./ // . 代表匹配\n以外的字符
+
+    let reg10 = /^e|o.+/  // | 代表或者，优先级最低
+    let reg11 = /[abc]/   // 匹配a或b或c
+    let reg12 = /[a-zA-Z0-9]/ // 匹配字符集
+    let reg13 = /^[a-zA-Z][a-zA-Z0-9_]+/ // 匹配变量名
+    let reg14 = /[a-zA-Z][0-9]/ // 表示匹配两个结果
+
+    let reg15 = /[^elo]/ // 匹配不是e、l、o的字符
+
+    let reg16 = /\bh/ // 表示左边距是否有h
+    let reg17 = /d\b/  // 表示右边距是否有h
+
+    let reg18 = /\Bl/ // 在非边界里匹配字符
+
+    let reg19 = /\d/ // 匹配数字
+    let reg20 = /\D/ // 匹配非数字
+
+    console.log(reg.exec(str));
+  </script>
+</body>
+
+</html>

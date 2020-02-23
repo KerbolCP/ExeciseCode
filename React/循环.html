@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>循环</title>
+  <script src="./js/react.development.js"></script>
+  <script src="./js/react-dom.development.js"></script>
+  <script src="./js/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class Foo extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          arr: ['a', 'b', 'c', 'd', 'e']
+        }
+      }
+
+      render() {
+        let str = [];
+        str = this.state.arr.map(function (val, i) {
+          return (
+            <li key={i} > {val} </li>
+          )
+        })
+        return (
+          <div>
+            <ul>
+              {str}
+            </ul>
+          </div>
+        )
+
+
+      }
+
+    }
+
+    ReactDOM.render(
+      <Foo />,
+      document.getElementById("root")
+    )
+  </script>
+</body>
+
+</html>

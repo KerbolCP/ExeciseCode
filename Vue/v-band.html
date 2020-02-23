@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue-2.6.11.js"></script>
+  <style>
+    .active1 {
+      color: red;
+    }
+
+    .active2 {
+      font-size: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div v-bind:class="class1">hello</div> -->
+    <!-- <div v-bind:class="{active1:isRed}">hello</div> -->
+    <!-- <div :class="[class1, class2]">hello</div> -->
+    <div :style="{fontSize:size}">hello</div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        class1: "active1",
+        class2: "active2",
+        isRed: true,
+        size: "30px"
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+// 控制台：
+// 终端中打开SASs
+// 输入命令 sass ./src/main.scss:./dist/main.css
+// 实时编译 sass ./src/main.scss:./dist/main.css --watch
+// 改变输出方式:在命令后:
+//  --style nested : 嵌套输出模式（默认）
+//  --style expanded : 展开输出方式
+//  --style compact : 紧凑输出方式
+//  --style compressed : 压缩输出方式
+// 例:sass ./src/main.scss:./dist/main.css --watch --style expanded
+
+
+
+// $ 变量
+$maincolor:red;
+
+#div1{
+  background-color: $maincolor;
+  #div2{
+    color: red;
+  }
+}
+// 注释
+/* 展开输出会显示 */
+/*! 压缩输出会显示 */
+#box{
+  color: $maincolor;
+  #box2{
+    font-size: 20px;
+  }
+
+
+  // & 引用当前的选择器名称
+  &:hover{
+    color: #fff;
+  }
+  &-header{
+    background-color: green;
+  }
+  &-footer{
+    font-size: 20px;
+  }
+}
+
+
+// mixin 混合
+@mixin foo($num, $col:#000) {
+  width: $num;
+  height: $num;
+  background-color: $col;
+}
+
+#div3{
+  @include foo(200px);
+  color: red;
+}
+
+#div4{
+  @include foo($col:red, $num:400px);
+  
+}
+
+
+// extend 继承
+#div5{
+  width: 100px;
+  background-color: green;
+  font-size: 30px;
+}
+
+#div6{
+  @extend #div5;
+  height: 200px;
+  /* 单独显示 */
+}
+
+
+// 引入
+@import "./base.scss";
+
+
+// 数学运算
+#div7{
+  width: 200px + 100px;
+  height: 100 - 25px;
+  font-size: (300px / 15);
+  /* 除法运算必须加括号 */
+  /* 在被除数添加单位，除数不添加单位 */
+}
+
+$imgname:"xxx.jpg";
+#div8{
+  padding: percentage(512px / 500px);
+  // 字符串
+  background-image: url("./img/"+ to-upper-case($imgname));
+  // str-length()
+  // 
+}
+
+
+// 颜色
+#div9{
+  color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+  color: rgb(111, 222, 123);
+}
+
+$testcolor:rgb(255,255,0);
+$test2color:rgba(255,255,0,0.5);
+#div10{
+  // 更浅
+  color: lighten($color: $testcolor, $amount: 10%);
+  // 更深
+  color: darken($color: $testcolor, $amount: 10%);
+  // 更不透明
+  background-color: transparentize($color: $test2color, $amount: 0.3);
+  // 更透明
+  background-color: opacify($color: $test2color, $amount: 0.3);
+}
+
+
+// list 列表
+$listAttr:(1px solid black);
+$listColor:(red blue black green);
+// append($listColor, yellow);
+#div11{
+  border: $listAttr;
+  color: nth($list: $listColor, $n: 2);
+}
+
+
+// map
+$m:(color1:red, char-size:30px);
+#div12{
+  color: map-get($map: $m, $key: color1);
+  font-size: map-get($map: $m, $key: char-size);
+}
+
+
+// Interpolation  变量引用
+// 字符串拼写使用
+$text1:"hello";
+/* test #{$text1} */
+$text2:"#div12";
+#{$text2}{
+  width: 100px;
+  height: 100px;
+}
+// 缺少
+
+
+
+// 函数 与 控制流
+@function foo($key){
+  @if ($key == 1) {
+    @return red;
+  }
+  @else if($key == 2){
+    @warn "警告:不存在";
+    @return blue;
+  }
+  @else{
+    @error "错误 漏洞";
+    @return yellow;
+  }
+}
+
+#div14{
+  color: foo(2);
+}
+
+@for $i from 1 through 5 {
+  #for-through-#{$i}{
+    width: $i * 100px;
+  }
+}
+
+@for $i from 1 to 5 {
+  #for-to-#{$i}{
+    width: $i * 100px;
+  }
+}
+
+@each $var in $listColor {
+  #test-#{$var}{
+    color: $var ;
+  }
+}
+
+$j: 1;
+@while $j < 5 {
+  #span-#{$j}{
+    width: $j * 10px;
+  }
+  $j:$j + 1;
+}

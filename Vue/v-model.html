@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <input type="text" placeholder="请输入内容" @click=""> -->
+    <input type="text" placeholder="请输入内容" v-model="str">
+    <!-- v-model 捕获或修改文本框的内容 -->
+    <input type="text" placeholder="请输入内容lazy" v-model.lazy="str">
+    <!-- 失去焦点时显示 -->
+    <input type="text" placeholder="请输入内容number" v-model.number="str">
+    <!-- 将可转换为数字类型的数据转换为数字类型 -->
+    <input type="text" placeholder="请输入内容space" v-model.trim="str">
+    <!-- 过滤首尾部的空格 -->
+    <p>{{str}}</p>
+
+    <select name="" id="" v-model="school">
+      <option value="heilongjiang">黑大</option>
+      <option value="scenicetegoloy">理工</option>
+      <option value="wood">林大</option>
+      <option value="rice">农大</option>
+    </select>
+    <p>{{school}}</p>
+
+    <input type="checkbox" name="hobby" v-model="arr" value="basktball">篮球
+    <input type="checkbox" name="hobby" v-model="arr" value="football">足球
+    <input type="checkbox" name="hobby" v-model="arr" value="paiball">排球
+    <input type="checkbox" name="hobby" v-model="arr" value="wangball">网球
+    <p>{{arr}}</p>
+
+    <input type="radio" value="male" name="gender" v-model="gender">男
+    <input type="radio" value="female" name="gender" v-model="gender">女
+    <p>{{gender}}</p>
+  </div>
+
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        str: null,
+        school: "scenicetegoloy",
+        arr: [],
+        gender: null
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

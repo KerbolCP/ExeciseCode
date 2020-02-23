@@ -1,0 +1,31 @@
+#div1{
+width: 100px;
+height: 100px;
+background-color: grey;
+}
+
+#div2{
+  width: 100px;
+  height: 100px;
+  /* 会变成base64 */
+  background-image: url(../images/QQ图片20191130091112.jpg);
+  background-repeat: no-repeat;
+  transform: rotate(30deg);
+}
+
+::placeholder{
+  color: gray;
+}
+
+#testbox{
+  width: 200px;
+  height: 200px;
+  background-color: green;
+}
+
+/* 包含div的会被 清除未使用的CSS插件 保留 */
+#div10 {
+  width: 100px;
+  height: 100px;
+  color: red;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>商品列表</title>
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="../jQuery/js/jquery-3.4.1.js"></script>
+  <script src="./js/vue-2.6.11.js"></script>
+  <style>
+    .container {
+      padding-top: 100px;
+    }
+
+    .form-inline {
+      margin-bottom: 20px;
+    }
+
+    .active {
+      background-color: grey;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="app">
+    <form class="form-inline">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" id="exampleInputAmount" v-model="searchText" placeholder="搜索名称">
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" @click="search">搜索</button>
+      <button type="button" class="btn btn-primary" @click="showInfo">全部</button>
+    </form>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="exampleInputName2">商品名称</label>
+        <input type="text" class="form-control" id="exampleInputName2" v-model="goodsName" placeholder="请输入商品名称">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail2">商品价格</label>
+        <input type="email" class="form-control" id="exampleInputEmail2" v-model.number="goodsPrice"
+          placeholder="请输入商品价格">
+      </div>
+      <button type="button" class="btn btn-default" @click="addGoods">添加</button>
+    </form>
+    <div>
+
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="val in goodsList" v-bind:class="{active:val.checkState}" v-if="val.showState"
+            @click="clickInfo(val.id)">
+            <th scope="row">
+              <input type="checkbox" name="goods" :checked="val.checkState">
+            </th>
+            <td>{{val.name}}</td>
+            <td>{{val.price}}</td>
+            <td><button type="button" class="btn btn-primary btn-xs" @click.stop="singeDel(val.id)">删除</button></td>
+            <!-- 阻止冒泡 -->
+          </tr>
+          <tr>
+            <td colspan="2">总价</td>
+            <td>{{sumPrice}}</td>
+            <td><button type="button" class="btn btn-primary btn-xs" @click="delCheck">删除选中</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        searchText: null,
+        goodsName: null,
+        goodsPrice: null,
+        goodsList: [
+          {
+            id: 1,
+            name: "衣服",
+            price: 200,
+            showState: true,
+            checkState: false
+          },
+          {
+            id: 2,
+            name: "裤子",
+            price: 150,
+            showState: true,
+            checkState: false
+          },
+          {
+            id: 3,
+            name: "鞋子",
+            price: 50,
+            showState: true,
+            checkState: false
+          }
+        ]
+      },
+      methods: {
+        addGoods() {
+          let list = [...this.goodsList];
+          this.goodsList.push({ id: list.pop().id + 1, name: this.goodsName, price: this.goodsPrice, showState: true, checkState: false });
+          this.goodsName = null;
+          this.goodsPrice = null;
+        },
+        search() {
+          let list = this.goodsList;
+          let key = this.searchText;
+          this.goodsList = list.map(function (val, index, arr) {
+            if (!val.name.includes(key)) {
+              // arr[index].showState = false;
+              val.showState = false;
+            }
+            // this.goodsList = list;
+            return val;
+          });
+        },
+        showInfo() {
+          let list = this.goodsList;
+          this.goodsList = list.map(function (val) {
+            val.showState = true;
+            return val;
+          })
+        },
+        clickInfo(id) {
+          let list = this.goodsList;
+          this.goodsList = list.map(function (val) {
+            if (val.id == id) {
+              val.checkState = !val.checkState;
+            }
+            return val;
+          })
+
+        },
+        singeDel(id) {
+          let list = this.goodsList;
+          this.goodsList = list.filter(function (val) {
+            return !(val.id == id);
+          })
+        },
+        delCheck() {
+          // 用新数组覆盖旧数组
+          let list = this.goodsList;
+          this.goodsList = list.filter(function (val) {
+            return !val.checkState;
+          })
+        }
+      },
+      computed: {
+        sumPrice() {
+          let res = 0;
+          let list = this.goodsList;
+          list.map(function (val) {
+            if (val.checkState) {
+              res += val.price;
+            }
+          })
+          return res;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

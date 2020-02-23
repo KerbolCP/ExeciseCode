@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>状态组件</title>
+  <script src="./js/react.development.js"></script>
+  <script src="./js/react-dom.development.js"></script>
+  <script src="./js/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class Com extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          str: "hello world"
+        }
+        this.chengeStr = this.chengeStr.bind(this);
+      }
+      render() {
+        return (
+          <div>
+            <Foo2 msg={this.state.str} changeStr={this.chenge} />
+          </div>
+        )
+      }
+      chengeStr() {
+        this.setState({
+          str: "fellow 37"
+        })
+      }
+    };
+    class Foo2 extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          num: 0
+        }
+        this.addHandle = this.addHandle.bind(this, 2);
+        this.reqChange = this.reqChange.bind(this);
+      }
+      render() {
+        return (
+          <div>
+            <h1>{this.props.msg}</h1>
+            <h1>{this.state.num}</h1>
+            <a href="" onClick={this.addHandle}>add</a>
+          </div>)
+      }
+      addHandle(step, e) {
+        this.setState({
+          num: this.state.num + 1
+        })
+        e.preventDefault();
+      }
+      reqChange() {
+        this.props.change()
+      }
+    }
+    ReactDOM.render(
+      <Com />,
+      document.getElementById("root")
+    )
+  </script>
+</body>
+
+</html>

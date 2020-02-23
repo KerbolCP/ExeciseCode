@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据修改</title>
+  <script src="./js/react.development.js"></script>
+  <script src="./js/react-dom.development.js"></script>
+  <script src="./js/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class Foo2 extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          num: 0
+        }
+        this.addHandle = this.addHandle.bind(this);
+      };
+      render() {
+        return (
+          <div>
+            <h1>{this.state.num}</h1>
+            <button onClick={this.addHandle}>add</button>
+          </div>)
+      };
+      addHandle() {
+        // this.setState({
+        //   num: ++this.state.num
+        // })
+
+        // this.setState(function (state, props) {
+        //   console.log(state, props);
+        //   // 必须return一个对象
+        //   return {
+        //     num: ++this.state.num
+        //   }
+        // })
+
+        this.setState((state, props) => ({
+          // 使用箭头函数返回一个对象
+          num: ++this.state.num
+        }))
+      }
+    }
+    // 绑定事件1 在组件的标签中使用bind
+    // <button onClick={this.addHandle.bind(this)}>add</button>
+
+    // 推荐使用 ---> 绑定事件2 在构造函数中使用bind <--- 推荐使用
+    // this.addHandle = this.addHandle.bind(this);
+
+    // 绑定事件3 在组件的标签中使用箭头函数
+    // <button onClick={() => this.addHandle()}>add</button>
+    ReactDOM.render(
+      <Foo2 msg="fellow" />,
+      document.getElementById("root")
+    )
+  </script>
+</body>
+
+</html>

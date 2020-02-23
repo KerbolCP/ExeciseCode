@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件切换</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div :is="switchMod" :propsval:="sum"></div>
+    <mod1 @click.native="speak"></mod1>
+  </div>
+
+  <template id="mod1">
+    <p>world {{propsval}}</p>
+  </template>
+
+  <template id="mod2">
+    <p>fellow</p>
+  </template>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        switchMod: "mod1",
+        sum: 233
+      },
+      methods: {
+
+      },
+      components: {
+        mod1: {
+          template: "#mod1",
+          props: ["propsval"]
+        },
+        mod2: {
+          template: "#mod2"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

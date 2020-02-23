@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue-2.6.11.js"></script>
+  <style>
+    /* 属性选择器 */
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-pre 原样显示，不需要编译 -->
+    <div v-pre>
+      new Vue({
+      el: '#app',
+      data: {
+      num: "123"
+      },
+      methods: {
+
+      }
+      })
+    </div>
+    <div v-cloak>hello</div>
+    <!-- 当标签内容加载并编译完成(渲染完成)后，才显示该标签 -->
+    <button @click="add">add</button>
+    <!-- 仅渲染一次 -->
+    <p v-once>{{num}}</p>
+  </div>
+
+  <script>
+
+    new Vue({
+      el: '#app',
+      data: {
+        num: 0
+      },
+      methods: {
+        add() {
+          this.num++;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -90,6 +90,7 @@
 
     // let arr = ["a", "b", "c", "d", "e"];
     // let arr2 = arr.map(function (val, index, arr) {
+    // 修改数组内容时要用到arr
     //   console.log(val, index, arr);
     //   return val != "b" || val != "d";
     // });
@@ -97,12 +98,15 @@
     // map不改变数组长度，返回内部函数(回调函数)的结果
 
 
-    let arr = ["a", "b", "c", "d", "e"];
+    let arr = ["", "b", "c", "d", "e"];
     let arr2 = arr.filter(function (val, index, arr) {
       console.log(val, index, arr);
-      return [1, 2];
+      if (val == "b") {
+        return true;
+      }
     })
     console.log(arr2);
+
     // 可能改变长度，当内部函数返回值有效时，返回当前数组的值
     // 当内部函数无效的返回值，返回当前数组的值
 

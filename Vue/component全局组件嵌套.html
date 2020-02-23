@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件嵌套</title>
+  <script src="./js/vue-2.6.11.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <global-module1 :mod1Props="num"></global-module1>
+  </div>
+
+  <template id="mod1">
+    <div>
+      <h1>hello{{mod1Props}}</h1>
+      <global-module2 :mod2Props="mod1Props"></global-module2>
+    </div>
+  </template>
+
+  <template id="mod2">
+    <div>
+      <h1>world{{mod2Props}}</h1>
+    </div>
+  </template>
+
+  <script>
+    Vue.component("globalModule1", {
+      template: "#mod1",
+      // 通过id引用标签,并且只能有一个根标签
+      props: ["mod1Props"]
+    })
+
+    Vue.component("globalModule2", {
+      template: "#mod2",
+      props: ["mod2Props"]
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        num: 233
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>
