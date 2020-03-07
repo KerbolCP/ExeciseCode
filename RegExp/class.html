@@ -47,14 +47,18 @@
     let reg15 = /[^elo]/ // 匹配不是e、l、o的字符
 
     let reg16 = /\bh/ // 表示左边距是否有h
-    let reg17 = /d\b/  // 表示右边距是否有h
+    let reg17 = /d\b/  // 表示右边距是否有d
 
     let reg18 = /\Bl/ // 在非边界里匹配字符
 
     let reg19 = /\d/ // 匹配数字
     let reg20 = /\D/ // 匹配非数字
 
-    console.log(reg.exec(str));
+    let reg21 = /\.\w+$/
+    // console.log(reg.exec(str));
+    console.log(reg21.exec("../res/img/a.jpg"));
+    console.log(reg21.test("../res/img/a.jpg"));
+
   </script>
 </body>
 
