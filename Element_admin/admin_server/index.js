@@ -14,7 +14,7 @@ const router = new Router({
 
 //小程序初始化
 cloud.init({
-  secretId: "nobe",
+  secretId: "https://console.cloud.tencent.com/",
   secretKey: "password",
   env: "dev-test"
 })
