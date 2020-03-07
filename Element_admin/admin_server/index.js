@@ -14,9 +14,9 @@ const router = new Router({
 
 //小程序初始化
 cloud.init({
-  secretId: "AKIDgAnCLGjyax4CD4F3QbZIm12nJa1EZrIu",
-  secretKey: "WmmX9VbRJwJQWXKvGahZAVbkdGd2e05v",
-  env: "dev-amnxf"
+  secretId: "nobe",
+  secretKey: "password",
+  env: "dev-test"
 })
 
 //跨域配置（相当于允许任何站点访问）
