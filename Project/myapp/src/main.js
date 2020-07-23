@@ -17,5 +17,9 @@ new Vue({
 }).$mount('#app')
 
 // 番剧  https://api.bilibili.com/pgc/web/timeline?types=1 
+// 番剧最新 https://api.bilibili.com/pgc/web/timeline/v2?season_type=1
+
 // 国创  https://api.bilibili.com/pgc/web/timeline?types=4
+// 国创最新 https://api.bilibili.com/pgc/web/timeline/v2?season_type=4
+
 // 番剧点评 https://api.bilibili.com/pgc/review/relate?media_id=28224129 
