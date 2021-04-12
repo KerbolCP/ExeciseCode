@@ -8,12 +8,19 @@
             v-for="(item, index) in message_queue"
             :key="index"
             :class="item.identity"
-          >{{item.mes}}</li>
+          >
+            {{ item.mes }}
+          </li>
         </ul>
       </div>
     </div>
     <div class="form-bar">
-      <input type="text" placeholder="问题" v-model="input_text" @keyup.13="sendMessage" />
+      <input
+        type="text"
+        placeholder="问题"
+        v-model="input_text"
+        @keyup.13="sendMessage"
+      />
       <button @click="sendMessage">发送</button>
     </div>
   </div>
@@ -26,37 +33,36 @@ export default {
   data() {
     return {
       input_text: "",
-      message_queue: []
+      message_queue: [],
     };
   },
   methods: {
     // 获得签名
     getReqSign(reqParams) {
-      const APP_KEY = "ihThXMLP0vAr9r6y";
+      const APP_KEY = "";
       // Step.1 属性升序排列
       let N = Object.keys(reqParams).sort();
       // Step.2 按URL编码拼接字符串
       let T = "";
-      N.map(function(val) {
+      N.map(function (val) {
         T += `${val}=${encodeURIComponent(reqParams[val])}&`;
       });
       // Step.3 拼接秘钥
       let S = T + "app_key=" + APP_KEY;
       // Step.4 md5加密，并转换大写
       let sign = md5(S).toUpperCase();
+      console.log(sign);
       return sign;
     },
     // 获得参数
     getReqParams() {
-      const APP_ID = 2128678409;
+      const APP_ID = 0;
       let reqParams = {
         app_id: APP_ID,
         time_stamp: Date.parse(new Date()) / 1000,
-        nonce_str: Math.random()
-          .toString(16)
-          .slice(2),
+        nonce_str: Math.random().toString(16).slice(2),
         session: "10000",
-        question: this.input_text
+        question: this.input_text,
       };
       reqParams.sign = this.getReqSign(reqParams);
       return reqParams;
@@ -72,23 +78,23 @@ export default {
         "https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat";
       axios
         .get(BIRD_URL + NLP_TEXTCHAT_URL, {
-          params: reqParams
+          params: reqParams,
         })
-        .then(res => {
+        .then((res) => {
           console.log(res);
           this.message_queue.push({
             mes: res.data.data.answer,
-            identity: "AI-message"
+            identity: "AI-message",
           });
         });
 
       this.message_queue.push({
         mes: this.input_text,
-        identity: "user-message"
+        identity: "user-message",
       });
       this.input_text = "";
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
