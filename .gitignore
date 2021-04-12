@@ -2,3 +2,4 @@
 **/.sass-cache
 **/webpack_config
 **/dist
+/.idea
