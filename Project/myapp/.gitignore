@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 /dist
-/assets/api.tencentAI.json
+/src/assets/api.tencentAI.json
 
 # local env files
 .env.local
