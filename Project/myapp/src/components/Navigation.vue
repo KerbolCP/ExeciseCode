@@ -3,11 +3,13 @@
   <div v-bind:class="['container', nowNav.name]">
     <header>
       <span>首页</span>
-      <p>{{nowNav.title}}</p>
+      <p>{{ nowNav.title }}</p>
     </header>
     <nav>
       <ul>
-        <li @click="toPage(item)" v-bind:key="item.id" v-for="item in navList">{{item.title}}</li>
+        <li @click="toPage(item)" v-bind:key="item.id" v-for="item in navList">
+          {{ item.title }}
+        </li>
       </ul>
     </nav>
   </div>
@@ -21,34 +23,34 @@ export default {
         id: 0,
         title: "番剧",
         path: "/",
-        name: "animation"
+        name: "animation",
       },
       navList: [
         {
           id: 0,
           title: "番剧",
           path: "/",
-          name: "animation"
+          name: "animation",
         },
         {
           id: 1,
           title: "音乐",
           path: "/music",
-          name: "music"
+          name: "music",
         },
-        {
-          id: 2,
-          title: "书籍",
-          path: "/book",
-          name: "book"
-        },
+        // {
+        //   id: 2,
+        //   title: "书籍",
+        //   path: "/book",
+        //   name: "book"
+        // },
         {
           id: 3,
           title: "聊天",
           path: "/talk",
-          name: "talk"
-        }
-      ]
+          name: "talk",
+        },
+      ],
     };
   },
   //生命周期 - 创建完成（访问当前this实例）
@@ -69,8 +71,8 @@ export default {
         // 2、将对象存储成JSON
         this.nowNav = item;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

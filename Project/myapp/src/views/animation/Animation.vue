@@ -2,15 +2,21 @@
 <template>
   <div>
     <ul>
-      <li class="clearfix" v-for="item in dataList" :key="item.id" @click="toDetail(item.id)">
+      <li
+        class="clearfix"
+        v-for="item in dataList"
+        :key="item.id"
+        @click="toDetail(item.id)"
+      >
         <div class="left">
           <!-- 代理图片，跨越防盗链 -->
-          <img :src="'https://images.weserv.nl/?url='+item.cover.url" />
+          <!-- <img :src="'https://images.weserv.nl/?url=' + item.cover.url" /> -->
+          <img :src="item.cover.url" crossorigin="use-credentials" />
         </div>
         <div class="right">
-          <h3>{{item.title}}</h3>
+          <h3>{{ item.title }}</h3>
           <p class="rank"></p>
-          <p class="meta">{{item.info}}</p>
+          <p class="meta">{{ item.info }}</p>
         </div>
       </li>
     </ul>
@@ -24,7 +30,7 @@ export default {
     return {
       dataList: [],
       start: 0,
-      sending: false
+      sending: false,
     };
   },
   //生命周期 - 创建完成（访问当前this实例）
@@ -44,7 +50,7 @@ export default {
       const ANIMATION_DATAURL = `https://m.douban.com/rexxar/api/v2/subject_collection/tv_animation/items?start=${this.start}&count=10`;
       axios
         .get(BIR_DURL + ANIMATION_DATAURL)
-        .then(res => {
+        .then((res) => {
           if (this.start >= res.data.total) {
             return;
           }
@@ -52,13 +58,13 @@ export default {
           // console.log(res);
           this.dataList = [
             ...this.dataList,
-            ...res.data.subject_collection_items
+            ...res.data.subject_collection_items,
           ];
           this.start += 10;
           this.sending = false;
           console.log(this.start + "共" + res.data.total);
         })
-        .catch(function() {
+        .catch(function () {
           console.error("DONT GET DATA");
           this.sending = false;
         });
@@ -81,8 +87,8 @@ export default {
     },
     toDetail(id) {
       this.$router.push("/animationdetail/" + id);
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
