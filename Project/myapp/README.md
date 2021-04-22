@@ -1,11 +1,12 @@
 # myapp
 
-## Project setup
+## 首先安装依赖包，在根目录下
 ```
 yarn install
+npm install
 ```
 
-### Compiles and hot-reloads for development
+### 然后启动服务，在8080端口
 ```
 yarn serve
 ```

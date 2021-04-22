@@ -2,11 +2,12 @@
 <template>
   <div v-bind:class="['container', nowNav.name]">
     <header>
-      <span>首页</span>
+      <span @click="toPage(navList[0])">首页</span>
       <p>{{ nowNav.title }}</p>
     </header>
     <nav>
       <ul>
+        <!-- 可配置的导航栏 -->
         <li @click="toPage(item)" v-bind:key="item.id" v-for="item in navList">
           {{ item.title }}
         </li>
@@ -19,16 +20,18 @@
 export default {
   data() {
     return {
+      // 当前位于的页面
       nowNav: {
         id: 0,
-        title: "番剧",
+        title: "动漫",
         path: "/",
         name: "animation",
       },
+      // 导航栏内容，实现可配置的导航栏
       navList: [
         {
           id: 0,
-          title: "番剧",
+          title: "动漫",
           path: "/",
           name: "animation",
         },
@@ -55,20 +58,21 @@ export default {
   },
   //生命周期 - 创建完成（访问当前this实例）
   created() {
-    // 1、存储navList的下标
-    // 2、将对象存储成JSON
+    // 1、存储navList的下标，储存当前导航栏的状态
+    // 2、将对象存储成JSON，存储在sessionStroage中，便于访问
     let storageNav = sessionStorage.getItem("nowNav");
     this.nowNav = storageNav ? JSON.parse(storageNav) : this.navList[0];
   },
   //生命周期 - 挂载完成（访问DOM元素）
   mounted() {},
   methods: {
+    // 跳转页面，需要记录当前的位置，控制导航栏的样式
     toPage(item) {
       if (this.nowNav.name != item.name) {
+        // 通过router控制URL路径
         this.$router.push(item.path);
+        // 储存当前位置，便于控制导航栏样式
         sessionStorage.setItem("nowNav", JSON.stringify(item));
-        // 1、存储navList的下标
-        // 2、将对象存储成JSON
         this.nowNav = item;
       }
     },
@@ -98,6 +102,8 @@ nav {
   height: 1.2rem;
   color: #000;
   position: fixed;
+  overflow: hidden;
+  z-index: 100;
 }
 header {
   top: 0;
@@ -117,6 +123,7 @@ header p {
   font-size: 0.7rem;
   text-align: center;
 }
+/* 使用flex弹性盒模型布局，便于自定义内容 */
 nav ul {
   display: flex;
   height: 100%;

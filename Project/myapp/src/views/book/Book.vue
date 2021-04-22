@@ -1,4 +1,4 @@
-<!--  -->
+<!-- 书籍页面 暂未完成 -->
 <template>
   <div>书籍</div>
 </template>
@@ -11,7 +11,7 @@ export default {
   //生命周期 - 创建完成（访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（访问DOM元素）
-  mounted() {}
+  mounted() {},
 };
 </script>
 <style scoped>
