@@ -1,6 +1,6 @@
 # myapp
 
-## 首先安装依赖包，在根目录下
+## 首先要使用node.js安装依赖包，在根目录下
 ```
 yarn install
 npm install
